@@ -8,8 +8,8 @@ The folder structure is separated accordingly (and tentatively, more info soon):
 * [`containers`](/containers): All of the containers in the containerization system.
 	* [`core`](/containers/core): Essential container definitions.
         * [`task-base`](/containers/core/task-base): A fundamental, baseline container that serves as a good starting point for new workflows.
-    * [`shared-acquisition`](/containers/shared-acquisition): Data acquisition for multiple workflows.
-	    * [`rf-at-acquisition-daily`](/containers/shared-acquisition/rf-at-acquisition-daily): Pulling data for use with the _rainfall_ and _airtemp_ workflows.
+    * [`shared`](/containers/shared): Containers that are used to support multiple workflows.
+	    * [`rf-at-acquisition-daily`](/containers/shared/rf-at-acquisition-daily): Pulling data for use with the _rainfall_ and _airtemp_ workflows.
     * [`rainfall`](/containers/rainfall): The rainfall data aggregation, and mapping processes.
 	    * [`preliminary`](/containers/rainfall/preliminary): Preliminary workflow.
 		    * [`aggregation`](/containers/rainfall/preliminary/aggregation): Aggregation task.
