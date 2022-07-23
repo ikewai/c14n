@@ -20,7 +20,7 @@ if (sys.argv[1] == None) or (str(sys.argv[1]) == "") or not (str(sys.argv[1].__c
 
 # Take arg 1 as the json file to read, then load the file.
 fname = str(sys.argv[1])
-with open(fname) as json_file:
+with open(fname, "rt") as json_file:
     json_file_dict: dict = json.loads(json_file.read())
 
 # Set variables from the loaded file/dict.
