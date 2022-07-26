@@ -7,7 +7,7 @@ import os # For listing directories.
 
 # arg 1 is interpreted as the file to read from. 
 # arg 2 is interpreted as the manifest file to create.
-input_filename = sys.argv[1] # Intended format: [{"url": "https://github.com/ikewai/c14n", "branch": "main"}, {...}]
+input_filename = sys.argv[1] # Intended format: [{"url": "https://github.com/ikewai/c14n.git", "branch": "main"}, {...}]
 output_filename = sys.argv[2] # Intended format: {"https://github.com/ikewai/c14n": {"branch": "main", "hash": "..."}, {...}}
 
 input_file = open(input_filename, "rt")

@@ -2,6 +2,8 @@
 # Supported with hardware and maintenance updates until Q3 2026.
 FROM ubuntu:22.04
 
+
+## PACKAGE/LIBRARY INSTALLATIONS ##
 # Fetch the latest apt repo information.
 RUN apt update
 
@@ -18,5 +20,11 @@ RUN apt install -y wget
 RUN python3 -m pip install tapipy agavepy
 
 
-# The copying of essential build scripts will be added here,
-# once the scripts are ready.
+## FILE ADDITIONS ##
+# Add build manifest generator
+ADD ../../tools/tagging-tools/make_build_manifest.py /tools/tagging-tools/make_build_manifest.py
+
+
+# Create the build manifest.
+ADD repos.json /build/repos.json
+RUN ./tools/tagging-tools/make_build_manifest.py /build/repos.json
