@@ -18,7 +18,7 @@ manifest: dict = {} # Intended format: {"https://github.com/ikewai/c14n": {"bran
 
 for repo in repo_list: # args taken are implied to be URLs ending in .git
     subprocess.run(["/bin/bash", "-c", f"git clone {repo['url']}"])
-    manifest[repo]['branch'] = repo['branch']
+    manifest[repo['url']]['branch'] = repo['branch'] # TODO this needs fixing
 
 
 for repo_dir in os.listdir(): # assuming each directory under the current one is a repo, TODO add validation
@@ -31,7 +31,7 @@ for repo_dir in os.listdir(): # assuming each directory under the current one is
             hash = repo_branch_file.read()
 
             # Crude check to validate the hash. A git hash string is always 88 bytes.
-            if hash.__sizeof__ is 88:
+            if hash.__sizeof__ == 88:
                 manifest[repo]['hash'] = hash
             else:
                 manifest[repo]['hash'] = "Error during hash acquisition."
