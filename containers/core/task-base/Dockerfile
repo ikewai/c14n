@@ -29,6 +29,7 @@ RUN python3 -m pip install tapipy agavepy
 ADD ../../../tools/tagging-tools/make_build_manifest.py /tools/tagging-tools/make_build_manifest.py
 
 
+## OPERATIONS ##
 # Create the build manifest.
 ADD /containers/core/task-base/repos.json /build/repos.json
 RUN python3 /tools/tagging-tools/make_build_manifest.py /build/repos.json /build/manifest.json

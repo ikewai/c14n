@@ -7,7 +7,7 @@ Designed for storage and spin-up-time efficiency, these containers are purpose-b
 ### Folder Structure
 * [`containers`](/containers): All of the containers in the containerization system.
 	* [`core`](/containers/core): Essential container definitions.
-        * [`task-base`](/containers/core/task-base): A fundamental, baseline container that serves as a good starting point for new workflows.
+        * [`task-base`](/containers/core/task-base): A fundamental, baseline container that serves as a starting point for new workflows.
     * [`shared`](/containers/shared): Containers that are used to support multiple workflows.
 	    * [`rf-at-acquisition-daily`](/containers/shared/rf-at-acquisition-daily): Pulling data for use with the _rainfall_ and _airtemp_ workflows.
     * [`rainfall`](/containers/rainfall): The rainfall data aggregation, and mapping processes.
