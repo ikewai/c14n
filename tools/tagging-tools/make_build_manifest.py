@@ -32,7 +32,7 @@ for repo_dir in os.listdir(): # assuming each directory under the current one is
             hash = repo_branch_file.read().strip('\n')
 
             # Crude check to validate the hash. A git hash string is always 89 bytes in python.
-            if hash.__sizeof__() == 88:
+            if hash.__sizeof__() == 89:
                 manifest[repo['url']]['hash'] = hash
             else:
                 manifest[repo['url']]['hash'] = "Error during hash acquisition."
