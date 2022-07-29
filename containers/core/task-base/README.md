@@ -3,14 +3,14 @@
 Build includes:
 * OS: Ubuntu 22.04 (Latest on Docker Hub)
 * Programs: 
-    * Python 3 (Latest Stable on APT)
-    * Pip 3 (Latest Stable on APT)
-    * Wget (Latest Stable on APT)
-    * Git (Latest Stable on APT)
+    * [Python 3](https://packages.ubuntu.com/jammy/python3) (Latest Stable on APT)
+    * [Pip 3](https://packages.ubuntu.com/jammy/python3-pip) (Latest Stable on APT)
+    * [Wget](https://packages.ubuntu.com/jammy/wget) (Latest Stable on APT)
+    * [Git](https://packages.ubuntu.com/jammy/git) (Latest Stable on APT)
 
 * Python Packages:
-    * Tapipy (Latest Stable on PyPI)
-    * Agavepy (Latest Stable on PyPI)
+    * [Tapipy](https://pypi.org/project/tapipy/) (Latest Stable on PyPI)
+    * [Agavepy](https://pypi.org/project/agavepy/) (Latest Stable on PyPI)
 
 * Build Tools:
-    * Manifest Generator (make_build_manifest.py)
+    * Manifest Generator [(make_build_manifest.py)](../../../tools/tagging-tools/make_build_manifest.py)
