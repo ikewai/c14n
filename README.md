@@ -26,3 +26,9 @@ Designed for storage and spin-up-time efficiency, these containers are purpose-b
 	 * [`build-tools`](/tools/build-tools): Scripts that aid in build-time tasks, such as downloading files and constructing directory paths.
 	 * [`runtime-tools`](/tools/runtime-tools): Scripts that aid in run-time tasks, such as uploading workflow-generated files.
 	 * [`tagging-tools`](/tools/tagging-tools): Scripts that handle provenance tasks such as making the container manifest (during build-time) and submitting execution info to the gateway (during run-time).
+
+To build a container, run the following in the root of the repo:
+`docker build -f ./[path]/Dockerfile -t {tag} .`
+
+For example, to build the task-base container:
+`docker build -f ./containers/core/task-base/Dockerfile -t ikewai/task-base .`

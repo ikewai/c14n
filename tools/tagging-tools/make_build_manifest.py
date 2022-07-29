@@ -18,11 +18,12 @@ repo_list = json.loads(input_file__str)
 manifest: dict = {} # Intended format: {"https://github.com/ikewai/c14n": {"branch": "..." "hash": "..."}, {...}}
 
 for repo in repo_list: # args taken are implied to be URLs ending in .git
+    manifest[repo['url']] = {} # necessary to prevent keyerror
     # Add timestamp
     manifest[repo['url']]['timestamp'] = datetime.now().isoformat()
     # Clone repo
     subprocess.run(["/bin/bash", "-c", f"git clone {repo['url']}"])
-    manifest[repo['url']] = {} # necessary to prevent keyerror
+    # Set branch name in manifest
     manifest[repo['url']]['branch'] = repo['branch']
 
 
