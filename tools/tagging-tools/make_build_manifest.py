@@ -4,6 +4,7 @@ import json # For reading the JSON build requirements.
 import sys # For reading execution arguments.
 import subprocess # For executing the git clone.
 import os # For listing directories.
+from datetime import datetime # For adding timestamps to the manifest.
 
 # arg 1 is interpreted as the file to read from. 
 # arg 2 is interpreted as the manifest file to create.
@@ -17,6 +18,9 @@ repo_list = json.loads(input_file__str)
 manifest: dict = {} # Intended format: {"https://github.com/ikewai/c14n": {"branch": "..." "hash": "..."}, {...}}
 
 for repo in repo_list: # args taken are implied to be URLs ending in .git
+    # Add timestamp
+    manifest[repo['url']]['timestamp'] = datetime.now().isoformat()
+    # Clone repo
     subprocess.run(["/bin/bash", "-c", f"git clone {repo['url']}"])
     manifest[repo['url']] = {} # necessary to prevent keyerror
     manifest[repo['url']]['branch'] = repo['branch']
@@ -26,7 +30,7 @@ for repo_dir in os.listdir(): # assuming each directory under the current one is
 
     # Go through each repo URL, and (naively) match the hashes to them, based on the directory names.
     for repo in repo_list:
-        if repo["url"].__contains__(f"{repo_dir}.git"):
+        if repo['url'].__contains__(f"{repo_dir}.git"):
             repo_branch_filename = f"{repo_dir}/.git/refs/heads/{repo['branch']}"
             repo_branch_file = open(repo_branch_filename, "rt")
             hash = repo_branch_file.read().strip('\n')
@@ -36,7 +40,6 @@ for repo_dir in os.listdir(): # assuming each directory under the current one is
                 manifest[repo['url']]['hash'] = hash
             else:
                 manifest[repo['url']]['hash'] = "Error during hash acquisition."
-            
 
 # Dump and write manifest to file.
 manifest__str = json.dumps(manifest)
