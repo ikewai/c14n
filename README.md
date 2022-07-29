@@ -12,12 +12,16 @@ Designed for storage and spin-up-time efficiency, these containers are purpose-b
 	    * [`rf-at-acquisition-daily`](/containers/shared/rf-at-acquisition-daily): Pulling data for use with the _rainfall_ and _airtemp_ workflows.
     * [`rainfall`](/containers/rainfall): The rainfall data aggregation, and mapping processes.
 	    * [`preliminary`](/containers/rainfall/preliminary): Preliminary workflow.
+			* [`base`](/containers/rainfall/preliminary/base): Programs and libraries used across the rainfall workflows.
 		    * [`aggregation`](/containers/rainfall/preliminary/aggregation): Aggregation task.
-		    * [`mapping-monthly`](/containers/rainfall/preliminary/mapping-monthly): Mapping task, on the monthly frequency.
+		    * [`mapping`](/containers/rainfall/preliminary/mapping): Mapping tasks.
+				* [`monthly`](/containers/rainfall/preliminary/mapping/monthly): Map generation on the monthly frequency.
     * [`airtemp`](/containers/airtemp): The air temperature data aggregation, and mapping processes.
 	    * [`preliminary`](/containers/airtemp/preliminary): Preliminary workflow.
+			* [`base`](/containers/airtemp/preliminary/base): Programs and libraries used across the airtemp workflows.
 		    * [`aggregation`](/containers/airtemp/preliminary/aggregation): Aggregation task. 
-		    * [`mapping-daily`](/containers/airtemp/preliminary/mapping-daily): Mapping task on the daily frequency.
+		    * [`mapping`](/containers/airtemp/preliminary/mapping): Mapping tasks.
+				* [`daily`](/containers/airtemp/preliminary/mapping/daily): Map generation on the daily frequency.
  * [`tools`](/tools): Scripts and data files to support building and tagging.
 	 * [`build-tools`](/tools/build-tools): Scripts that aid in build-time tasks, such as downloading files and constructing directory paths.
 	 * [`runtime-tools`](/tools/runtime-tools): Scripts that aid in run-time tasks, such as uploading workflow-generated files.

@@ -30,6 +30,6 @@ ADD ../../../tools/tagging-tools/make_build_manifest.py /tools/tagging-tools/mak
 
 
 ## OPERATIONS ##
-# Create the build manifest.
+# Create the build's manifest.
 ADD /containers/core/task-base/repos.json /build/repos.json
 RUN python3 /tools/tagging-tools/make_build_manifest.py /build/repos.json /build/manifest.json
