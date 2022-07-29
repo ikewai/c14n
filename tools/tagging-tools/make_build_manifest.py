@@ -18,7 +18,8 @@ manifest: dict = {} # Intended format: {"https://github.com/ikewai/c14n": {"bran
 
 for repo in repo_list: # args taken are implied to be URLs ending in .git
     subprocess.run(["/bin/bash", "-c", f"git clone {repo['url']}"])
-    manifest[repo['url']]['branch'] = repo['branch'] # TODO this needs fixing
+    manifest[repo['url']] = {} # necessary to prevent keyerror
+    manifest[repo['url']]['branch'] = repo['branch']
 
 
 for repo_dir in os.listdir(): # assuming each directory under the current one is a repo, TODO add validation
@@ -28,13 +29,13 @@ for repo_dir in os.listdir(): # assuming each directory under the current one is
         if repo["url"].__contains__(f"{repo_dir}.git"):
             repo_branch_filename = f"{repo_dir}/.git/refs/heads/{repo['branch']}"
             repo_branch_file = open(repo_branch_filename, "rt")
-            hash = repo_branch_file.read()
+            hash = repo_branch_file.read().strip('\n')
 
-            # Crude check to validate the hash. A git hash string is always 88 bytes.
-            if hash.__sizeof__ == 88:
-                manifest[repo]['hash'] = hash
+            # Crude check to validate the hash. A git hash string is always 89 bytes in python.
+            if hash.__sizeof__() == 88:
+                manifest[repo['url']]['hash'] = hash
             else:
-                manifest[repo]['hash'] = "Error during hash acquisition."
+                manifest[repo['url']]['hash'] = "Error during hash acquisition."
             
 
 # Dump and write manifest to file.
