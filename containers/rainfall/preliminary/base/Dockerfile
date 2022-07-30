@@ -1,0 +1,43 @@
+FROM ikewai/task-base
+
+## PACKAGE/LIBRARY INSTALLATIONS ##
+# Fetch the latest apt repo information.
+RUN apt update
+# Let APT know that we don't have a terminal.
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install libgdal.
+# This is experimental - The scripts had some
+# issues with newer versions of gdal during previous c14n.
+RUN apt install -y libgdal-dev
+
+# Install dependencies for the rainfall workflows.
+# Specific explanations of each library coming soon.
+# Libraries are approximately ordered by dependency,
+# then by time-to-install.
+RUN R -e 'install.packages("ggplot2")'
+RUN R -e 'install.packages("xts")'
+RUN R -e 'install.packages("metScanR")'
+RUN R -e 'install.packages("lubridate")'
+RUN R -e 'install.packages("plyr")'
+RUN R -e 'install.packages("reshape2")'
+RUN R -e 'install.packages("raster")'
+RUN R -e 'install.packages("sp")'
+RUN R -e 'install.packages("doParallel")'
+RUN R -e 'install.packages("foreach")'
+RUN R -e 'install.packages("fitdistrplus")'
+RUN R -e 'install.packages("tidyr")'
+RUN R -e 'install.packages("e1071")'
+RUN R -e 'install.packages("Metrics")'
+RUN R -e 'install.packages("rgdal")'
+RUN R -e 'install.packages("geosphere")'
+RUN R -e 'install.packages("data.table")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/randomForest/randomForest_4.6-14.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("caret")'
+RUN R -e 'install.packages("dplyr")'
+RUN R -e 'install.packages("matrixStats")'
+
+## OPERATIONS ##
+# Create the build's manifest.
+ADD /containers/rainfall/preliminary/base/repos.json /build/repos.json
+RUN python3 /tools/tagging-tools/make_build_manifest.py /build/repos.json /build/manifest.json
