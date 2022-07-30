@@ -11,10 +11,17 @@ ENV DEBIAN_FRONTEND=noninteractive
 # issues with newer versions of gdal during previous c14n.
 RUN apt install -y libgdal-dev
 
+# Install R.
+RUN apt install -y r-base
+
 # Install dependencies for the rainfall workflows.
 # Specific explanations of each library coming soon.
 # Libraries are approximately ordered by dependency,
 # then by time-to-install.
+RUN apt install -y libxml2-dev
+RUN apt install -y libssl-dev
+RUN apt install -y curl
+RUN apt install libcurl4-openssl-dev
 RUN R -e 'install.packages("ggplot2")'
 RUN R -e 'install.packages("xts")'
 RUN R -e 'install.packages("metScanR")'
