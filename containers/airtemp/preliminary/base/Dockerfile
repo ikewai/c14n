@@ -17,7 +17,7 @@ RUN apt install -y libgdal-dev
 # then by time-to-install.
 RUN python3 -m pip install numpy
 RUN python3 -m pip install scipy
-RUN python3 -m pip install gdal==3.4.1
+RUN python3 -m pip install gdal==3.0.4
 RUN python3 -m pip install rasterio
 RUN python3 -m pip install matplotlib
 RUN python3 -m pip install pandas
