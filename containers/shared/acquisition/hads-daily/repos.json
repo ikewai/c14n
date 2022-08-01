@@ -1,0 +1,10 @@
+[
+    {
+        "url": "https://github.com/ikewai/c14n.git", 
+        "branch": "main"
+    },
+    {
+        "url": "https://github.com/ikewai/data-uploader.git",
+        "branch": "main"
+    }
+]

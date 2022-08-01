@@ -25,8 +25,8 @@ with open(fname, "rt") as json_file:
 
 # Set variables from the loaded file/dict.
 remote_url: str = json_file_dict["base_url"]
-local_dir: str = json_file_dict["placement_url"]
-files: list = json_file_dict["scripts"]
+local_dir: str = json_file_dict["local_dir"]
+files: list = json_file_dict["files"]
 
 # Download the files.
 for file in files:

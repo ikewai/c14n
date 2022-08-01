@@ -1,0 +1,11 @@
+{
+    "base_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/data_aqs/code/",
+    "local_dir": "/home/hawaii_climate_products_container/preliminary/data_aqs/code",
+    "files": [
+        "hads/hads_24hr_webscape.R",
+        "madis/hfmetar_24hr_fetch_dev.py",
+        "madis/mesonet_24hr_fetch_dev.py",
+        "nws_rr5/nws_rr5_hrly_24hr_webscape.R",
+        "scan/scan_daily_hourly_data_agg_FINAL.R"
+    ]
+}
