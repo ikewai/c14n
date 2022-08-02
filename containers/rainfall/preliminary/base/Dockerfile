@@ -44,6 +44,12 @@ RUN R -e 'install.packages("caret")'
 RUN R -e 'install.packages("dplyr")'
 RUN R -e 'install.packages("matrixStats")'
 
+# Include a build script for making directories from a text file,
+# in the format provided by the rainfall source code.
+ADD /tools/build-tools/rainfall-specific/mkdir_from_txt.py /build/mkdir_from_txt.py
+# TODO get dir list, apply mkdir script
+
+
 ## OPERATIONS ##
 # Create the build's manifest.
 ADD /containers/rainfall/preliminary/base/repos.json /build/repos.json
