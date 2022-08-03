@@ -26,7 +26,7 @@ RUN python3 -m pip install tapipy agavepy
 
 ## FILE ADDITIONS ##
 # Add build manifest generator
-ADD ../../../tools/tagging-tools/make_build_manifest.py /tools/tagging-tools/make_build_manifest.py
+ADD /tools/tagging-tools/make_build_manifest.py /tools/tagging-tools/make_build_manifest.py
 
 
 ## OPERATIONS ##
