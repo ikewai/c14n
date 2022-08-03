@@ -1,0 +1,8 @@
+{
+    "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/code/daily/bash/",
+    "local_dir": "/home/hawaii_climate_products_container/preliminary/rainfall/code/daily/bash/",
+    "files": [
+        "dailyRFrun.sh",
+        "dailyRFwget.sh"
+    ]
+}

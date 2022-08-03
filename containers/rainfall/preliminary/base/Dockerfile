@@ -53,6 +53,10 @@ RUN R -e 'install.packages("colorRamps")'
 # in the format provided by the rainfall source code.
 ADD /tools/build-tools/rainfall-specific/mkdir_from_txt.py /build/mkdir_from_txt.py
 
+# Include a build script for downloading files specified
+# in a JSON document.
+ADD /tools/build-tools/wget_from_json.py /build/wget_from_json.py
+
 ## OPERATIONS ##
 # Create the build's manifest.
 ADD /containers/rainfall/preliminary/base/repos.json /build/repos.json

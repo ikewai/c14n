@@ -24,7 +24,7 @@ with open(fname, "rt") as json_file:
     json_file_dict: dict = json.loads(json_file.read())
 
 # Set variables from the loaded file/dict.
-remote_url: str = json_file_dict["base_url"]
+remote_url: str = json_file_dict["remote_url"]
 local_dir: str = json_file_dict["local_dir"]
 files: list = json_file_dict["files"]
 

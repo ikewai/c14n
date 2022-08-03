@@ -1,0 +1,12 @@
+{
+    "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/code/daily/rcode/",
+    "local_dir": "/home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/",
+    "files": [
+        "all_data_daily_merge_table_rf_FINAL.R",
+        "daily_gap_fill_NR_only_rf_FINAL.R",
+        "hads_daily_rf_FINAL.R",
+        "madis_daily_rf_FINAL.R",
+        "nws_rr5_daily_rf_FINAL.R",
+        "qaqc_randfor_bad_data_flag_remove_rf_FINAL.R"
+    ]
+}
