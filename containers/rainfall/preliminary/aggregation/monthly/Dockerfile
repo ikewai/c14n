@@ -7,6 +7,6 @@ RUN python3 /build/mkdir_from_txt.py /build/currentDirs.txt
 ADD /containers/rainfall/preliminary/aggregation/monthly/data/r_script_list.json /build/r_script_list.json
 RUN python3 /build/wget_from_json.py /build/r_script_list.json
 
-ADD /containers/rainfall/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh
+ADD /containers/rainfall/preliminary/aggregation/monthly/scripts/task.sh /actor/task.sh
 
 CMD [ "/bin/bash", "/actor/task.sh" ]
