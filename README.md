@@ -13,9 +13,8 @@ Designed for storage and spin-up-time efficiency, these containers are purpose-b
     * [`rainfall`](/containers/rainfall): The rainfall data aggregation, and mapping processes.
 	    * [`preliminary`](/containers/rainfall/preliminary): Preliminary workflow.
 			* [`base`](/containers/rainfall/preliminary/base): Programs and libraries used across the rainfall workflows.
-		    * [`aggregation`](/containers/rainfall/preliminary/aggregation): Aggregation task.
-		    * [`mapping`](/containers/rainfall/preliminary/mapping): Mapping tasks.
-				* [`monthly`](/containers/rainfall/preliminary/mapping/monthly): Map generation on the monthly frequency.
+		    * [`aggregation`](/containers/rainfall/preliminary/aggregation): Aggregation and mapping tasks.
+		    
     * [`airtemp`](/containers/airtemp): The air temperature data aggregation, and mapping processes.
 	    * [`preliminary`](/containers/airtemp/preliminary): Preliminary workflow.
 			* [`base`](/containers/airtemp/preliminary/base): Programs and libraries used across the airtemp workflows.
