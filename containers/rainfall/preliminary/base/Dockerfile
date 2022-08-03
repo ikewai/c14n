@@ -43,6 +43,11 @@ RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/rando
 RUN R -e 'install.packages("caret")'
 RUN R -e 'install.packages("dplyr")'
 RUN R -e 'install.packages("matrixStats")'
+RUN R -e 'install.packages("automap")'
+RUN R -e 'install.packages("gstat")'
+RUN R -e 'install.packages("svMisc")'
+RUN R -e 'install.packages("rgeos")'
+RUN R -e 'install.packages("colorRamps")'
 
 # Include a build script for making directories from a text file,
 # in the format provided by the rainfall source code.
