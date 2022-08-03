@@ -8,7 +8,7 @@ ADD /containers/shared/acquisition/base/data/directories_to_create.json /build/.
 ADD /containers/shared/acquisition/base/data/files_to_acquire.json /build/.
 
 # Pull the latest version of the data uploader.
-RUN wget https://raw.githubusercontent.com/ikewai/data-uploader/main/upload.py
+RUN wget https://raw.githubusercontent.com/ikewai/data-uploader/main/upload.py -O /sync/upload.py
 
 
 ## OPERATIONS ##
