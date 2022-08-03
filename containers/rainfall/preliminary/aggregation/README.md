@@ -16,5 +16,3 @@ where the month/year labels are adjusted relevantly.
 when downloaded, output it on the local container side as:
 `Statewide_Partial_Filled_Daily_RF_mm_2022_07.csv`
 within `/home/hawaii_climate_products_container/preliminary/rainfall/(more info here)`
-
-TODO: Add packages to the base, as determined by the monthly agg files.
