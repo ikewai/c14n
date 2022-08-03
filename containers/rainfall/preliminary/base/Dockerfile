@@ -52,8 +52,6 @@ RUN R -e 'install.packages("colorRamps")'
 # Include a build script for making directories from a text file,
 # in the format provided by the rainfall source code.
 ADD /tools/build-tools/rainfall-specific/mkdir_from_txt.py /build/mkdir_from_txt.py
-# TODO get dir list, apply mkdir script
-
 
 ## OPERATIONS ##
 # Create the build's manifest.
