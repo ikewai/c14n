@@ -1,7 +1,7 @@
 # Starting with Ubuntu 20.04 as the base image.
 # Supported with hardware and maintenance updates until Q3 2024.
 FROM ubuntu:20.04
-
+#TODO update to 22.04 (exp Q3 2026)
 
 ## PACKAGE/LIBRARY INSTALLATIONS ##
 # Fetch the latest apt repo information.
