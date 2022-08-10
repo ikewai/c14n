@@ -38,7 +38,7 @@ RUN /root/miniconda3/bin/conda install -c r r-foreach
 RUN /root/miniconda3/bin/conda install -c conda-forge r-fitdistrplus
 RUN /root/miniconda3/bin/conda install -c r r-tidyr
 RUN /root/miniconda3/bin/conda install -c r r-e1071
-RUN /root/miniconda3/bin/conda install -c r r-Metrics
+RUN R -e 'install.packages("Metrics")'
 RUN /root/miniconda3/bin/conda install -c r r-rgdal
 RUN /root/miniconda3/bin/conda install -c r r-geosphere
 RUN /root/miniconda3/bin/conda install -c r r-data.table
