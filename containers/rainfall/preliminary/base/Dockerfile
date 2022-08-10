@@ -16,7 +16,7 @@ RUN apt install -y r-base
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /build/Miniconda3-latest-Linux-x86_64.sh
 RUN /bin/bash '/build/Miniconda3-latest-Linux-x86_64.sh' '-b'
 RUN /root/miniconda3/bin/conda create --name container_env
-SHELL ["conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "-c"]
+SHELL ["/root/miniconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "-c"]
 
 # Install dependencies for the rainfall workflows.
 # Specific explanations of each library coming soon.
