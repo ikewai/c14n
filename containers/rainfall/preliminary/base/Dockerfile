@@ -13,8 +13,8 @@ RUN apt install -y libgdal-dev
 RUN apt install -y r-base
 
 # Install miniconda, a minimal form of Anaconda.
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-RUN /bin/bash 'Miniconda3-latest-Linux-x86_64.sh -b'
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /build/Miniconda3-latest-Linux-x86_64.sh
+RUN /bin/bash '/build/Miniconda3-latest-Linux-x86_64.sh -b'
 
 
 # Install dependencies for the rainfall workflows.
