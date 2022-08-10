@@ -46,7 +46,7 @@ RUN /root/miniconda3/bin/conda install -c r r-caret
 RUN /root/miniconda3/bin/conda install -c r r-dplyr
 RUN /root/miniconda3/bin/conda install -c r r-matrixStats
 RUN R -e 'install.packages("automap")'
-RUN /root/miniconda3/bin/conda install -c r r-gstat
+RUN /root/miniconda3/bin/conda install -c conda-forge r-gstat
 RUN /root/miniconda3/bin/conda install -c r r-svMisc
 RUN /root/miniconda3/bin/conda install -c r r-rgeos
 RUN /root/miniconda3/bin/conda install -c r r-colorRamps
