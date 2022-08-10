@@ -35,7 +35,7 @@ RUN /root/miniconda3/bin/conda install -c r r-raster
 RUN /root/miniconda3/bin/conda install -c r r-sp
 RUN /root/miniconda3/bin/conda install -c r r-doParallel
 RUN /root/miniconda3/bin/conda install -c r r-foreach
-RUN R -e 'install.packages("fitdistrplus")'
+RUN /root/miniconda3/bin/conda install -c conda-forge r-fitdistrplus
 RUN /root/miniconda3/bin/conda install -c r r-tidyr
 RUN /root/miniconda3/bin/conda install -c r r-e1071
 RUN /root/miniconda3/bin/conda install -c r r-Metrics
@@ -46,7 +46,7 @@ RUN /root/miniconda3/bin/conda install -c r r-randomForest
 RUN /root/miniconda3/bin/conda install -c r r-caret
 RUN /root/miniconda3/bin/conda install -c r r-dplyr
 RUN /root/miniconda3/bin/conda install -c r r-matrixStats
-RUN R -e 'install.packages("automap")'
+RUN /root/miniconda3/bin/conda install -c conda-forge r-automap
 RUN /root/miniconda3/bin/conda install -c conda-forge r-gstat
 RUN /root/miniconda3/bin/conda install -c r r-svMisc
 RUN /root/miniconda3/bin/conda install -c r r-rgeos
