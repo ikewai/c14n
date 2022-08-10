@@ -23,7 +23,8 @@ RUN apt install -y libxml2-dev
 RUN apt install -y libssl-dev
 RUN apt install -y curl
 RUN apt install -y libcurl4-openssl-dev
-RUN /bin/anaconda3 conda install -c r r-ggplot2
+
+RUN /root/miniconda3/bin/conda install -c r r-ggplot2
 RUN /root/miniconda3/bin/conda install -c -y r r-xts
 #RUN /root/miniconda3/bin/conda install -c -y r r-metScanR
 RUN /root/miniconda3/bin/conda install -c -y r r-lubridate
