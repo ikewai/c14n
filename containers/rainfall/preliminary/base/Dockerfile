@@ -14,7 +14,7 @@ RUN apt install -y r-base
 
 # Install miniconda, a minimal form of Anaconda.
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /build/Miniconda3-latest-Linux-x86_64.sh
-RUN /bin/bash '/build/Miniconda3-latest-Linux-x86_64.sh -b'
+RUN /bin/bash '/build/Miniconda3-latest-Linux-x86_64.sh' '-b'
 
 
 # Install dependencies for the rainfall workflows.
@@ -23,32 +23,32 @@ RUN apt install -y libxml2-dev
 RUN apt install -y libssl-dev
 RUN apt install -y curl
 RUN apt install -y libcurl4-openssl-dev
-RUN conda install -c r r-ggplot2
-RUN conda install -c r r-xts
-RUN conda install -c r r-metScanR
-RUN conda install -c r r-lubridate
-RUN conda install -c r r-plyr
-RUN conda install -c r r-reshape2
-RUN conda install -c r r-raster
-RUN conda install -c r r-sp
-RUN conda install -c r r-doParallel
-RUN conda install -c r r-foreach
-RUN conda install -c r r-fitdistrplus
-RUN conda install -c r r-tidyr
-RUN conda install -c r r-e1071
-RUN conda install -c r r-Metrics
-RUN conda install -c r r-rgdal
-RUN conda install -c r r-geosphere
-RUN conda install -c r r-data.table
-RUN conda install -c r r-randomForest
-RUN conda install -c r r-caret
-RUN conda install -c r r-dplyr
-RUN conda install -c r r-matrixStats
-RUN conda install -c r r-automap
-RUN conda install -c r r-gstat
-RUN conda install -c r r-svMisc
-RUN conda install -c r r-rgeos
-RUN conda install -c r r-colorRamps
+RUN /bin/anaconda3 conda install -c r r-ggplot2
+RUN /root/miniconda3/bin/conda install -c -y r r-xts
+#RUN /root/miniconda3/bin/conda install -c -y r r-metScanR
+RUN /root/miniconda3/bin/conda install -c -y r r-lubridate
+RUN /root/miniconda3/bin/conda install -c -y r r-plyr
+RUN /root/miniconda3/bin/conda install -c -y r r-reshape2
+RUN /root/miniconda3/bin/conda install -c -y r r-raster
+RUN /root/miniconda3/bin/conda install -c -y r r-sp
+RUN /root/miniconda3/bin/conda install -c -y r r-doParallel
+RUN /root/miniconda3/bin/conda install -c -y r r-foreach
+RUN /root/miniconda3/bin/conda install -c -y r r-fitdistrplus
+RUN /root/miniconda3/bin/conda install -c -y r r-tidyr
+RUN /root/miniconda3/bin/conda install -c -y r r-e1071
+RUN /root/miniconda3/bin/conda install -c -y r r-Metrics
+RUN /root/miniconda3/bin/conda install -c -y r r-rgdal
+RUN /root/miniconda3/bin/conda install -c -y r r-geosphere
+RUN /root/miniconda3/bin/conda install -c -y r r-data.table
+RUN /root/miniconda3/bin/conda install -c -y r r-randomForest
+RUN /root/miniconda3/bin/conda install -c -y r r-caret
+RUN /root/miniconda3/bin/conda install -c -y r r-dplyr
+RUN /root/miniconda3/bin/conda install -c -y r r-matrixStats
+RUN /root/miniconda3/bin/conda install -c -y r r-automap
+RUN /root/miniconda3/bin/conda install -c -y r r-gstat
+RUN /root/miniconda3/bin/conda install -c -y r r-svMisc
+RUN /root/miniconda3/bin/conda install -c -y r r-rgeos
+RUN /root/miniconda3/bin/conda install -c -y r r-colorRamps
 
 # Include a build script for making directories from a text file,
 # in the format provided by the rainfall source code.
