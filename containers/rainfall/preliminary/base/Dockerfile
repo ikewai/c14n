@@ -45,7 +45,7 @@ RUN /root/miniconda3/bin/conda install -c r r-randomForest
 RUN /root/miniconda3/bin/conda install -c r r-caret
 RUN /root/miniconda3/bin/conda install -c r r-dplyr
 RUN /root/miniconda3/bin/conda install -c r r-matrixStats
-RUN /root/miniconda3/bin/conda install -c conda-forge r-automap
+RUN R -e 'install.packages("automap")
 RUN /root/miniconda3/bin/conda install -c r r-gstat
 RUN /root/miniconda3/bin/conda install -c r r-svMisc
 RUN /root/miniconda3/bin/conda install -c r r-rgeos
