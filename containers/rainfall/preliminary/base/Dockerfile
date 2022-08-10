@@ -16,7 +16,8 @@ RUN apt install -y r-base
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /build/Miniconda3-latest-Linux-x86_64.sh
 RUN /bin/bash '/build/Miniconda3-latest-Linux-x86_64.sh' '-b'
 RUN /root/miniconda3/bin/conda create --name container_env
-RUN /root/miniconda3/bin/conda activate container_env
+RUN /root/miniconda3/bin/conda init bash
+RUN /bin/bash '/root/miniconda3/bin/conda activate container_env'
 
 # Install dependencies for the rainfall workflows.
 # Specific explanations of each library coming soon.
