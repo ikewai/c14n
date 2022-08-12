@@ -27,7 +27,7 @@ RUN /root/miniconda3/bin/conda install -c r r-rgeos
 RUN /root/miniconda3/bin/conda install -c r r-raster
 RUN /root/miniconda3/bin/conda install -c r r-ggplot2
 RUN /root/miniconda3/bin/conda install -c r r-xts
-RUN R -e 'install.packages("metScanR", repos="https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz", repos=NULL, type="source")'
 RUN /root/miniconda3/bin/conda install -c r r-lubridate
 RUN /root/miniconda3/bin/conda install -c r r-plyr
 RUN /root/miniconda3/bin/conda install -c r r-reshape2
@@ -37,7 +37,7 @@ RUN /root/miniconda3/bin/conda install -c r r-foreach
 RUN /root/miniconda3/bin/conda install -c conda-forge r-fitdistrplus
 RUN /root/miniconda3/bin/conda install -c r r-tidyr
 RUN /root/miniconda3/bin/conda install -c r r-e1071
-RUN R -e 'install.packages("Metrics", repos="https://cran.r-project.org/src/contrib/Metrics_0.1.4.tar.gz")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Metrics_0.1.4.tar.gz", repos=NULL, type="source")'
 RUN /root/miniconda3/bin/conda install -c r r-geosphere
 RUN /root/miniconda3/bin/conda install -c r r-data.table
 RUN /root/miniconda3/bin/conda install -c r r-randomForest
