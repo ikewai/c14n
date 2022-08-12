@@ -14,4 +14,4 @@ RUN python3 /build/wget_from_json.py /build/sh_script_list.json
 
 ADD /containers/rainfall/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh
 
-CMD [ "/bin/bash", "/actor/task.sh" ]
+CMD [ "/root/miniconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "/actor/task.sh" ]
