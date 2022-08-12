@@ -29,7 +29,7 @@ RUN /root/miniconda3/bin/conda install -c r r-rgeos
 RUN /root/miniconda3/bin/conda install -c r r-raster
 RUN /root/miniconda3/bin/conda install -c r r-ggplot2
 RUN /root/miniconda3/bin/conda install -c r r-xts
-RUN R -e 'install.packages("metScanR")'
+RUN R -e 'install.packages("metScanR", repos="https://cran.r-project.org/package=metScanR")'
 RUN /root/miniconda3/bin/conda install -c r r-lubridate
 RUN /root/miniconda3/bin/conda install -c r r-plyr
 RUN /root/miniconda3/bin/conda install -c r r-reshape2
