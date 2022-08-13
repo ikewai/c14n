@@ -23,7 +23,7 @@ RUN apt install -y libssl-dev
 RUN apt install -y curl
 RUN apt install -y libcurl4-openssl-dev
 
-RUN /root/miniconda3/bin/conda install -c r r-rgdal
+RUN /root/miniconda3/bin/conda install -c r r-terra
 RUN /root/miniconda3/bin/conda install -c r r-rgeos
 RUN /root/miniconda3/bin/conda install -c r r-raster
 RUN /root/miniconda3/bin/conda install -c r r-ggplot2
