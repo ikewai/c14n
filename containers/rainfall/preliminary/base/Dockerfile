@@ -22,6 +22,7 @@ RUN apt install -y libxml2-dev
 RUN apt install -y libssl-dev
 RUN apt install -y curl
 RUN apt install -y libcurl4-openssl-dev
+RUN apt install -y libgdal-dev
 
 RUN /root/miniconda3/bin/conda install -c r r-sp
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/rgdal_1.5-32.tar.gz", repos=NULL, type="source")'
