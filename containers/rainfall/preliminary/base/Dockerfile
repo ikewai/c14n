@@ -23,6 +23,7 @@ RUN apt install -y libssl-dev
 RUN apt install -y curl
 RUN apt install -y libcurl4-openssl-dev
 
+RUN /root/miniconda3/bin/conda install -c r r-sp
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/rgdal_1.5-32.tar.gz", repos=NULL, type="source")'
 RUN /root/miniconda3/bin/conda install -c r r-rgeos
 RUN /root/miniconda3/bin/conda install -c r r-raster
@@ -36,7 +37,6 @@ RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metSc
 RUN /root/miniconda3/bin/conda install -c r r-lubridate
 RUN /root/miniconda3/bin/conda install -c r r-plyr
 RUN /root/miniconda3/bin/conda install -c r r-reshape2
-RUN /root/miniconda3/bin/conda install -c r r-sp
 RUN /root/miniconda3/bin/conda install -c r r-doParallel
 RUN /root/miniconda3/bin/conda install -c r r-foreach
 RUN /root/miniconda3/bin/conda install -c conda-forge r-fitdistrplus
