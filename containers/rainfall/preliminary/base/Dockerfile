@@ -10,14 +10,17 @@ ENV DEBIAN_FRONTEND=noninteractive
 # RUN apt install -y libgdal-dev
 
 
-# Install miniconda, a minimal form of Anaconda.
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /build/Miniconda3-latest-Linux-x86_64.sh
-RUN /bin/bash '/build/Miniconda3-latest-Linux-x86_64.sh' '-b'
+# Install Anaconda.
+RUN wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh -O /build/Anaconda-installer.sh
+RUN /bin/bash '/build/Anaconda-installer.sh' '-b'
+# TODO add conda to permanent path
+# TODO change below to be normal anaconda
 RUN /root/miniconda3/bin/conda create -n container_env r-essentials r-base
 SHELL ["/root/miniconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "-c"]
 
+# TODO Install experimental solver "libmamba" to make builds fast and... possible
+
 # Install dependencies for the rainfall workflows.
-# Specific explanations of each library coming soon.
 RUN apt install -y libxml2-dev
 RUN apt install -y libssl-dev
 RUN apt install -y curl
@@ -27,7 +30,7 @@ RUN apt install -y libcurl4-openssl-dev
 RUN /root/miniconda3/bin/conda install -c conda-forge proj
 RUN /root/miniconda3/bin/conda install -c r r-sp
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/rgdal_1.5-32.tar.gz", repos=NULL, type="source")'
-RUN /root/miniconda3/bin/conda install -c r r-rgeos
+RUN /root/miniconda3/bin/conda install -c r r-rgeosphere
 RUN /root/miniconda3/bin/conda install -c r r-raster
 RUN /root/miniconda3/bin/conda install -c r r-ggplot2
 RUN /root/miniconda3/bin/conda install -c r r-xts
