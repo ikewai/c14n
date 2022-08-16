@@ -16,7 +16,7 @@ RUN /bin/bash '/build/Anaconda-installer.sh' '-b'
 # Add the Anaconda binaries to PATH.
 ENV PATH "$PATH:/root/anaconda3/bin:/root/anaconda3/condabin"
 
-RUN conda create -n container_env r-base r-essentials
+RUN conda create -n container_env
 SHELL ["/root/anaconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "-c"]
 
 # Update Anaconda
@@ -24,6 +24,7 @@ RUN conda update -n base -c defaults conda
 
 # Install libmamba solver to accelerate installations
 RUN conda install -n base conda-libmamba-solver
+RUN conda install --experimental-solver=libmamba r-base r-essentials
 
 # Install OS dependencies for the rainfall workflows.
 RUN apt install -y libxml2-dev
