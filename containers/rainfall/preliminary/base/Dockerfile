@@ -13,50 +13,54 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install Anaconda.
 RUN wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh -O /build/Anaconda-installer.sh
 RUN /bin/bash '/build/Anaconda-installer.sh' '-b'
-# TODO add conda to permanent path
-# TODO change below to be normal anaconda
-RUN /root/miniconda3/bin/conda create -n container_env r-essentials r-base
-SHELL ["/root/miniconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "-c"]
+# Add the Anaconda binaries to PATH.
+ENV PATH "$PATH:/root/anaconda3/bin:/root/anaconda3/condabin"
 
-# TODO Install experimental solver "libmamba" to make builds fast and... possible
+RUN conda create -n container_env r-base r-essentials
+SHELL ["/root/anaconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "-c"]
 
-# Install dependencies for the rainfall workflows.
+# Update Anaconda
+RUN conda update -n base -c defaults conda
+
+# Install libmamba solver to accelerate installations
+RUN conda install -n base conda-libmamba-solver
+
+# Install OS dependencies for the rainfall workflows.
 RUN apt install -y libxml2-dev
 RUN apt install -y libssl-dev
 RUN apt install -y curl
 RUN apt install -y libcurl4-openssl-dev
-#RUN apt install -y libgdal-dev
 
-RUN /root/miniconda3/bin/conda install -c conda-forge proj
-RUN /root/miniconda3/bin/conda install -c r r-sp
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/rgdal_1.5-32.tar.gz", repos=NULL, type="source")'
-RUN /root/miniconda3/bin/conda install -c r r-rgeosphere
-RUN /root/miniconda3/bin/conda install -c r r-raster
-RUN /root/miniconda3/bin/conda install -c r r-ggplot2
-RUN /root/miniconda3/bin/conda install -c r r-xts
-RUN /root/miniconda3/bin/conda install -c r r-geosphere
-RUN /root/miniconda3/bin/conda install -c r r-leaflet
-RUN /root/miniconda3/bin/conda install -c r r-matlab
-RUN /root/miniconda3/bin/conda install -c r r-rcurl
+RUN conda install --experimental-solver=libmamba -c conda-forge proj
+RUN conda install --experimental-solver=libmamba -c r r-sp
+RUN conda install --experimental-solver=libmamba -c r r-rgdal 
+RUN conda install --experimental-solver=libmamba -c r r-rgeosphere
+RUN conda install --experimental-solver=libmamba -c r r-raster
+RUN conda install --experimental-solver=libmamba -c r r-ggplot2
+RUN conda install --experimental-solver=libmamba -c r r-xts
+RUN conda install --experimental-solver=libmamba -c r r-geosphere
+RUN conda install --experimental-solver=libmamba -c r r-leaflet
+RUN conda install --experimental-solver=libmamba -c r r-matlab
+RUN conda install --experimental-solver=libmamba -c r r-rcurl
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz", repos=NULL, type="source")'
-RUN /root/miniconda3/bin/conda install -c r r-lubridate
-RUN /root/miniconda3/bin/conda install -c r r-plyr
-RUN /root/miniconda3/bin/conda install -c r r-reshape2
-RUN /root/miniconda3/bin/conda install -c r r-doParallel
-RUN /root/miniconda3/bin/conda install -c r r-foreach
-RUN /root/miniconda3/bin/conda install -c conda-forge r-fitdistrplus
-RUN /root/miniconda3/bin/conda install -c r r-tidyr
-RUN /root/miniconda3/bin/conda install -c r r-e1071
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Metrics_0.1.4.tar.gz", repos=NULL, type="source")'
-RUN /root/miniconda3/bin/conda install -c r r-data.table
-RUN /root/miniconda3/bin/conda install -c r r-randomForest
-RUN /root/miniconda3/bin/conda install -c r r-caret
-RUN /root/miniconda3/bin/conda install -c r r-dplyr
-RUN /root/miniconda3/bin/conda install -c r r-matrixStats
-RUN /root/miniconda3/bin/conda install -c conda-forge r-automap
-RUN /root/miniconda3/bin/conda install -c conda-forge r-gstat
-RUN /root/miniconda3/bin/conda install -c r r-svMisc
-RUN /root/miniconda3/bin/conda install -c r r-colorRamps
+RUN conda install --experimental-solver=libmamba -c r r-lubridate
+RUN conda install --experimental-solver=libmamba -c r r-plyr
+RUN conda install --experimental-solver=libmamba -c r r-reshape2
+RUN conda install --experimental-solver=libmamba -c r r-doParallel
+RUN conda install --experimental-solver=libmamba -c r r-foreach
+RUN conda install --experimental-solver=libmamba -c conda-forge r-fitdistrplus
+RUN conda install --experimental-solver=libmamba -c r r-tidyr
+RUN conda install --experimental-solver=libmamba -c r r-e1071
+RUN conda install --experimental-solver=libmamba -c conda-forge r-metrics
+RUN conda install --experimental-solver=libmamba -c r r-data.table
+RUN conda install --experimental-solver=libmamba -c r r-randomForest
+RUN conda install --experimental-solver=libmamba -c r r-caret
+RUN conda install --experimental-solver=libmamba -c r r-dplyr
+RUN conda install --experimental-solver=libmamba -c r r-matrixStats
+RUN conda install --experimental-solver=libmamba -c conda-forge r-automap
+RUN conda install --experimental-solver=libmamba -c conda-forge r-gstat
+RUN conda install --experimental-solver=libmamba -c r r-svMisc
+RUN conda install --experimental-solver=libmamba -c r r-colorRamps
 
 # Include a build script for making directories from a text file,
 # in the format provided by the rainfall source code.
