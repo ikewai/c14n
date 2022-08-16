@@ -34,7 +34,7 @@ RUN apt install -y libcurl4-openssl-dev
 RUN conda install --experimental-solver=libmamba -c conda-forge proj
 RUN conda install --experimental-solver=libmamba -c r r-sp
 RUN conda install --experimental-solver=libmamba -c r r-rgdal 
-RUN conda install --experimental-solver=libmamba -c r r-rgeosphere
+RUN conda install --experimental-solver=libmamba -c r r-geosphere
 RUN conda install --experimental-solver=libmamba -c r r-raster
 RUN conda install --experimental-solver=libmamba -c r r-ggplot2
 RUN conda install --experimental-solver=libmamba -c r r-xts
