@@ -36,8 +36,6 @@ RUN apt install -y gdal-bin
 
 RUN conda install --experimental-solver=libmamba -c conda-forge proj
 RUN conda install --experimental-solver=libmamba -c r r-sp
-RUN conda install --experimental-solver=libmamba -c r r-rgdal 
-RUN conda install --experimental-solver=libmamba -c r r-rgeos
 RUN conda install --experimental-solver=libmamba -c r r-geosphere
 RUN conda install --experimental-solver=libmamba -c r r-raster
 RUN conda install --experimental-solver=libmamba -c r r-ggplot2
@@ -64,6 +62,9 @@ RUN conda install --experimental-solver=libmamba -c conda-forge r-automap
 RUN conda install --experimental-solver=libmamba -c conda-forge r-gstat
 RUN conda install --experimental-solver=libmamba -c r r-svMisc
 RUN conda install --experimental-solver=libmamba -c r r-colorRamps
+# TODO split these to the specific workflows if possible. rgeos and rgdal are mutually incompatible it appears.
+RUN conda install --experimental-solver=libmamba -c r r-rgeos
+RUN conda install --experimental-solver=libmamba -c r r-rgdal 
 
 # Include a build script for making directories from a text file,
 # in the format provided by the rainfall source code.
