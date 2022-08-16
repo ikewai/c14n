@@ -29,11 +29,11 @@ RUN conda install --experimental-solver=libmamba r-base r-essentials
 # Install OS dependencies for the rainfall workflows.
 RUN apt install -y libxml2-dev
 RUN apt install -y libssl-dev
-RUN apt install -y curl
-RUN apt install -y libcurl4-openssl-dev
-RUN apt install -y libgdal-dev
-RUN apt install -y gdal-bin
+RUN apt install -y curl libcurl4-openssl-dev
+RUN apt install -y libgdal-dev gdal-bin
+RUN apt install -y libxtst-dev libxt6 libxrender1
 
+# R dependencies for the rainfall workflows.
 RUN conda install --experimental-solver=libmamba -c conda-forge proj
 RUN conda install --experimental-solver=libmamba -c r r-sp
 RUN conda install --experimental-solver=libmamba -c r r-geosphere
@@ -43,7 +43,6 @@ RUN conda install --experimental-solver=libmamba -c r r-xts
 RUN conda install --experimental-solver=libmamba -c r r-leaflet
 RUN conda install --experimental-solver=libmamba -c r r-matlab
 RUN conda install --experimental-solver=libmamba -c r r-rcurl
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz", repos=NULL, type="source")'
 RUN conda install --experimental-solver=libmamba -c r r-lubridate
 RUN conda install --experimental-solver=libmamba -c r r-plyr
 RUN conda install --experimental-solver=libmamba -c r r-reshape2
@@ -62,9 +61,9 @@ RUN conda install --experimental-solver=libmamba -c conda-forge r-automap
 RUN conda install --experimental-solver=libmamba -c conda-forge r-gstat
 RUN conda install --experimental-solver=libmamba -c r r-svMisc
 RUN conda install --experimental-solver=libmamba -c r r-colorRamps
-# TODO split these to the specific workflows if possible. rgeos and rgdal are mutually incompatible it appears.
-RUN conda install --experimental-solver=libmamba -c r r-rgeos
 RUN conda install --experimental-solver=libmamba -c r r-rgdal 
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/rgeos_0.5-9.tar.gz", repos=NULL, type="source")'
 
 # Include a build script for making directories from a text file,
 # in the format provided by the rainfall source code.
