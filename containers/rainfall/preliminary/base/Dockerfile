@@ -31,15 +31,16 @@ RUN apt install -y libssl-dev
 RUN apt install -y curl
 RUN apt install -y libcurl4-openssl-dev
 RUN apt install -y libgdal-dev
+RUN apt install -y gdal-bin
 
 RUN conda install --experimental-solver=libmamba -c conda-forge proj
 RUN conda install --experimental-solver=libmamba -c r r-sp
 RUN conda install --experimental-solver=libmamba -c r r-rgdal 
+RUN conda install --experimental-solver=libmamba -c r r-rgeos
 RUN conda install --experimental-solver=libmamba -c r r-geosphere
 RUN conda install --experimental-solver=libmamba -c r r-raster
 RUN conda install --experimental-solver=libmamba -c r r-ggplot2
 RUN conda install --experimental-solver=libmamba -c r r-xts
-RUN conda install --experimental-solver=libmamba -c r r-geosphere
 RUN conda install --experimental-solver=libmamba -c r r-leaflet
 RUN conda install --experimental-solver=libmamba -c r r-matlab
 RUN conda install --experimental-solver=libmamba -c r r-rcurl
