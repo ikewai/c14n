@@ -30,6 +30,7 @@ RUN apt install -y libxml2-dev
 RUN apt install -y libssl-dev
 RUN apt install -y curl
 RUN apt install -y libcurl4-openssl-dev
+RUN apt install -y libgdal-dev
 
 RUN conda install --experimental-solver=libmamba -c conda-forge proj
 RUN conda install --experimental-solver=libmamba -c r r-sp
