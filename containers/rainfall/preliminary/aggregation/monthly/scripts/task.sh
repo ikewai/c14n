@@ -1,11 +1,12 @@
 #!/bin/bash
+CONDA_CMD="/root/anaconda3/bin/conda run --no-capture-output -n container_env"
 echo "[task.sh] Starting Execution."
 
 echo "[task.sh] Aggregating Rainfall data on the monthly timeframe."
 bash /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/bash/dailyRFwget.sh
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
-Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R
-Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R
+$CONDA_CMD Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R
+$CONDA_CMD Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R
 
 
 echo "[task.sh] [disabled] Preparing for upload."
