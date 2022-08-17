@@ -55,9 +55,12 @@ RUN conda install --experimental-solver=libmamba -c r r-dplyr
 RUN conda install --experimental-solver=libmamba -c r r-matrixStats
 RUN conda install --experimental-solver=libmamba -c r r-svMisc
 RUN conda install --experimental-solver=libmamba -c r r-colorRamps
-RUN conda install --experimental-solver=libmamba -c r r-rgdal 
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/automap_1.0-16.tar.gz", repos=NULL, type="source")'
+RUN conda install --experimental-solver=libmamba -c r r-rgdal
+
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/spacetime_1.2-8.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/FNN_1.1.3.1.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/gstat_2.0-9.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/automap_1.0-16.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/rgeos_0.5-9.tar.gz", repos=NULL, type="source")'
 
