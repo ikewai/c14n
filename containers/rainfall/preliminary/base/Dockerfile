@@ -61,7 +61,10 @@ RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/intervals_0.1
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/spacetime_1.2-8.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/FNN_1.1.3.1.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/gstat_2.0-9.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/reshape_0.8.9.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/maptools_1.1-4.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/automap_1.0-16.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/matlab_1.0.4.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/rgeos_0.5-9.tar.gz", repos=NULL, type="source")'
 
