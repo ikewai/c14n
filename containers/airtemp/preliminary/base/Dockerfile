@@ -30,6 +30,9 @@ RUN python3 -m pip install python-dotenv
 RUN python3 -m pip install pathlib
 RUN python3 -m pip install xarray
 
+# Bring in the airtemp-specific script for making directories.
+ADD /tools/build-tools/airtemp-specific/mkdir_from_txt.py /build/mkdir_from_txt.py
+
 
 ## OPERATIONS ##
 # Create the build's manifest.

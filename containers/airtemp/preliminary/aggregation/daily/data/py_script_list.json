@@ -1,0 +1,23 @@
+{
+    "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/daily/code/",
+    "local_dir": "/home/hawaii_climate_products_container/preliminary/air_temp/daily/code",
+    "files": [
+        "air_temp_aggregate_wrapper.py", 
+        "daily_temp_agg.sh",
+        "hads_temp_parse.py", 
+        "madis_temp_parse.py", 
+        "temp_aggregate_input.py", 
+        "temp_agg_wget.py",
+        "temp_map_wget.py",
+        "update_predictor_table.py",
+        "Temp_linear.py",
+        "county_map_wrapper.py",
+        "cross_validate_temp.py",
+        "daily_temp_map.sh",
+        "daily_temp_map_batch.py",
+        "daily_temp_mean_batch.py",
+        "meta_data_wrapper.py",
+        "state_wrapper.py",
+        "temp_state_aggregate.py"
+    ]
+}
