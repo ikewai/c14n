@@ -33,7 +33,8 @@ RUN python3 -m pip install xarray
 # Bring in the airtemp-specific script for making directories.
 ADD /tools/build-tools/airtemp-specific/mkdir_from_txt.py /build/mkdir_from_txt.py
 
-
+# Bring in the script acquirer.
+ADD /tools/build-tools/wget_from_json.py /build/wget_from_json.py
 ## OPERATIONS ##
 # Create the build's manifest.
 ADD /containers/airtemp/preliminary/base/repos.json /build/repos.json
