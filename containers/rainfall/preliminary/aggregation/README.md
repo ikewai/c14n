@@ -6,8 +6,7 @@ Contents:
 * [`monthly`](/monthly): Monthly aggregation **and** mapping.
 
 ----
-TODO: monthly agg needs inputs:
-* HCDP/rainfall/HCDP_dependencies/daily_dependencies.tar.gz
+TODO: monthly agg needs additional inputs:
 * ikewai-annotated-data/HCDP/production/rainfall/new/day/statewide/partial/station_data/2022/07
 * rainfall_new_day_statewide_partial_station_data_2022_07.csv
 
