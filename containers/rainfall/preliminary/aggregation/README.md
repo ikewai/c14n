@@ -1,9 +1,9 @@
 ## Rainfall Aggregation Containers
 
 Contents:
-* [`base`](/base): Essential libraries, scripts, and directory setup.
-* [`daily`](/daily): Daily aggregation.
-* [`monthly`](/monthly): Monthly aggregation **and** mapping.
+* [`base`](/containers/rainfall/preliminary/base): Essential libraries, scripts, and directory setup.
+* [`daily`](/containers/rainfall/preliminary/daily): Daily aggregation.
+* [`monthly`](/containers/rainfall/preliminary/monthly): Monthly aggregation **and** mapping.
 
 ----
 TODO: monthly agg needs additional inputs:
