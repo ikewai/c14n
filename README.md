@@ -19,6 +19,8 @@ Designed for storage and spin-up-time efficiency, these containers are purpose-b
 	    * [`preliminary`](/containers/airtemp/preliminary): Preliminary workflow.
 			* [`base`](/containers/airtemp/preliminary/base): Programs and libraries used across the airtemp workflows.
 		    * [`aggregation`](/containers/airtemp/preliminary/aggregation): Aggregation task. 
+				* [`base`](/containers/airtemp/preliminary/base): Essentials for aggregating air temperature data.
+				* [`daily`](/containers/airtemp/preliminary/aggregation/daily): Aggregation on the daily frequency.
 		    * [`mapping`](/containers/airtemp/preliminary/mapping): Mapping tasks.
 				* [`daily`](/containers/airtemp/preliminary/mapping/daily): Map generation on the daily frequency.
  * [`tools`](/tools): Scripts and data files to support building and tagging.
