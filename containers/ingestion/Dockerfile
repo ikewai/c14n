@@ -8,6 +8,7 @@ ADD /containers/ingestion/data/station_metadata_file_list.json /build/.
 ADD /containers/ingestion/data/station_values_file_list.json /build/.
 
 # Make directories for scripts
+RUN mkdir -p /home/hcdp_tapis_ingestor/station_metadata/
 RUN mkdir -p /home/hcdp_tapis_ingestor/station_values/
 # Pull code for station metadata ingestion
 RUN /bin/python3 /build/wget_from_json.py /build/station_metadata_file_list.json
