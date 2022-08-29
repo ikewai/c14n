@@ -2,6 +2,12 @@
 CONDA_CMD="/root/anaconda3/bin/conda run --no-capture-output -n container_env"
 echo "[task.sh] Starting Execution."
 
+echo "[task.sh] Acquiring Daily Dependencies."
+cd /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
+wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/rainfall/HCDP_dependicies/daily_dependencies.tar.gz
+tar -xf daily_dependencies.tar.gz
+rm daily_dependencies.tar.gz
+
 echo "[task.sh] Aggregating Rainfall data on the monthly timeframe."
 bash /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/bash/dailyRFwget.sh
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
