@@ -9,6 +9,6 @@ ADD /containers/ingestion/data/station_values_file_list.json /build/.
 
 
 # Pull code for station metadata ingestion
-RUN /bin/python3 /tools/build-tools/wget_from_json.py /build/station_metadata_file_list.json
+RUN /bin/python3 /build/wget_from_json.py /build/station_metadata_file_list.json
 # Pull code for station value ingestion
-RUN /bin/python3 /tools/build-tools/wget_from_json.py /build/station_values_file_list.json
+RUN /bin/python3 /build/wget_from_json.py /build/station_values_file_list.json
