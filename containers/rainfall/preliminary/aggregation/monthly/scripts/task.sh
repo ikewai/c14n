@@ -9,7 +9,6 @@ tar -xf daily_dependencies.tar.gz
 rm daily_dependencies.tar.gz
 
 echo "[task.sh] Aggregating Rainfall data on the monthly timeframe."
-bash /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/bash/dailyRFwget.sh
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
 $CONDA_CMD Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R
 $CONDA_CMD Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R
