@@ -16,6 +16,7 @@ RUN /bin/python3 /build/wget_from_json.py /build/station_metadata_file_list.json
 RUN /bin/python3 /build/wget_from_json.py /build/station_values_file_list.json
 
 # Copy the ingestion utilities
-ADD /tools/build-tools/runtime-tools/ingestion-utilities/* /actor/.
+ADD /tools/build-tools/runtime-tools/ingestion-utilities/inject_auth.py /actor/.
+ADD /tools/build-tools/runtime-tools/ingestion-utilities/inject_conf.py /actor/.
 
 CMD [ "/bin/bash", "/actor/task.sh" ]
