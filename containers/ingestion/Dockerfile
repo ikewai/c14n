@@ -14,3 +14,5 @@ RUN mkdir -p /home/hcdp_tapis_ingestor/station_values/
 RUN /bin/python3 /build/wget_from_json.py /build/station_metadata_file_list.json
 # Pull code for station value ingestion
 RUN /bin/python3 /build/wget_from_json.py /build/station_values_file_list.json
+
+CMD [ "/bin/bash", "/actor/task.sh" ]
