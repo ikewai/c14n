@@ -7,7 +7,7 @@
 
 import os # For accessing environment variables.
 import sys # For accessing execution args.
-from io import TextIOWrapper # For hinting type in file read/writes
+from io import TextIOWrapper # For hinting type in file read/writes.
 import json # For interacting with JSON data.
 
 
