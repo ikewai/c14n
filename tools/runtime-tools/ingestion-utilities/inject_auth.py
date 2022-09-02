@@ -24,7 +24,7 @@ config_json: dict = json.loads(fin_string)
 # Set auth token in dict.
 config_json['tapis_config']['token']: str = auth_token
 
-# Convert dict to JSON-formatted string.
+# Convert output dict to JSON-formatted string.
 config_str: str = json.dumps(config_json)
 
 # Write updated config to disk.
