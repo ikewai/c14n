@@ -27,7 +27,12 @@ for repo in repo_list: # args taken are implied to be URLs ending in .git
     manifest[repo['url']]['branch'] = repo['branch']
 
 
-for repo_dir in os.listdir(): # assuming each directory under the current one is a repo, TODO add validation
+for repo_dir in os.listdir(): # assuming each directory under the current one is a repo,
+
+    # Basic validation, assumes that the directory is a repo if it has a .git file inside.
+    dir_contents = os.listdir(repo_dir)
+    if ".git" not in dir_contents:
+        continue
 
     # Go through each repo URL, and (naively) match the hashes to them, based on the directory names.
     for repo in repo_list:
@@ -41,6 +46,11 @@ for repo_dir in os.listdir(): # assuming each directory under the current one is
                 manifest[repo['url']]['hash'] = hash
             else:
                 manifest[repo['url']]['hash'] = "Error during hash acquisition."
+
+    # Delete the repo after the data is extracted.
+    subprocess.run(["/bin/bash", "-c", f"rm -r {repo_dir}"])
+
+
 
 # Dump and write manifest to file.
 manifest__str = json.dumps(manifest)
