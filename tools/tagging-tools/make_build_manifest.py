@@ -1,5 +1,9 @@
 #!/bin/python3
 
+# This script generates a manifest of the repos and their associated current commit hashes
+# that were involved in the production of the container, as defined in the arg 1 file.
+# To do so, it pulls each repo, gets the hash, saves info from each, then deletes the repo.
+
 import json # For reading the JSON build requirements.
 import sys # For reading execution arguments.
 import subprocess # For executing the git clone.
@@ -27,7 +31,7 @@ for repo in repo_list: # args taken are implied to be URLs ending in .git
     manifest[repo['url']]['branch'] = repo['branch']
 
 
-for repo_dir in os.listdir(): # assuming each directory under the current one is a repo,
+for repo_dir in os.listdir():
 
     # Basic validation, assumes that the directory is a repo if it has a .git file inside.
     dir_contents = os.listdir(repo_dir)
