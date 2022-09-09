@@ -7,6 +7,7 @@ cd /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
 wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/rainfall/HCDP_dependicies/daily_dependencies.tar.gz
 tar -xf daily_dependencies.tar.gz
 rm daily_dependencies.tar.gz
+wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/production/rainfall/new/day/statewide/partial/station_data/`date +%Y`/`date +%m`
 
 echo "[task.sh] Aggregating Rainfall data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
