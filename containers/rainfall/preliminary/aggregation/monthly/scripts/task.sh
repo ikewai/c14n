@@ -16,8 +16,8 @@ $CONDA_CMD Rscript /home/hawaii_climate_products_container/preliminary/rainfall/
 echo "[task.sh] [4/5] Preparing for upload."
 cd /sync
 python3 update_date_string_in_config.py upload_config.json upload_config_datestrings_loaded.json
-python3 upload_list_inserter.py upload_config_datestrings_loaded.json config.json
-python3 upload_auth_injector.py config.json
+python3 add_upload_list_in_config.py upload_config_datestrings_loaded.json config.json
+python3 add_auth_info_in_config.py config.json
 
 echo "[task.sh] [5/5] [disabled] Attempting to upload the aggregated data."
 #python3 upload.py
