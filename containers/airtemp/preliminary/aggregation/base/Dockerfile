@@ -1,3 +1,3 @@
 FROM ikewai/task-at-pre-base
 
-ADD /tools/runtime-tools/uploader-utilities/* /sync/.
+ADD /tools/runtime-tools/uploader-utilities/* /sync/
