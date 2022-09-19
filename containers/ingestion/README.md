@@ -13,7 +13,8 @@ The [task definition script](/containers/ingestion/scripts/task.sh) performs thr
 Environment Variable Examples:
 ```sh
 URLS_TO_GET="[\
-\"https://ikewai.its.hawaii.edu/ikewai-annotated-data/HCDP/...\"\
+\"https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary_test/\
+data_aqs/data_outputs/nws_rr5/parse/`date -d yesterday +%Y%m%d`_nwsrr5_parsed.csv\"\
 ]"
 IW_TOKEN="4fd6..."
 DRIVER_CONF="{\
