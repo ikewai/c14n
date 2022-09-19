@@ -12,7 +12,7 @@ RUN mkdir /sync
 RUN wget https://raw.githubusercontent.com/ikewai/data-uploader/main/upload.py -O /sync/upload.py
 
 # Copy the upload support utilities.
-ADD /tools/runtime-tools/uploader-utilites/* /sync/
+ADD /tools/runtime-tools/uploader-utilites/* /sync
 
 ## OPERATIONS ##
 # Create directories and pull scripts for acquisition.
