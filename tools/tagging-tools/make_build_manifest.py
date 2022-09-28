@@ -34,7 +34,11 @@ for repo in repo_list: # args taken are implied to be URLs ending in .git
 for repo_dir in os.listdir():
 
     # Basic validation, assumes that the directory is a repo if it has a .git file inside.
-    dir_contents = os.listdir(repo_dir)
+    try: 
+        dir_contents = os.listdir(repo_dir)
+    except Exception as e:
+        print(e) #TODO improve robustness
+        continue
     if ".git" not in dir_contents:
         continue
 
