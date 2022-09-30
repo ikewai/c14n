@@ -1,8 +1,7 @@
 # update_date_string_in_config.py
 # usage: python3 update_date_string_in_config.py inputfile outputfile
 # This script will use yesterdays date to replace %y with the year %m with the month and %d with the day
-# for all occurence in the inputfile and then have the actual dates in the outputfile
-from operator import ne
+# for all occurrences in the inputfile and then have the actual dates in the outputfile
 import sys
 import datetime
 
