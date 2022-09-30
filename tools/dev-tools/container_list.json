@@ -1,7 +1,0 @@
-[
-    {
-        "rel_location": "containers/core/task-base",
-        "image_name": "ikewai/task-base",
-        "tag": "latest"
-    }
-]
