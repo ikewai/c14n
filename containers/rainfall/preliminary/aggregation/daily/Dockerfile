@@ -10,6 +10,10 @@ ADD /containers/rainfall/preliminary/aggregation/daily/data/r_script_list.json /
 # Get the workflow scripts.
 RUN python3 /build/wget_from_json.py /build/r_script_list.json
 
+# Download the uploader configuration.
+RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/daily/upload_config.json -O /sync/upload_config.json
+
+# Copy in the task script.
 ADD /containers/rainfall/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh
 
 CMD [ "/root/miniconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "/actor/task.sh" ]
