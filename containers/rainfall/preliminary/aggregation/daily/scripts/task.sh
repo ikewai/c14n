@@ -24,6 +24,6 @@ python3 add_upload_list_to_config.py upload_config_datestrings_loaded.json confi
 python3 add_auth_info_to_config.py config.json
 
 echo "[task.sh] [5/5] [disabled] Attempting to upload the aggregated data."
-#python3 upload.py
+python3 upload.py
 
 echo "[task.sh] All done!"
