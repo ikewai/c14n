@@ -1,9 +1,9 @@
 #!/bin/python3
-# A script to build every container in one pass.
+# A script to build every container in a list, in one pass.
 
-import sys
-import subprocess
-import json
+import sys # For accessing execution args.
+import subprocess # For spinning off docker builds.
+import json # For parsing the build list.
 
 fin = sys.argv[1]
 fin = open(fin, "rt")
