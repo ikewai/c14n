@@ -20,6 +20,11 @@
         "tag": "latest"
     },
     {
+        "rel_location": "containers/airtemp/preliminary/aggregation/monthly",
+        "image_name": "ikewai/task-at-pre-agg-monthly",
+        "tag": "latest"
+    },
+    {
         "rel_location": "containers/core/task-base",
         "image_name": "ikewai/task-base",
         "tag": "latest"
