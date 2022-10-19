@@ -1,8 +1,6 @@
 ## Airtemp Aggregation Containers
 
 Contents:
-* [`base`](/base): Essential libraries, scripts, and directory setup.
-* [`daily`](/daily): Daily aggregation.
-
-----
-TODO: TBD
+* [`base`](containers/airtemp/aggregation/base): Essential libraries, scripts, and directory setup.
+* [`daily`](containers/airtemp/aggregation/daily): Daily aggregation.
+* [`monthly`](containers/airtemp/aggregation/monthly): Monthly aggregation.
