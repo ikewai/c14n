@@ -8,6 +8,6 @@ RUN /bin/python3 /build/mkdir_from_txt.py /build/currentDirs.txt
 ADD /containers/airtemp/preliminary/aggregation/daily/data/py_script_list.json /build/py_script_list.json
 RUN python3 /build/wget_from_json.py /build/py_script_list.json
 
-# Add and chmod task.sh (chmod is temporary, for dev purposes)
 ADD /containers/airtemp/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh
-RUN chmod +x /actor/task.sh
+
+CMD [ "/bin/bash", "/actor/task.sh" ]
