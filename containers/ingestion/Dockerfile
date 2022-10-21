@@ -3,6 +3,9 @@ FROM ikewai/task-base
 # Bring in the script acquirer.
 ADD /tools/build-tools/wget_from_json.py /build/.
 
+# Copy in the config datestring updater.
+ADD /tools/runtime-tools/uploader-utilities/update_date_string_in_config.py /actor/.
+
 # Copy the lists of files.
 ADD /containers/ingestion/data/station_metadata_file_list.json /build/.
 ADD /containers/ingestion/data/station_values_file_list.json /build/.
