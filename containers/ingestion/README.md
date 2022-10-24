@@ -1,5 +1,7 @@
 ## Workflow Data Ingestion Container
 
+THIS README IS OUTDATED; UPDATING COMING SOON
+
 A container for ingesting data from the science workflow as metadata for the gateway API.
 
 The build process pulls from [`ikewai/hcdp_tapis_ingestor`](https://github.com/ikewai/hcdp_tapis_ingestor) for the driver script and example config.
