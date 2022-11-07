@@ -25,4 +25,6 @@ ADD /tools/runtime-tools/downloader-utilities/pull_files_from_env_list.py /actor
 ADD /tools/runtime-tools/ingestion-utilities/inject_auth.py /actor/.
 ADD /tools/runtime-tools/ingestion-utilities/inject_conf.py /actor/.
 
+ADD /containers/ingestion/scripts/task.sh /actor/task.sh
+
 CMD [ "/bin/bash", "/actor/task.sh" ]
