@@ -1,0 +1,16 @@
+{
+    "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/monthly/code/",
+    "local_dir": "/home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/",
+    "files": [
+        "Temp_linear.py",
+        "monthly_cross_validate.py",
+        "monthly_map_wget.py",
+        "monthly_map_wrapper.py",
+        "monthly_meta_wrapper.py",
+        "monthly_state_temp.py",
+        "monthly_state_wrapper.py",
+        "monthly_stn_data.py",
+        "monthly_temp_maps.py",
+        "update_monthly_predictor.py"
+    ]
+}
