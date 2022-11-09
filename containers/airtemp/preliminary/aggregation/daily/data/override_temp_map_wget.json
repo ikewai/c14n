@@ -1,7 +1,0 @@
-{
-    "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/1293a0ffb0d71d61aafe009ef781ef7cb837b27a/preliminary/air_temp/daily/code/",
-    "local_dir": "/home/hawaii_climate_products_container/preliminary/air_temp/daily/code/",
-    "files": [
-        "temp_map_wget.py"
-    ]
-}

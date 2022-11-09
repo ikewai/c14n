@@ -6,9 +6,7 @@ RUN /bin/python3 /build/mkdir_from_txt.py /build/currentDirs.txt
 
 # Get scripts
 ADD /containers/airtemp/preliminary/aggregation/daily/data/py_script_list.json /build/py_script_list.json
-ADD /containers/airtemp/preliminary/aggregation/daily/data/override_temp_map_wget.json /build/override_temp_map_wget.json
 RUN python3 /build/wget_from_json.py /build/py_script_list.json
-RUN python3 /build/wget_from_json.py /build/override_temp_map_wget.json
 
 ADD /containers/airtemp/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh
 
