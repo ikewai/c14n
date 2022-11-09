@@ -8,7 +8,6 @@
         "madis_temp_parse.py", 
         "temp_aggregate_input.py", 
         "temp_agg_wget.py",
-        "temp_map_wget.py",
         "update_predictor_table.py",
         "Temp_linear.py",
         "county_map_wrapper.py",
