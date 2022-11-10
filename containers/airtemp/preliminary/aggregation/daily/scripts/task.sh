@@ -10,9 +10,9 @@ python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/d
 
 echo "[task.sh] [3/5] Mapping Airtemp data on the daily timeframe."
 cd /home/hawaii_climate_products_container/
-
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/daily/code/temp_map_wget.py
 cp -rf dependencies/* /home/hawaii_climate_products_container/preliminary/air_temp/daily/dependencies
+
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/daily/code/update_predictor_table.py
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/daily/code/county_map_wrapper.py
