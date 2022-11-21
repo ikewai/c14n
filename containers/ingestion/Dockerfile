@@ -24,6 +24,7 @@ ADD /tools/runtime-tools/ingestion-utilities/pull_files_to_ingest.py /actor/pull
 # Copy the ingestion utilities
 ADD /tools/runtime-tools/ingestion-utilities/inject_auth.py /actor/inject_auth.py
 ADD /tools/runtime-tools/ingestion-utilities/inject_conf.py /actor/inject_conf.py
+ADD /tools/runtime-tools/ingestion-utilities/get_auth_token.py /actor/get_auth_token.py
 
 ADD /containers/ingestion/scripts/task.sh /actor/task.sh
 
