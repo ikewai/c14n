@@ -8,7 +8,7 @@ wget $INGESTION_CONFIG_URL -O config.json
 echo "[task.sh] [2/7] Updating date strings in config if requested."
 if [ $UPDATE_DATES_IN_CONFIG ];
 then
-    python3 /actor/update_date_string_in_config.py config.json
+    python3 /actor/update_date_string_in_config.py config.json config.json
 fi
 
 echo "[task.sh] [3/7] Pulling files to ingest."

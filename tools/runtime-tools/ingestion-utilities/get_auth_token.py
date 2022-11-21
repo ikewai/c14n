@@ -9,7 +9,7 @@ import subprocess # For setting the token's env variable via bash export.
 token_env_key = sys.argv[1]
 
 # Initialize Agave object.
-ag = Agave(api_server="",
+ag = Agave(api_server="https://agaveauth.its.hawaii.edu",
            username=os.environ['IW_USERNAME'],
            password=os.environ['IW_PASSWORD'],
            api_key=os.environ['IW_API_KEY'],
