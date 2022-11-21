@@ -19,7 +19,7 @@ RUN /bin/python3 /build/wget_from_json.py /build/station_metadata_file_list.json
 RUN /bin/python3 /build/wget_from_json.py /build/station_values_file_list.json
 
 # Copy the file downloader
-ADD /tools/runtime-tools/downloader-utilities/pull_files_from_env_list.py /actor/.
+ADD /tools/runtime-tools/ingestion-utilities/pull_files_to_ingest.py /actor/.
 
 # Copy the ingestion utilities
 ADD /tools/runtime-tools/ingestion-utilities/inject_auth.py /actor/.
