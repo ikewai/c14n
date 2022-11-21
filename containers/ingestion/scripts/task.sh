@@ -6,7 +6,8 @@ echo "[task.sh] [1/7] Downloading ingestion config from $INGESTION_CONFIG_URL."
 wget $INGESTION_CONFIG_URL -O config.json
 
 echo "[task.sh] [2/7] Updating date strings in config if requested."
-if [ $UPDATE_DATES_IN_CONFIG ] then
+if [ $UPDATE_DATES_IN_CONFIG ];
+then
     python3 /actor/update_date_string_in_config.py config.json
 fi
 
