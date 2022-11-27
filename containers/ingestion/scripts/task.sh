@@ -2,13 +2,16 @@
 echo "[task.sh] Starting Execution."
 cd /home/hcdp_tapis_ingestor/station_values
 
-echo "[task.sh] [1/7] Downloading ingestion config from $INGESTION_CONFIG_URL."
+echo "[task.sh] [1/7] Downloading ingestion config."
 wget $INGESTION_CONFIG_URL -O config.json
 
 echo "[task.sh] [2/7] Updating date strings in config if requested."
 if [ $UPDATE_DATES_IN_CONFIG ];
 then
-    python3 /actor/update_date_string_in_config.py config.json config.json
+    mv config.json config_temp.json
+    python3 /actor/update_date_string_in_config.py \
+    config_temp.json \
+    config.json
 fi
 
 echo "[task.sh] [3/7] Pulling files to ingest."

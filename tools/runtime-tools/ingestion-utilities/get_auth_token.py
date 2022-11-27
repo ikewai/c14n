@@ -3,29 +3,20 @@
 
 import os # For getting environment variables.
 import sys # For getting execution arguments.
-from agavepy import Agave # For communicating with the gateway.
+import json # For reading server responses.
 import subprocess # For setting the token's env variable via bash export.
-
-import requests
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-os.environ['CURL_CA_BUNDLE']="" # This is a temporary hack. It will be fixed soon.
 
 token_env_key = sys.argv[1]
 
-# Initialize Agave object.
-ag = Agave(api_server="https://agaveauth.its.hawaii.edu",
-           username=os.environ['IW_USERNAME'],
-           password=os.environ['IW_PASSWORD'],
-           client_name=os.environ['IW_CLIENT_NAME'],
-           api_key=os.environ['IW_API_KEY'],
-           api_secret=os.environ['IW_API_SECRET']
-)
+# Make request to Agave (tapis v2) API server.
+# This is using a raw cURL request because, for this particular use, agavepy and requests are **cursed**.
+api_endpoint = "https://agaveauth.its.hawaii.edu/token"
+cmd = f"curl -sku '{os.environ['IW_API_KEY']}:{os.environ['IW_API_SECRET']}' -d grant_type=password -d username={os.environ['IW_USERNAME']} -d password={os.environ['IW_PASSWORD']} -d scope=PRODUCTION {api_endpoint}"
+res = subprocess.run(["/bin/bash", "-c", cmd], capture_output=True)
 
-# Acquire tokens.
-
-new_tokens = ag.tokens()
-access_token = new_tokens['access_token']
+# Get token from response.
+full_token = json.loads(res.stdout.decode())
+access_token = full_token['access_token']
 
 # Set token in system's bash environment.
 subprocess.run(["/bin/bash", "-c", f"export {token_env_key}={access_token}"])
