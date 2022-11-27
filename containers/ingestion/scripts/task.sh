@@ -18,10 +18,10 @@ echo "[task.sh] [3/7] Pulling files to ingest."
 python3 /actor/pull_files_to_ingest.py /home/hcdp_tapis_ingestor/station_values/config.json
 
 echo "[task.sh] [4/7] Getting and setting authentication token."
-python3 /actor/get_auth_token.py IW_TOKEN
+python3 /actor/get_auth_token.py IW_TOKEN.txt
 
 echo "[task.sh] [5/7] Injecting authentication into config."
-python3 /actor/inject_auth.py IW_TOKEN /home/hcdp_tapis_ingestor/station_values/config.json
+python3 /actor/inject_auth.py IW_TOKEN.txt /home/hcdp_tapis_ingestor/station_values/config.json
 
 echo "[task.sh] [6/7] Injecting configuration data into config."
 python3 /actor/inject_conf.py DRIVER_CONF /home/hcdp_tapis_ingestor/station_values/config.json

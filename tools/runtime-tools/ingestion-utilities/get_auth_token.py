@@ -6,7 +6,8 @@ import sys # For getting execution arguments.
 import json # For reading server responses.
 import subprocess # For setting the token's env variable via bash export.
 
-token_env_key = sys.argv[1]
+output_file = sys.argv[1]
+fout = open(output_file, "wt")
 
 # Make request to Agave (tapis v2) API server.
 # This is using a raw cURL request because, for this particular use, agavepy and requests are **cursed**.
@@ -18,5 +19,6 @@ res = subprocess.run(["/bin/bash", "-c", cmd], capture_output=True)
 full_token = json.loads(res.stdout.decode())
 access_token = full_token['access_token']
 
-# Set token in system's bash environment.
-subprocess.run(["/bin/bash", "-c", f"export {token_env_key}={access_token}"])
+# Write token to file.
+fout.write(access_token)
+fout.close()
