@@ -1,5 +1,8 @@
 FROM ikewai/task-base
 
+# Install curl, prerequisite for get_auth_token.py.
+RUN apt install -y curl
+
 # Bring in the script acquirer.
 ADD /tools/build-tools/wget_from_json.py /build/.
 
