@@ -1,6 +1,6 @@
 {
     "remote_url": "https://raw.githubusercontent.com/ikewai/hcdp_tapis_ingestor/master/",
-    "local_dir": "/home/hcdp_tapis_ingestor/station_metadata/",
+    "local_dir": "/home/hcdp_tapis_ingestor/station_values/",
     "files": [
         "all_complete.py",
         "date_parser.py",
