@@ -1,7 +1,7 @@
 FROM ikewai/task-at-pre-agg-base
 
 # Make directories
-RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/monthly/docs/currentDirs.txt -O /build/currentDirs_daily.txt
+RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/daily/docs/currentDirs.txt -O /build/currentDirs_daily.txt
 RUN python3 /build/mkdir_from_txt.py /build/currentDirs_daily.txt
 ADD /tools/build-tools/airtemp-specific/mkdir_from_txt_monthlyagg.py /build/mkdir_from_txt_monthlyagg.py
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/monthly/docs/currentDirs.txt -O /build/currentDirs.txt
