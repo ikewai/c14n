@@ -1,5 +1,5 @@
 {
-    "remote_url": "https://raw.githubusercontent.com/ikewai/hcdp_tapis_ingestor/master/station_metadata/",
+    "remote_url": "https://raw.githubusercontent.com/ikewai/hcdp_tapis_ingestor/master/",
     "local_dir": "/home/hcdp_tapis_ingestor/station_metadata/",
     "files": [
         "all_complete.py",
