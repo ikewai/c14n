@@ -1,12 +1,8 @@
 {
-    "remote_url": "https://raw.githubusercontent.com/ikewai/hcdp_tapis_ingestor/master/",
+    "remote_url": "https://raw.githubusercontent.com/ikewai/hcdp_tapis_ingestor/master/station_metadata/",
     "local_dir": "/home/hcdp_tapis_ingestor/station_metadata/",
     "files": [
-        "all_complete.py",
-        "date_parser.py",
-        "geotiff_data.py",
-        "ingestion_handler.py",
-        "station_metadata/driver.py",
-        "station_metadata/config.json"
+        "driver.py",
+        "config.json"
     ]
 }

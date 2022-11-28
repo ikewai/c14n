@@ -12,14 +12,18 @@ ADD /tools/runtime-tools/uploader-utilities/update_date_string_in_config.py /act
 # Copy the lists of files.
 ADD /containers/ingestion/data/station_metadata_file_list.json /build/.
 ADD /containers/ingestion/data/station_values_file_list.json /build/.
+ADD /containers/ingestion/data/station_metadata_python_modules.json /build/.
+ADD /containers/ingestion/data/station_values_python_modules.json /build/.
 
 # Make directories for scripts
 RUN mkdir -p /home/hcdp_tapis_ingestor/station_metadata/
 RUN mkdir -p /home/hcdp_tapis_ingestor/station_values/
 # Pull code for station metadata ingestion
 RUN /bin/python3 /build/wget_from_json.py /build/station_metadata_file_list.json
+RUN /bin/python3 /build/wget_from_json.py /build/station_metadata_python_modules.json
 # Pull code for station value ingestion
 RUN /bin/python3 /build/wget_from_json.py /build/station_values_file_list.json
+RUN /bin/python3 /build/wget_from_json.py /build/station_values_python_modules.json
 
 # Copy the file downloader
 ADD /tools/runtime-tools/ingestion-utilities/pull_files_to_ingest.py /actor/pull_files_to_ingest.py
