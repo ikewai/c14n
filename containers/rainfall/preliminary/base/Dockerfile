@@ -24,7 +24,7 @@ RUN conda update -n base -c defaults conda
 
 # Install libmamba solver to accelerate installations
 RUN conda install -n base conda-libmamba-solver
-RUN conda install --experimental-solver=libmamba r-base r-essentials
+RUN conda install --experimental-solver=libmamba -c r-base r-essentials
 
 # Install OS dependencies for the rainfall workflows.
 RUN apt install -y libxml2-dev
