@@ -10,8 +10,8 @@ rm daily_dependencies.tar.gz
 
 echo "[task.sh] [3/6] Acquiring Statewide Partially-filled Daily Rainfall data for this month."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/data_outputs/tables/station_data/daily/partial_filled/statewide
-wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/production/rainfall/new/day/statewide/partial/station_data/`date +%Y/%m`/rainfall_new_day_statewide_partial_station_data_`date +%Y_%m`.csv \
-     -O Statewide_Partial_Filled_Daily_RF_mm_`date +%Y_%m`.csv
+wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/production/rainfall/new/day/statewide/partial/station_data/`date --date='yesterday' +%Y/%m`/rainfall_new_day_statewide_partial_station_data_`date --date='yesterday' +%Y_%m`.csv \
+     -O Statewide_Partial_Filled_Daily_RF_mm_`date --date='yesterday' +%Y_%m`.csv
 
 echo "[task.sh] [4/6] Aggregating Rainfall data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
