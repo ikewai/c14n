@@ -32,6 +32,7 @@ RUN apt install -y libssl-dev
 RUN apt install -y curl libcurl4-openssl-dev
 RUN apt install -y libgdal-dev gdal-bin
 RUN apt install -y libxtst-dev libxt6 libxrender1
+RUN apt install -y libudunits2-dev
 
 # R dependencies for the rainfall workflows.
 RUN conda install --experimental-solver=libmamba -c conda-forge proj
