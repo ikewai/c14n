@@ -24,6 +24,6 @@ echo "[task.sh] [5/6] Injecting authentication into config."
 python3 /actor/inject_auth.py IW_TOKEN.txt /home/hcdp_tapis_ingestor/station_metadata/config.json
 
 echo "[task.sh] [6/6] Ingesting station values."
-python3 /home/hcdp_tapis_ingestor/station_data/driver.py config.json
+python3 /home/hcdp_tapis_ingestor/station_metadata/driver.py config.json
 
 echo "[task.sh] All done!"
