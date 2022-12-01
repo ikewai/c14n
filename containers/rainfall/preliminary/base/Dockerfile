@@ -60,8 +60,8 @@ RUN conda install --experimental-solver=libmamba -c r r-colorRamps
 RUN conda install --experimental-solver=libmamba -c r r-rgdal
 RUN conda install --experimental-solver=libmamba -c conda-forge r-sf
 RUN conda install --experimental-solver=libmamba -c conda-forge r-sftime
-RUN conda install --experimental-solver=libmamba -c r r-rstars
 
+RUN R -e 'install.packages("stars")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/intervals_0.15.2.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/spacetime_1.2-8.tar.gz", repos=NULL, type="source")'
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/FNN_1.1.3.1.tar.gz", repos=NULL, type="source")'
