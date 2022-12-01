@@ -1,0 +1,8 @@
+{
+    "remote_url": "https://raw.githubusercontent.com/ikewai/hcdp_tapis_ingestor/master/station_values/",
+    "local_dir": "/home/hcdp_tapis_ingestor/station_values/",
+    "files": [
+        "driver.py",
+        "config.json"
+    ]
+}
