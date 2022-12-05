@@ -17,7 +17,7 @@ python3 update_date_string_in_config.py upload_config.json upload_config_datestr
 python3 add_upload_list_to_config.py upload_config_datestrings_loaded.json config.json
 python3 add_auth_info_to_config.py config.json
 
-echo "[task.sh] [4/4][disabled] Uploading data."
-#python3 upload.py
+echo "[task.sh] [4/4] Uploading data."
+python3 upload.py
 
 echo "[task.sh] All done!"
