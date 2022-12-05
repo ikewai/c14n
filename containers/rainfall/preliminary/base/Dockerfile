@@ -9,6 +9,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install libgdal.
 # RUN apt install -y libgdal-dev
 
+# Install OS dependencies for the rainfall workflows.
+RUN apt install -y libxml2-dev
+RUN apt install -y libssl-dev
+RUN apt install -y curl libcurl4-openssl-dev
+RUN apt install -y libgdal-dev gdal-bin
+RUN apt install -y libxtst-dev libxt6 libxrender1
+RUN apt install -y libudunits2-dev
 
 # Install Anaconda.
 RUN wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh -O /build/Anaconda-installer.sh
@@ -27,13 +34,7 @@ RUN conda install conda-libmamba-solver
 RUN conda install --experimental-solver=libmamba -c conda-forge r-base 
 RUN conda install --experimental-solver=libmamba -c conda-forge r-base r-essentials
 
-# Install OS dependencies for the rainfall workflows.
-RUN apt install -y libxml2-dev
-RUN apt install -y libssl-dev
-RUN apt install -y curl libcurl4-openssl-dev
-RUN apt install -y libgdal-dev gdal-bin
-RUN apt install -y libxtst-dev libxt6 libxrender1
-RUN apt install -y libudunits2-dev
+
 
 # R dependencies for the rainfall workflows.
 RUN conda install --experimental-solver=libmamba -c conda-forge proj
@@ -61,19 +62,19 @@ RUN conda install --experimental-solver=libmamba -c r r-rgdal
 RUN conda install --experimental-solver=libmamba -c conda-forge r-abind
 RUN conda install --experimental-solver=libmamba -c conda-forge r-lwgeom
 
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/sf_1.0-9.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/sftime_0.2-0.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/stars_0.6-0.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/intervals_0.15.2.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/spacetime_1.2-8.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/FNN_1.1.3.1.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/gstat_2.1-0.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/reshape_0.8.9.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/maptools_1.1-5.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/automap_1.0-16.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/matlab_1.0.4.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz", repos=NULL, type="source")'
-RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/rgeos_0.5-9.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("sf", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("sftime", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("stars", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("intervals", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("spacetime", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("FNN", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("gstat", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("reshape", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("maptools", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("automap", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("matlab", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("metScanR", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("rgeos", repos="http://cran.us.r-project.org")'
 
 # Include a build script for making directories from a text file,
 # in the format provided by the rainfall source code.
