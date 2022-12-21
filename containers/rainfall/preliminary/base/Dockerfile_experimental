@@ -1,0 +1,75 @@
+FROM ikewai/task-base
+
+## PACKAGE/LIBRARY INSTALLATIONS ##
+# Fetch the latest apt repo information.
+RUN apt update
+# Let APT know that we don't have a terminal.
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install libgdal.
+# RUN apt install -y libgdal-dev
+
+# Install OS dependencies for the rainfall workflows.
+RUN apt install -y libxml2-dev
+RUN apt install -y libssl-dev
+RUN apt install -y curl libcurl4-openssl-dev
+RUN apt install -y libgdal-dev gdal-bin
+RUN apt install -y libxtst-dev libxt6 libxrender1
+RUN apt install -y libudunits2-dev
+
+RUN R -e 'install.packages("jetpack", repos="http://cran.us.r-project.org)'
+
+WORKDIR /home/hawaii_climate_products_container
+
+RUN R -e 'jetpack::init()'
+
+RUN R -e 'jetpack::add("proj")'
+RUN R -e 'jetpack::add("sp")'
+RUN R -e 'jetpack::add("geosphere")'
+RUN R -e 'jetpack::add("spatial")'
+RUN R -e 'jetpack::add("sf")'
+RUN R -e 'jetpack::add("raster")'
+RUN R -e 'jetpack::add("ggplot2")'
+RUN R -e 'jetpack::add("xts")'
+RUN R -e 'jetpack::add("leaflet")'
+RUN R -e 'jetpack::add("matlab")'
+RUN R -e 'jetpack::add("rcurl")'
+RUN R -e 'jetpack::add("doParallel")'
+RUN R -e 'jetpack::add("fitdistrplus")'
+RUN R -e 'jetpack::add("tidyr")'
+RUN R -e 'jetpack::add("e1071")'
+RUN R -e 'jetpack::add("Metrics")'
+RUN R -e 'jetpack::add("data.table")'
+RUN R -e 'jetpack::add("randomForest@4.6-14")'
+RUN R -e 'jetpack::add("caret")'
+RUN R -e 'jetpack::add("dplyr@1.0-8")'
+RUN R -e 'jetpack::add("matrixStats")'
+RUN R -e 'jetpack::add("svMisc")'
+RUN R -e 'jetpack::add("colorRamps")'
+RUN R -e 'jetpack::add("rgdal")'
+RUN R -e 'jetpack::add("abind")'
+RUN R -e 'jetpack::add("lwgeom")'
+RUN R -e 'jetpack::add("sftime")'
+RUN R -e 'jetpack::add("stars")'
+RUN R -e 'jetpack::add("intervals")'
+RUN R -e 'jetpack::add("spacetime")'
+RUN R -e 'jetpack::add("FNN")'
+RUN R -e 'jetpack::add("gstat")'
+RUN R -e 'jetpack::add("reshape")'
+RUN R -e 'jetpack::add("maptools")'
+RUN R -e 'jetpack::add("automap")'
+RUN R -e 'jetpack::add("metScanR@1.2-2")'
+RUN R -e 'jetpack::add("rgeos")'
+
+# Include a build script for making directories from a text file,
+# in the format provided by the rainfall source code.
+ADD /tools/build-tools/rainfall-specific/mkdir_from_txt.py /build/mkdir_from_txt.py
+
+# Include a build script for downloading files specified
+# in a JSON document.
+ADD /tools/build-tools/wget_from_json.py /build/wget_from_json.py
+
+## OPERATIONS ##
+# Create the build's manifest.
+ADD /containers/rainfall/preliminary/base/repos.json /build/repos.json
+RUN python3 /tools/tagging-tools/make_build_manifest.py /build/repos.json /build/manifest.json
