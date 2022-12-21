@@ -25,11 +25,6 @@
         "tag": "latest"
     },
     {
-        "rel_location": "containers/core/task-base",
-        "image_name": "ikewai/task-base",
-        "tag": "latest"
-    },
-    {
         "rel_location": "containers/rainfall/preliminary/base",
         "image_name": "ikewai/task-rf-pre-base",
         "tag": "latest"
@@ -50,28 +45,13 @@
         "tag": "latest"
     },
     {
-        "rel_location": "containers/ingestion",
+        "rel_location": "containers/ingestion/station_metadata",
         "image_name": "ikewai/task-ingestion",
         "tag": "latest"
     },
     {
-        "rel_location": "containers/shared/acquisition/base",
-        "image_name": "ikewai/task-sh-aq-base",
-        "tag": "latest"
-    },
-    {
-        "rel_location": "containers/shared/acquisition/hads-daily",
-        "image_name": "ikewai/task-sh-aq-hads-daily",
-        "tag": "latest"
-    },
-    {
-        "rel_location": "containers/shared/acquisition/madis-daily",
-        "image_name": "ikewai/task-sh-aq-madis-daily",
-        "tag": "latest"
-    },
-    {
-        "rel_location": "containers/shared/acquisition/nws-daily",
-        "image_name": "ikewai/task-sh-aq-nws-daily",
+        "rel_location": "containers/ingestion/station_values",
+        "image_name": "ikewai/task-ingestion",
         "tag": "latest"
     }
 ]

@@ -1,2 +1,2 @@
 #!/bin/bash
-git rev-parse --short=10 HEAD
+git rev-parse --short=8 HEAD
