@@ -16,3 +16,4 @@ for c in container_list:
     if c['tag'] == "latest":
         repo_hash = subprocess.run(["/bin/bash", "-c", "tools/tagging-tools/get_hash.sh"], capture_output=True).stdout.decode().strip("\n")
         cmd = f"docker push {c['image_name']}:{repo_hash}"
+        subprocess.run(["/bin/bash", "-c", cmd])
