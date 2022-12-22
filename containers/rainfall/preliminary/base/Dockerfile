@@ -17,64 +17,49 @@ RUN apt install -y libgdal-dev gdal-bin
 RUN apt install -y libxtst-dev libxt6 libxrender1
 RUN apt install -y libudunits2-dev
 
-# Install Anaconda.
-RUN wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh -O /build/Anaconda-installer.sh
-RUN /bin/bash '/build/Anaconda-installer.sh' '-b'
-# Add the Anaconda binaries to PATH.
-ENV PATH "$PATH:/root/anaconda3/bin:/root/anaconda3/condabin"
+RUN R -e 'install.packages("jetpack", repos="http://cran.us.r-project.org)'
 
-RUN conda create -n container_env
-SHELL ["/root/anaconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "-c"]
+WORKDIR /home/hawaii_climate_products_container
 
-# Update Anaconda
-RUN conda update -n base -c defaults conda
+RUN R -e 'jetpack::init()'
 
-# Install libmamba solver to accelerate installations
-RUN conda install conda-libmamba-solver
-RUN conda install --experimental-solver=libmamba -c conda-forge r-base 
-RUN conda install --experimental-solver=libmamba -c conda-forge r-base r-essentials
-
-
-
-# R dependencies for the rainfall workflows.
-RUN conda install --experimental-solver=libmamba -c conda-forge proj
-RUN conda install --experimental-solver=libmamba -c r r-sp
-RUN conda install --experimental-solver=libmamba -c r r-geosphere
-RUN conda install --experimental-solver=libmamba -c r r-raster
-RUN conda install --experimental-solver=libmamba -c r r-ggplot2
-RUN conda install --experimental-solver=libmamba -c r r-xts
-RUN conda install --experimental-solver=libmamba -c r r-leaflet
-RUN conda install --experimental-solver=libmamba -c r r-matlab
-RUN conda install --experimental-solver=libmamba -c r r-rcurl
-RUN conda install --experimental-solver=libmamba -c r r-doParallel
-RUN conda install --experimental-solver=libmamba -c conda-forge r-fitdistrplus
-RUN conda install --experimental-solver=libmamba -c r r-tidyr
-RUN conda install --experimental-solver=libmamba -c r r-e1071
-RUN conda install --experimental-solver=libmamba -c conda-forge r-metrics
-RUN conda install --experimental-solver=libmamba -c r r-data.table
-RUN conda install --experimental-solver=libmamba -c r r-randomForest
-RUN conda install --experimental-solver=libmamba -c r r-caret
-RUN conda install --experimental-solver=libmamba -c r r-dplyr
-RUN conda install --experimental-solver=libmamba -c r r-matrixStats
-RUN conda install --experimental-solver=libmamba -c r r-svMisc
-RUN conda install --experimental-solver=libmamba -c r r-colorRamps
-RUN conda install --experimental-solver=libmamba -c r r-rgdal
-RUN conda install --experimental-solver=libmamba -c conda-forge r-abind
-RUN conda install --experimental-solver=libmamba -c conda-forge r-lwgeom
-
-RUN R -e 'install.packages("sf", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("sftime", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("stars", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("intervals", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("spacetime", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("FNN", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("gstat", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("reshape", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("maptools", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("automap", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("matlab", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("metScanR", repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages("rgeos", repos="http://cran.us.r-project.org")'
+RUN R -e 'jetpack::add("proj")'
+RUN R -e 'jetpack::add("sp")'
+RUN R -e 'jetpack::add("geosphere")'
+RUN R -e 'jetpack::add("spatial")'
+RUN R -e 'jetpack::add("sf")'
+RUN R -e 'jetpack::add("raster")'
+RUN R -e 'jetpack::add("ggplot2")'
+RUN R -e 'jetpack::add("xts")'
+RUN R -e 'jetpack::add("leaflet")'
+RUN R -e 'jetpack::add("matlab")'
+RUN R -e 'jetpack::add("rcurl")'
+RUN R -e 'jetpack::add("doParallel")'
+RUN R -e 'jetpack::add("fitdistrplus")'
+RUN R -e 'jetpack::add("tidyr")'
+RUN R -e 'jetpack::add("e1071")'
+RUN R -e 'jetpack::add("Metrics")'
+RUN R -e 'jetpack::add("data.table")'
+RUN R -e 'jetpack::add("randomForest@4.6-14")'
+RUN R -e 'jetpack::add("caret")'
+RUN R -e 'jetpack::add("dplyr@1.0-8")'
+RUN R -e 'jetpack::add("matrixStats")'
+RUN R -e 'jetpack::add("svMisc")'
+RUN R -e 'jetpack::add("colorRamps")'
+RUN R -e 'jetpack::add("rgdal")'
+RUN R -e 'jetpack::add("abind")'
+RUN R -e 'jetpack::add("lwgeom")'
+RUN R -e 'jetpack::add("sftime")'
+RUN R -e 'jetpack::add("stars")'
+RUN R -e 'jetpack::add("intervals")'
+RUN R -e 'jetpack::add("spacetime")'
+RUN R -e 'jetpack::add("FNN")'
+RUN R -e 'jetpack::add("gstat")'
+RUN R -e 'jetpack::add("reshape")'
+RUN R -e 'jetpack::add("maptools")'
+RUN R -e 'jetpack::add("automap")'
+RUN R -e 'jetpack::add("metScanR@1.2-2")'
+RUN R -e 'jetpack::add("rgeos")'
 
 # Include a build script for making directories from a text file,
 # in the format provided by the rainfall source code.
@@ -83,8 +68,3 @@ ADD /tools/build-tools/rainfall-specific/mkdir_from_txt.py /build/mkdir_from_txt
 # Include a build script for downloading files specified
 # in a JSON document.
 ADD /tools/build-tools/wget_from_json.py /build/wget_from_json.py
-
-## OPERATIONS ##
-# Create the build's manifest.
-ADD /containers/rainfall/preliminary/base/repos.json /build/repos.json
-RUN python3 /tools/tagging-tools/make_build_manifest.py /build/repos.json /build/manifest.json
