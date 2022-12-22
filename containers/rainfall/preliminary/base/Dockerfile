@@ -15,7 +15,7 @@ RUN apt install -y libxtst-dev libxt6 libxrender1
 RUN apt install -y libudunits2-dev
 RUN apt install -y r-base
 
-RUN R -e 'install.packages("jetpack", repos="http://cran.us.r-project.org)'
+RUN R -e 'install.packages("jetpack", repos="http://cran.us.r-project.org")'
 
 WORKDIR /home/hawaii_climate_products_container
 
