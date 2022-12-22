@@ -22,14 +22,3 @@ RUN apt install -y git
 # Install the Tapipy and Agavepy SDKs.
 # For interacting with Tapis v3 and v2, respectively.
 RUN python3 -m pip install tapipy agavepy
-
-
-## FILE ADDITIONS ##
-# Add build manifest generator
-ADD /tools/tagging-tools/make_build_manifest.py /tools/tagging-tools/make_build_manifest.py
-
-
-## OPERATIONS ##
-# Create the build's manifest.
-ADD /containers/core/task-base/repos.json /build/repos.json
-RUN python3 /tools/tagging-tools/make_build_manifest.py /build/repos.json /build/manifest.json
