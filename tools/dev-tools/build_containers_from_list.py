@@ -31,10 +31,9 @@ for c in container_list:
     subprocess.run(["/bin/bash", "-c", cmd])
 
     if c['tag'] == "latest":
-        repo_hash = subprocess.run(["/bin/bash", "-c", "tools/tagging-tools/get_hash.sh"], capture_output=True).stdout.decode()
+        repo_hash = subprocess.run(["/bin/bash", "-c", "tools/tagging-tools/get_hash.sh"], capture_output=True).stdout.decode().strip("\n")
         cmd = f"docker build \
         -f {c['rel_location']}/Dockerfile \
-        {'--no-cache' if os.environ['BUILD_NO_CACHE']=='1' else ''} \
         -t {c['image_name']}:{repo_hash} ."
         print(f"Running command: {cmd}")
         subprocess.run(["/bin/bash", "-c", cmd])

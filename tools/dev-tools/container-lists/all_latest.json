@@ -46,12 +46,12 @@
     },
     {
         "rel_location": "containers/ingestion/station_metadata",
-        "image_name": "ikewai/task-ingestion",
+        "image_name": "ikewai/task-ingestion-metadata",
         "tag": "latest"
     },
     {
         "rel_location": "containers/ingestion/station_values",
-        "image_name": "ikewai/task-ingestion",
+        "image_name": "ikewai/task-ingestion-values",
         "tag": "latest"
     }
 ]
