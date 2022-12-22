@@ -16,4 +16,4 @@ RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_contai
 # Copy in the task script.
 ADD /containers/rainfall/preliminary/aggregation/monthly/scripts/task.sh /actor/task.sh
 
-CMD [ "/root/anaconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "/actor/task.sh" ]
+CMD [ "/bin/bash", "/actor/task.sh" ]

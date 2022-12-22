@@ -1,5 +1,4 @@
 #!/bin/bash
-CONDA_CMD="/root/anaconda3/bin/conda run --no-capture-output -n container_env"
 echo "[task.sh] [1/6] Starting Execution."
 
 echo "[task.sh] [2/6] Acquiring and decompressing Daily Dependencies Archive."
@@ -15,8 +14,8 @@ wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annot
 
 echo "[task.sh] [4/6] Aggregating Rainfall data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
-$CONDA_CMD Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R
-$CONDA_CMD Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R
+Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R
+Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R
 
 echo "[task.sh] [5/6] Preparing for upload."
 cd /sync
@@ -25,6 +24,6 @@ python3 add_upload_list_to_config.py upload_config_datestrings_loaded.json confi
 python3 add_auth_info_to_config.py config.json
 
 echo "[task.sh] [6/6] [disabled] Attempting to upload the aggregated data."
-#python3 upload.py
+python3 upload.py
 
 echo "[task.sh] All done!"

@@ -6,9 +6,6 @@ RUN apt update
 # Let APT know that we don't have a terminal.
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install libgdal.
-# RUN apt install -y libgdal-dev
-
 # Install OS dependencies for the rainfall workflows.
 RUN apt install -y libxml2-dev
 RUN apt install -y libssl-dev
@@ -16,6 +13,7 @@ RUN apt install -y curl libcurl4-openssl-dev
 RUN apt install -y libgdal-dev gdal-bin
 RUN apt install -y libxtst-dev libxt6 libxrender1
 RUN apt install -y libudunits2-dev
+RUN apt install -y r-base
 
 RUN R -e 'install.packages("jetpack", repos="http://cran.us.r-project.org)'
 
