@@ -23,9 +23,9 @@ except:
 #   will be used, which tells Docker not to use any cached build steps. This is useful when
 #   you want to force an apt update or remote download calls (wget, curl).
 # If the tag is set to "latest", the script will create an extra tag with the
-#   first eight characters of the host repo's latest commit hash.
-#   Example: ikewai/task-base:427cfadd (is equal to) ikewai/task-base:latest,
-#   when 427cfadd is the most recent commit to the main branch of the build repo.
+#   first seven characters of the host repo's latest commit hash.
+#   Example: ikewai/task-base:427cfad (is equal to) ikewai/task-base:latest,
+#   when 427cfad is the most recent commit to the main branch of the build repo.
 for c in container_list:
     cmd = f"docker build \
         -f {c['rel_location']}/Dockerfile \
