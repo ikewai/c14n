@@ -10,6 +10,10 @@ fin = sys.argv[1]
 fin = open(fin, "rt")
 container_list = json.loads(fin.read())
 
+try:
+    BUILD_NO_CACHE = os.environ['BUILD_NO_CACHE']
+except:
+    BUILD_NO_CACHE = '0'
 # For every container provided by the file, we build the container according to the key/value pairs.
 # An example build would be
 # `docker build -f containers/airtemp/base/Dockerfile -t ikewai/task-at-base:latest .`
@@ -25,7 +29,7 @@ container_list = json.loads(fin.read())
 for c in container_list:
     cmd = f"docker build \
         -f {c['rel_location']}/Dockerfile \
-        {'--no-cache' if os.environ['BUILD_NO_CACHE']=='1' else ''} \
+        {'--no-cache' if BUILD_NO_CACHE=='1' else ''} \
         -t {c['image_name']}:{c['tag']} ."
     print(f"Running command: {cmd}")
     subprocess.run(["/bin/bash", "-c", cmd])
