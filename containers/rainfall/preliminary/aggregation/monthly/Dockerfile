@@ -10,8 +10,11 @@ ADD /containers/rainfall/preliminary/aggregation/monthly/data/sh_script_list.jso
 RUN python3 /build/wget_from_json.py /build/r_script_list.json
 RUN python3 /build/wget_from_json.py /build/sh_script_list.json
 
+# Shim the R scripts with jetpack.
+RUN sed -i '1 s/^/jetpack::load()\n/' /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/*.R
+
 # Download the uploader configuration.
-RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/monthly/upload_config_monthly_RF.txt -O /sync/upload_config.json
+RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/monthly/upload_config.json -O /sync/upload_config.json
 
 # Copy in the task script.
 ADD /containers/rainfall/preliminary/aggregation/monthly/scripts/task.sh /actor/task.sh
