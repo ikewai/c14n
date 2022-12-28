@@ -1,6 +1,6 @@
 ## Air Temperature Aggregation Containers
 
-These containers handle the processes of aggregating, mapping, and quality-controlling air temperature data, which is originally collected by the [data acquisition containers](containers/shared/acquisition).
+These containers handle the processes of aggregating, quality-controlling, and mapping air temperature data, which is originally collected by the [data acquisition containers](containers/shared/acquisition).
 
 Contents:
 * [`base`](containers/airtemp/aggregation/base): Essential libraries, scripts, and directory setup.
