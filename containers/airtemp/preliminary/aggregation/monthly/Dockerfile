@@ -10,15 +10,15 @@ ADD /tools/build-tools/airtemp-specific/mkdir_from_txt_monthlyagg.py /build/mkdi
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/monthly/docs/currentDirs.txt -O /build/currentDirs.txt
 RUN /bin/python3 /build/mkdir_from_txt_monthlyagg.py /build/currentDirs.txt
 
-# Get workflow scripts
+# Get workflow scripts. The list of scripts is provided by this repo, and points to the workflow code repo.
 ADD /containers/airtemp/preliminary/aggregation/monthly/data/py_script_list.json /build/py_script_list.json
 RUN python3 /build/wget_from_json.py /build/py_script_list.json
 
-# Get upload config
+# Get the container's upload config as specified in the code repo.
 WORKDIR /sync
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/monthly/docs/upload_config.json
 
-# Add task wrapper script
+# Add the task wrapper script.
 ADD /containers/airtemp/preliminary/aggregation/monthly/scripts/task.sh /actor/task.sh
 
 # This container is intended to run the task wrapper at launch, unless otherwise specified at run-time.
