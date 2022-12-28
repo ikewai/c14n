@@ -1,0 +1,23 @@
+## Containers
+
+Quick links:
+* [Data Acquisition](containers/shared/acquisition)
+* [Air Temperature Aggregation and Mapping](containers/airtemp/preliminary/aggregation)
+    * [Daily: Dockerfile](containers/airtemp/preliminary/aggregation/daily/Dockerfile)
+    * [Daily: Workflow Wrapper](containers/airtemp/preliminary/aggregation/daily/scripts/task.sh)
+    * [Daily: Workflow Code](https://github.com/ikewai/hawaii_climate_products_container/tree/main/preliminary/air_temp/daily/code)
+    * [Monthly: Dockerfile](containers/airtemp/preliminary/aggregation/monthly/Dockerfile)
+    * [Monthly: Workflow Wrapper](containers/airtemp/preliminary/aggregation/monthly/scripts/task.sh)
+    * [Monthly: Workflow Code](https://github.com/ikewai/hawaii_climate_products_container/tree/main/preliminary/air_temp/monthly/code)
+* [Rainfall Aggregation and Mapping](containers/rainfall/preliminary/aggregation)
+    * [Daily: Dockerfile](containers/rainfall/preliminary/aggregation/daily/Dockerfile)
+    * [Daily: Workflow Wrapper](containers/rainfall/preliminary/aggregation/daily/scripts/task.sh)
+    * [Daily: Workflow Code](https://github.com/ikewai/hawaii_climate_products_container/tree/main/preliminary/rainfall/code/daily)
+    * [Monthly: Dockerfile](containers/rainfall/preliminary/aggregation/monthly/Dockerfile)
+    * [Monthly: Workflow Wrapper](containers/rainfall/preliminary/aggregation/monthly/scripts/task.sh)
+    * [Monthly: Workflow Code](https://github.com/ikewai/hawaii_climate_products_container/tree/main/preliminary/rainfall/code/monthly)
+* [Metadata/Value Ingestion](containers/ingestion)
+    * [Station Metadata: Dockerfile](containers/ingestion/station_metadata/Dockerfile)
+    * [Station Metadata: Workflow Wrapper](containers/ingestion/station_metadata/scripts/task.sh)
+    * [Station Values: Dockerfile](containers/ingestion/station_values/Dockerfile)
+    * [Station Values: Workflow Wrapper](containers/ingestion/station_values/scripts/task.sh)
