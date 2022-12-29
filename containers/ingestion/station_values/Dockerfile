@@ -4,7 +4,7 @@ FROM ikewai/task-base
 RUN apt install -y curl
 
 # Bring in the script acquirer.
-ADD /tools/build-tools/wget_from_json.py /build/.
+ADD /tools/build-tools/wget_from_json.py /build/wget_from_json.py
 
 # Copy in the config datestring updater.
 ADD /tools/runtime-tools/uploader-utilities/update_date_string_in_config.py /actor/update_date_string_in_config.py
