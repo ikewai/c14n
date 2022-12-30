@@ -18,7 +18,3 @@ ADD /tools/runtime-tools/uploader-utilites/* /sync
 # Create directories and pull scripts for acquisition.
 RUN python3 /tools/build-tools/mkdir_from_json.py /build/directories_to_create.json
 RUN python3 /tools/build-tools/wget_from_json.py /build/files_to_acquire.json
-
-# Create the build's manifest.
-ADD /containers/shared/acquisition/base/repos.json /build/repos.json
-RUN python3 /tools/tagging-tools/make_build_manifest.py /build/repos.json /build/manifest.json

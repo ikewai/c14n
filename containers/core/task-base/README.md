@@ -12,5 +12,3 @@ Build includes:
     * [Tapipy](https://pypi.org/project/tapipy/) (Latest Stable on PyPI)
     * [Agavepy](https://pypi.org/project/agavepy/) (Latest Stable on PyPI)
 
-* Build Tools:
-    * Manifest Generator [(make_build_manifest.py)](../../../tools/tagging-tools/make_build_manifest.py)

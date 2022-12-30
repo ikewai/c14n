@@ -35,7 +35,3 @@ ADD /tools/build-tools/airtemp-specific/mkdir_from_txt.py /build/mkdir_from_txt.
 
 # Bring in the script acquirer.
 ADD /tools/build-tools/wget_from_json.py /build/wget_from_json.py
-## OPERATIONS ##
-# Create the build's manifest.
-ADD /containers/airtemp/preliminary/base/repos.json /build/repos.json
-RUN python3 /tools/tagging-tools/make_build_manifest.py /build/repos.json /build/manifest.json
