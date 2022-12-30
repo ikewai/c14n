@@ -15,7 +15,9 @@ wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annot
 
 echo "[task.sh] [4/6] Aggregating Rainfall data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
+echo "---daily_to_monthly_agg_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R
+echo "---monthly_rf_krig_map_makr_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R
 
 echo "[task.sh] [5/6] Preparing for upload."

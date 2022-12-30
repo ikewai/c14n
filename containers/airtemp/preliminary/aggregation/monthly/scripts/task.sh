@@ -3,12 +3,17 @@ echo "[task.sh] [1/4] Starting Execution."
 
 echo "[task.sh] [2/4] Mapping Airtemp data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/
-
+echo "---monthly_map_wget.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_map_wget.py
+echo "---monthly_meta_wget.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/update_monthly_predictor.py
+echo "---monthly_map_wrapper.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_map_wrapper.py
+echo "---monthly_meta_wrapper.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_meta_wrapper.py
+echo "---monthly_state_wrapper.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_state_wrapper.py
+echo "---monthly_stn_data.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_stn_data.py
 
 echo "[task.sh] [3/4] Preparing to upload data."

@@ -9,11 +9,17 @@ rm daily_dependencies.tar.gz
 
 echo "[task.sh] [3/5] Aggregating Rainfall data on the daily timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/daily
+echo "---hads_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/hads_daily_rf_FINAL.R
+echo "---nws_rr5_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/nws_rr5_daily_rf_FINAL.R
+echo "---madis_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/madis_daily_rf_FINAL.R
+echo "---all_data_daily_merge_table_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/all_data_daily_merge_table_rf_FINAL.R
+echo "---qaqc_randfor_bad_data_flag_remove_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/qaqc_randfor_bad_data_flag_remove_rf_FINAL.R
+echo "---daily_gap_fill_NR_only_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/daily_gap_fill_NR_only_rf_FINAL.R
 
 echo "[task.sh] [4/5] Preparing for upload."
