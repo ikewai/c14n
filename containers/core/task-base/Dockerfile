@@ -18,6 +18,10 @@ RUN apt install -y wget
 # For pulling and interacting with repositories.
 RUN apt install -y git
 
+# Install nano.
+# For debugging and working directly in a container.
+RUN apt install -y nano
+
 # Install the Tapipy and Agavepy SDKs.
 # For interacting with Tapis v3 and v2, respectively.
 RUN python3 -m pip install tapipy agavepy
