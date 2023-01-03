@@ -1,0 +1,8 @@
+# This is a temporary container definition for testing daily rainfall aggregation based on the original prod tag
+
+FROM ikewai/task-rf-pre-agg-daily:prod
+
+# Get the container's upload config as specified in the workflow code repo.
+RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/daily/upload_config.json -O /sync/upload_config.json
+
+CMD [ "/root/miniconda3/bin/conda", "run", "--no-capture-output", "-n", "container_env", "/bin/bash", "/actor/task.sh" ]
