@@ -17,7 +17,7 @@ RUN apt install -y r-base
 
 WORKDIR /build
 
-RUN R -e 'install.packages("sp", version="1.5-0", repos="https://ftp.ussg.iu.edu/CRAN/")'
+RUN R -e 'install.packages("sp", version="1.4-7", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `sp@1.5-1`: R >= 3.0.0
 RUN R -e 'install.packages("geosphere", version="1.5-14", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `geosphere@1.5-18`: R >= 3.0.0
@@ -27,7 +27,7 @@ RUN R -e 'install.packages("sf", version="1.0-9", repos="https://ftp.ussg.iu.edu
 # `sf@1.0-9`: R >= 3.3.0
 RUN R -e 'install.packages("raster", version="3.5-15", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `raster@3.6-11`: R >= 3.5.0; sp >=1.4-5
-RUN R -e 'install.packages("ggplot2", version="3.4-0", repos="https://ftp.ussg.iu.edu/CRAN/")'
+RUN R -e 'install.packages("ggplot2", version="3.3-6", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `ggplot2@3.4-0`: R >= 3.3.0
 RUN R -e 'install.packages("zoo", version="1.8-10", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `zoo@1.8-11`: R >= 3.1.0
@@ -45,9 +45,9 @@ RUN R -e 'install.packages("iterators", version="1.0-14", repos="https://ftp.uss
 # `iterators@1.0-14`: R >= 2.5.0
 RUN R -e 'install.packages("doParallel", version="1.0-17", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `doParallel@1.0-17`: R >= 2.14.0; foreach >= 1.2.0; iterators >= 1.0.0
-RUN R -e 'install.packages("MASS", version="7.3.55", repos="https://ftp.ussg.iu.edu/CRAN/")'
+RUN R -e 'install.packages("MASS", version="7.3.57", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `MASS@7.3-58.1`: R >= 3.3.0
-RUN R -e 'install.packages("survival", version="3.2.13", repos="https://ftp.ussg.iu.edu/CRAN/")'
+RUN R -e 'install.packages("survival", version="3.3.1", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `survival@3.4.0`: R >= 3.5.0
 RUN R -e 'install.packages("fitdistrplus", version="1.1.8", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `fitdistrplus@1.1-8`: R >= 3.5.0; MASS >= 7.3-58.1; survival >= 3.4-0
@@ -99,7 +99,7 @@ RUN R -e 'install.packages("automap", version="1.0-16", repos="https://ftp.ussg.
 # `automap@1.0-16`: R >= 2.10.0; sp >= 0.9-55
 RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/metScanR/metScanR_1.2.3.tar.gz", type="source", repos=NULL)'
 # `metScanR@1.2-3`: R >= 3.3.0; Note: this package is only accessible via archive.
-RUN R -e 'install.packages("rgeos", version="0.6-1", repos="https://ftp.ussg.iu.edu/CRAN/")'
+RUN R -e 'install.packages("rgeos", version="0.5-9", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `rgeos@0.6-1`: R >= 3.3.0; sp >= 1.1-0
 
 # Include a build script for making directories from a text file,
