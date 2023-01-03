@@ -17,7 +17,6 @@ RUN apt install -y r-base
 
 WORKDIR /build
 ADD containers/rainfall/preliminary/base/Rprofile.site /etc/R/Rprofile.site
-RUN Rscript set_repo.R
 
 RUN R -e 'install.packages("sp", version="1.5-0")'
 # `sp@1.5-1`: R >= 3.0.0
