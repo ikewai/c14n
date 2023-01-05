@@ -18,7 +18,7 @@ RUN apt install -y libgdal-dev
 RUN python3 -m pip install numpy==1.21.2
 RUN python3 -m pip install scipy==1.7.3
 RUN python3 -m pip install gdal==$(gdal-config --version)
-RUN python3 -m pip install rasterio==1.1.0
+RUN python3 -m pip install rasterio
 RUN python3 -m pip install matplotlib==3.5.0
 RUN python3 -m pip install pandas==1.3.5
 RUN python3 -m pip install affine==2.3.0
