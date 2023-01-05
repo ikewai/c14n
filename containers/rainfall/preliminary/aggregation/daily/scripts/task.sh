@@ -7,6 +7,11 @@ wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annot
 tar -xf daily_dependencies.tar.gz
 rm daily_dependencies.tar.gz
 
+CURRENT_YEAR=$(date +"%Y")
+CURRENT_MONTH=$(date +"%m")
+wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/production/rainfall/new/day/statewide/partial/station_data/$CURRENT_YEAR/$CURRENT_MONTH/rainfall_new_day_statewide_partial_station_data_$CURRENT_YEAR_$CURRENT_MONTH.csv
+wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/production/rainfall/new/day/statewide/raw/station_data/$CURRENT_YEAR/$CURRENT_MONTH/rainfall_new_day_statewide_raw_station_data_$CURRENT_YEAR_$CURRENT_MONTH.csv
+
 echo "[task.sh] [3/5] Aggregating Rainfall data on the daily timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/daily
 echo "---hads_daily_rf_FINAL.R---"
