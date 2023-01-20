@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "[task.sh] [1/4] Starting Execution."
+export TZ="HST"
 
 echo "[task.sh] [2/4] Mapping Airtemp data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/

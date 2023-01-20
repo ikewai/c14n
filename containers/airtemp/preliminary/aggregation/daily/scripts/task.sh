@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "[task.sh] [1/5] Starting Execution."
+export TZ="HST"
 
 echo "[task.sh] [2/5] Aggregating Airtemp data on the daily timeframe."
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/code

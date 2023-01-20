@@ -30,6 +30,9 @@ RUN python3 -m pip install python-dotenv
 RUN python3 -m pip install pathlib
 RUN python3 -m pip install xarray
 
+# Install a data package that allows for easily setting time zones in a shell script.
+RUN apt install -y tzdata
+
 # Bring in the airtemp-specific script for making directories.
 ADD /tools/build-tools/airtemp-specific/mkdir_from_txt.py /build/mkdir_from_txt.py
 
