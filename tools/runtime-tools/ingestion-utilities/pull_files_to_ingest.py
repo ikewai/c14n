@@ -1,4 +1,4 @@
-# Downloads files according to the "file_pulls" field in an ingestion config.
+# Pulls the files specified by the download section of an ingestion config
 
 import json
 import sys
@@ -9,10 +9,9 @@ fname = str(sys.argv[1])
 with open(fname, "rt") as config_file:
     config_dict: dict = json.loads(config_file.read())
 
-file_pulls = config_dict["data"][0]["file_pulls"]
+base_url = config_dict["download_base_url"]
+files_to_download = config_dict["download"]
 
-for pull in file_pulls:
-    mkdir_command: str = f"mkdir -p {pull['placement_dir']}"
-    subprocess.run(["/bin/bash", "-c", mkdir_command])
-    wget_command: str = f"wget {pull['url']} -O {pull['placement_dir']}/{pull['rename']}"
-    subprocess.run(["/bin/bash", "-c", wget_command])
+for file in files_to_download:
+    wget_cmd: str = f"wget {base_url}{file}"
+    subprocess.run(["/bin/bash", "-c", wget_cmd])
