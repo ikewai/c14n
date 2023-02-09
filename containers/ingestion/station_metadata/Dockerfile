@@ -34,4 +34,6 @@ ADD /tools/runtime-tools/ingestion-utilities/get_auth_token.py /actor/get_auth_t
 
 ADD /containers/ingestion/station_metadata/scripts/task.sh /actor/task.sh
 
+RUN mkdir /ingest
+
 CMD [ "/bin/bash", "/actor/task.sh" ]

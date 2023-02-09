@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "[task.sh] Starting Execution."
-cd /home/hcdp_tapis_ingestor/station_metadata
+cd /ingest
 
 echo "[task.sh] [1/6] Downloading ingestion config."
 wget $INGESTION_CONFIG_URL -O config.json
