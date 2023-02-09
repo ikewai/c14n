@@ -15,13 +15,13 @@ then
 fi
 
 echo "[task.sh] [3/6] Pulling files to ingest."
-python3 /actor/pull_files_to_ingest.py /home/hcdp_tapis_ingestor/station_metadata/config.json
+python3 /actor/pull_files_to_ingest.py config.json
 
 echo "[task.sh] [4/6] Getting and setting authentication token."
 python3 /actor/get_auth_token.py IW_TOKEN.txt
 
 echo "[task.sh] [5/6] Injecting authentication into config."
-python3 /actor/inject_auth.py IW_TOKEN.txt /home/hcdp_tapis_ingestor/station_metadata/config.json
+python3 /actor/inject_auth.py IW_TOKEN.txt config.json
 
 echo "[task.sh] [6/6] Ingesting station values."
 python3 /home/hcdp_tapis_ingestor/station_metadata/driver.py config.json
