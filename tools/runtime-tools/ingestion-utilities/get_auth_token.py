@@ -12,7 +12,7 @@ fout = open(output_file, "wt")
 # Make request to Agave (tapis v2) API server.
 # This is using a raw cURL request because, for this particular use, agavepy and requests are **cursed**.
 api_endpoint = "https://agaveauth.its.hawaii.edu/token"
-cmd = f"curl -sku '{os.environ['IW_API_KEY']}:{os.environ['IW_API_SECRET']}' -d grant_type=password -d username={os.environ['IW_USERNAME']} -d password={os.environ['IW_PASSWORD']} -d scope=PRODUCTION {api_endpoint}"
+cmd = f"curl -sku '{os.environ['IW_API_KEY']}:{os.environ['IW_API_SECRET']}' -d grant_type=password -d username={os.environ['IW_USERNAME']} -d password={os.environ['IW_PASSWORD']} -d scope=PRODUCTION -d client_name={os.environ['IW_CLIENT_NAME']} {api_endpoint}"
 res = subprocess.run(["/bin/bash", "-c", cmd], capture_output=True)
 
 # Get token from response.
