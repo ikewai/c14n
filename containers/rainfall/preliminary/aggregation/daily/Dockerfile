@@ -8,9 +8,12 @@ RUN python3 /build/mkdir_from_txt.py /build/currentDirs.txt
 # Get workflow scripts. The list of scripts is provided by this repo, and points to the workflow code repo.
 ADD /containers/rainfall/preliminary/aggregation/daily/data/r_script_list.json /build/r_script_list.json
 RUN python3 /build/wget_from_json.py /build/r_script_list.json
+ADD /containers/rainfall/preliminary/aggregation/daily/data/daily_wget.json /build/daily_wget.json
+RUN python3 /build/wget_from_json.py /build/daily_wget.json
 
 # Get the container's upload config as specified in the workflow code repo.
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/daily/upload_config.json -O /sync/upload_config.json
+RUN wget https://raw.githubusercontent.com/ikewai/preliminary-rainfall-daily-code/main/upload_config.json -O /sync/intermediate_upload_config.json
 
 # Copy in the task wrapper script.
 ADD /containers/rainfall/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh

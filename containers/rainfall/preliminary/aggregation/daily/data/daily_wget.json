@@ -1,0 +1,7 @@
+{
+    "remote_url": "https://raw.githubusercontent.com/ikewai/preliminary-rainfall-daily-code/main/",
+    "local_dir": "/home/hawaii_climate_products_container/",
+    "files": [
+        "rf_daily_wget.sh"
+    ]
+}
