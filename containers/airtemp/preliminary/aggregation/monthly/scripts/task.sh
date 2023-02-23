@@ -1,21 +1,27 @@
 #!/bin/bash
 echo "[task.sh] [1/4] Starting Execution."
 export TZ="HST"
+if [ $AGGREGATION_DATE ]; then
+    echo "Aggregation date is: " $AGGREGATION_DATE
+else
+    export AGGREGATION_DATE=`date --iso-8601`
+    echo "Aggregation date is: " $AGGREGATION_DATE
+fi
 
 echo "[task.sh] [2/4] Mapping Airtemp data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/
 echo "---monthly_map_wget.py---"
-python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_map_wget.py
+python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_map_wget.py $AGGREGATION_DATE
 echo "---update_monthly_predictor.py---"
-python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/update_monthly_predictor.py
+python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/update_monthly_predictor.py $AGGREGATION_DATE
 echo "---monthly_map_wrapper.py---"
-python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_map_wrapper.py
+python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_map_wrapper.py $AGGREGATION_DATE
 echo "---monthly_meta_wrapper.py---"
-python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_meta_wrapper.py
+python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_meta_wrapper.py $AGGREGATION_DATE
 echo "---monthly_state_wrapper.py---"
-python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_state_wrapper.py
+python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_state_wrapper.py $AGGREGATION_DATE
 echo "---monthly_stn_data.py---"
-python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_stn_data.py
+python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_stn_data.py $AGGREGATION_DATE
 
 echo "[task.sh] [3/4] Preparing to upload data."
 cd /sync
