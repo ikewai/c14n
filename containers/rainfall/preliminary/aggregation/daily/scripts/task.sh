@@ -27,13 +27,22 @@ Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/
 echo "---daily_gap_fill_NR_only_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/daily_gap_fill_NR_only_rf_FINAL.R
 
-echo "[task.sh] [5/6] Preparing for upload."
+echo "[task.sh] [5/8] Preparing for intermediate data upload."
+cd /sync
+python3 update_date_string_in_config.py intermediate_upload_config.json intermediate_upload_config_datestrings_loaded.json
+python3 add_upload_list_to_config.py intermediate_upload_config_datestrings_loaded.json config.json
+python3 add_auth_info_to_config.py config.json
+
+echo "[task.sh] [6/8] Attempting to upload the aggregated intermediate data."
+python3 upload.py
+
+echo "[task.sh] [7/8] Preparing for production data upload."
 cd /sync
 python3 update_date_string_in_config.py upload_config.json upload_config_datestrings_loaded.json
 python3 add_upload_list_to_config.py upload_config_datestrings_loaded.json config.json
 python3 add_auth_info_to_config.py config.json
 
-echo "[task.sh] [6/6] Attempting to upload the aggregated data."
+echo "[task.sh] [8/8] Attempting to upload the aggregated production data."
 python3 upload.py
 
 echo "[task.sh] All done!"
