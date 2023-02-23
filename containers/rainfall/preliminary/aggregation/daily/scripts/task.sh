@@ -1,18 +1,18 @@
 #!/bin/bash
-echo "[task.sh] [1/6] Starting Execution."
+echo "[task.sh] [1/8] Starting Execution."
 
-echo "[task.sh] [2/6] Acquiring Daily Dependencies."
+echo "[task.sh] [2/8] Acquiring Daily Dependencies."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
 wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/rainfall/HCDP_dependicies/daily_dependencies.tar.gz
 tar -xf daily_dependencies.tar.gz
 rm daily_dependencies.tar.gz
 
-echo "[task.sh] [3/6] Acquiring yesterday's cumulative aggregation file, if it exists."
+echo "[task.sh] [3/8] Acquiring yesterday's cumulative aggregation file, if it exists."
 cd /home/hawaii_climate_products_container
 echo "---rf_daily_wget.sh---"
 bash rf_daily_wget.sh
 
-echo "[task.sh] [4/6] Aggregating Rainfall data on the daily timeframe."
+echo "[task.sh] [4/8] Aggregating Rainfall data on the daily timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/daily
 echo "---hads_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/hads_daily_rf_FINAL.R
