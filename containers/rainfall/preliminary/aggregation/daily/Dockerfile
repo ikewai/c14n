@@ -10,6 +10,8 @@ ADD /containers/rainfall/preliminary/aggregation/daily/data/r_script_list.json /
 RUN python3 /build/wget_from_json.py /build/r_script_list.json
 ADD /containers/rainfall/preliminary/aggregation/daily/data/daily_wget.json /build/daily_wget.json
 RUN python3 /build/wget_from_json.py /build/daily_wget.json
+ADD /containers/rainfall/preliminary/aggregation/daily/data/r_module_list.json /build/r_module_list.json
+RUN python3 /build/wget_from_json.py /build/r_module_list.json
 
 # Get the container's upload config as specified in the workflow code repo.
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/daily/upload_config.json -O /sync/upload_config.json
