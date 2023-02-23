@@ -6,7 +6,7 @@ echo "[task.sh] [2/4] Mapping Airtemp data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/
 echo "---monthly_map_wget.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_map_wget.py
-echo "---monthly_meta_wget.py---"
+echo "---update_monthly_predictor.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/update_monthly_predictor.py
 echo "---monthly_map_wrapper.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/monthly_map_wrapper.py
