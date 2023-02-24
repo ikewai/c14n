@@ -38,7 +38,7 @@ for line in fin:
         newline = newline.replace('%m', date_preceding_zero(dtYesterday.month))
         newline = newline.replace('%d', date_preceding_zero(dtYesterday.day))
     fout.write(newline)
-    print(f"Saved as {sys.argv[2]}")
+print(f"Saved as {sys.argv[2]}")
 #close input and output files
 fin.close()
 fout.close()

@@ -25,8 +25,9 @@ RUN /bin/python3 /build/wget_from_json.py /build/station_metadata_python_modules
 RUN /bin/python3 /build/wget_from_json.py /build/station_values_file_list.json
 RUN /bin/python3 /build/wget_from_json.py /build/station_values_python_modules.json
 
-# Copy the file downloader
+# Copy the file downloader, make /ingest directory
 ADD /tools/runtime-tools/ingestion-utilities/pull_files_to_ingest.py /actor/pull_files_to_ingest.py
+RUN mkdir /ingest
 
 # Copy the ingestion utilities
 ADD /tools/runtime-tools/ingestion-utilities/inject_auth.py /actor/inject_auth.py
