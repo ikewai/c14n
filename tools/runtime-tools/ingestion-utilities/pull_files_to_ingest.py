@@ -13,5 +13,5 @@ base_url = config_dict["download_base_url"]
 files_to_download = config_dict["download"]
 
 for file in files_to_download:
-    wget_cmd: str = f"wget {base_url}{file} -O /ingest/{file}"
+    wget_cmd: str = f"wget -P /ingest {base_url}{file}"
     subprocess.run(["/bin/bash", "-c", wget_cmd])
