@@ -1,36 +1,31 @@
-## Workflow Data Ingestion Container
-
-THIS README IS OUTDATED; UPDATING COMING SOON
+## Ingestion Container for Weather Station Values
 
 A container for ingesting data from the science workflow as metadata for the gateway API.
 
-The build process pulls from [`ikewai/hcdp_tapis_ingestor`](https://github.com/ikewai/hcdp_tapis_ingestor) for the driver script and example config.
-Currently, it only uses the [station value](https://github.com/ikewai/hcdp_tapis_ingestor/tree/master/station_values) driver/config pair.
+The build process pulls from [`ikewai/hcdp_tapis_ingestor`](https://github.com/ikewai/hcdp_tapis_ingestor) for the driver script.
 
-The [task definition script](/containers/ingestion/scripts/task.sh) performs three operations:
-1. Pull an authentication token from the container's IW_TOKEN environment variable, which is provided by the host at runtime, and place it into the config file.
-2. Pull the configuration info (file list, metadata, etc) from the container's DRIVER_CONF environment variable, which is provided by the host at runtime, and place it into the config file.
-3. Execute the driver script.
+The [task definition script](/containers/ingestion/scripts/task.sh) performs 6 operations:
+1. Download the ingestion configuration as defined by `INGESTION_CONFIG_URL` and places it into `/home/hcdp_tapis_ingestor/station_values/` as `config.json`.
+2. If `UPDATE_DATES_IN_CONFIG` is set to true, replace `%y`, `%m`, `%d` in `config.json` with their respective values. TODO: Add ISO 8601 passthrough from env
+3. Downloads and places the files specified in `config.json`.
+4. Acquires a short-lived authentication token for the ingestor to execute with.
+5. Places the authentication token into `config.json`.
+6. Executes the ingestor.
 
-Environment Variable Examples:
+
+Minimum Environment Example:
 ```sh
-URLS_TO_GET="[\
-\"https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary_test/\
-data_aqs/data_outputs/nws_rr5/parse/`date -d yesterday +%Y%m%d`_nwsrr5_parsed.csv\"\
-]"
-IW_TOKEN="4fd6..."
-DRIVER_CONF="{\
-'replace_duplicates':true,\
-'data_col_start':13,\
-'id_col':0,\
-'nodata':'NA',\
-'datatype':'temperature',\
-'period':'day',\
-'fill':'raw',\
-'start_date':'2022-03-02',\
-'end_date':'2022-03-03',\
-'additional_properties':'{\"aggregation\":\"min\"}',\
-'additional_key_properties':'[\"aggregation\"]',\
-'files':'[\"temperature_min_day_statewide_raw_station_data_2022_03.csv\"]'\
-}"
+# URL to the ingestion config file. Do not use quotes around this.
+INGESTION_CONFIG_URL=https://raw.githubusercontent.com/ikewai/airtemp/prod/ingestion/daily/tmax.json
+
+# Whether or not the default datestring replacer (%y -> 2023) should be used. Should be 1 for production.
+UPDATE_DATES_IN_CONFIG=1
+
+# Authentication parameters. All are mandatory.
+# A client can be created interactively via agavepy (v2) or tapipy (v3).
+IW_USERNAME=username
+IW_PASSWORD=password
+IW_CLIENT_NAME=client_name
+IW_API_KEY=api_key
+IW_API_SECRET=api_secret
 ```
