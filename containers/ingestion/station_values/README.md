@@ -33,6 +33,7 @@ IW_API_SECRET=api_secret
 ## How to Run
 
 **Typical production run** (like in a cron schedule)
+
 This executes the container with a specified environment file (see above) and prints both stdout and stderr to the specified log file.
 ```sh
 docker run --env-file=an_env_file.env ikewai/task-ingest-values:prod > ingestion_output.log` 2>&1
