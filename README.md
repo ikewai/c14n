@@ -1,8 +1,7 @@
 ## ikewai/c14n: Science Workflow Containerization
 
-**A collection of container definitions and tools for portable, composable, and reproducible science workflows.**
+**A set of container definitions and tools for portable, composable, and reproducible science workflows.**
 
-Designed for storage and spin-up-time efficiency, these containers are purpose-built for their respective tasks. The containers are built to run on Tapis' Abaco system, but may also be ran on standard docker configurations with the appropriate environment configuration.
 
 ### Directory Overview
 * [`containers`](/containers): All of the containers in the containerization system.
