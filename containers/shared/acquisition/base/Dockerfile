@@ -1,4 +1,6 @@
 FROM ghcr.io/ikewai/task-base:latest
+LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n"
+LABEL org.opencontainers.image.description="Base Image for data acquisition containers."
 
 ## FILE COPIES/DOWNLOADS ##
 # Copy build tools for creating directories and pulling scripts at build-time.

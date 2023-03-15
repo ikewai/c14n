@@ -1,5 +1,7 @@
 # Start with the Rainfall Preliminary Aggregation Base.
 FROM ghcr.io/ikewai/task-rf-pre-agg-base:latest
+LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n"
+LABEL org.opencontainers.image.description="Daily Rainfall Aggregation."
 
 # Make directories for script and data file placement. The directory list is specified in the workflow code repo.
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/monthly/currentDirs.txt -O /build/currentDirs.txt

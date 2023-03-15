@@ -1,6 +1,8 @@
 # Starting with Ubuntu 22.04 as the base image.
 # Supported with hardware and maintenance updates until Q3 2026.
 FROM ubuntu:22.04
+LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n"
+LABEL org.opencontainers.image.description="Base Image for containerized workflows. Python, wget, git, and tapipy+agavepy."
 
 ## PACKAGE/LIBRARY INSTALLATIONS ##
 # Fetch the latest apt repo information.

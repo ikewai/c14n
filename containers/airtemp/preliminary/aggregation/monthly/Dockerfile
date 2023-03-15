@@ -1,5 +1,7 @@
 # Start with the Air Temperature Preliminary Aggregation Base.
 FROM ghcr.io/ikewai/task-at-pre-agg-base:latest
+LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n"
+LABEL org.opencontainers.image.description="Monthly Air Temperature Aggregation and Mapping."
 
 # Make directories for script and data file placement.
 # Directories for daily scripts/data
