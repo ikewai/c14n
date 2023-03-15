@@ -30,5 +30,5 @@ for c in container_list:
         # Get the repo hash
         repo_hash = subprocess.run(["/bin/bash", "-c", "git rev-parse --short HEAD"], capture_output=True).stdout.decode().strip("\n")
         tag = tag.replace("*hash", repo_hash)
-        cmd = f"docker tag {c['image_name']}:{c['tag']} {c['image_name']}:latest"
+        cmd = f"docker tag {c['image_name']}:{tag} {c['image_name']}:latest"
         subprocess.run(["/bin/bash", "-c", cmd])
