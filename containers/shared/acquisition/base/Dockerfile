@@ -1,4 +1,4 @@
-FROM ikewai/task-base
+FROM ghcr.io/ikewai/task-base:latest
 
 ## FILE COPIES/DOWNLOADS ##
 # Copy build tools for creating directories and pulling scripts at build-time.

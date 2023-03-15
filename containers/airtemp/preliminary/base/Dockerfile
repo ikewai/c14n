@@ -1,4 +1,4 @@
-FROM ikewai/task-base
+FROM ghcr.io/ikewai/task-base:latest
 
 ## PACKAGE/LIBRARY INSTALLATIONS ##
 # Fetch the latest apt repo information.

@@ -1,4 +1,4 @@
-FROM ikewai/task-rf-pre-base
+FROM ghcr.io/ikewai/task-rf-pre-base:latest
 
 RUN mkdir /sync
 ADD /tools/runtime-tools/uploader-utilities/* /sync/

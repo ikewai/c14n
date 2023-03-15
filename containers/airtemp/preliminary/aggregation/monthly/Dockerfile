@@ -1,5 +1,5 @@
 # Start with the Air Temperature Preliminary Aggregation Base.
-FROM ikewai/task-at-pre-agg-base
+FROM ghcr.io/ikewai/task-at-pre-agg-base:latest
 
 # Make directories for script and data file placement.
 # Directories for daily scripts/data

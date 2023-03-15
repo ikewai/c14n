@@ -1,5 +1,5 @@
 # Start with the Rainfall Preliminary Aggregation Base.
-FROM ikewai/task-rf-pre-agg-base
+FROM ghcr.io/ikewai/task-rf-pre-agg-base:latest
 
 # Make directories for script and data file placement. The directory list is specified in the workflow code repo.
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/daily/currentDirs.txt -O /build/currentDirs.txt

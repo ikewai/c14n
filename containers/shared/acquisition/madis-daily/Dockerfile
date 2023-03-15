@@ -1,4 +1,4 @@
-FROM ikewai/task-sh-aq-base
+FROM ghcr.io/ikewai/task-sh-aq-base:latest
 
 # Copy the upload configuration.
 ADD /containers/shared/acquisition/madis-daily/data/upload_config.json /sync/config.json

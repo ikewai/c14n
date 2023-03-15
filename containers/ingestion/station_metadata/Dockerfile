@@ -1,4 +1,4 @@
-FROM ikewai/task-base
+FROM ghcr.io/ikewai/task-base:latest
 
 # Install curl, prerequisite for get_auth_token.py.
 RUN apt install -y curl
