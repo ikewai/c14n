@@ -36,10 +36,10 @@ for c in container_list:
         now = datetime.now()
         current_year = str(now.year)
         current_month = str(now.month)
-        if current_month < 10:
+        if int(current_month) < 10:
             current_month = "0" + current_month
         current_day = str(now.day)
-        if current_day < 10:
+        if int(current_day) < 10:
             current_day = "0" + current_day
 
         # Replace the %y, %m, %d with the date
