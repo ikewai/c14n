@@ -31,6 +31,8 @@ for c in container_list:
         # Get the repo hash
         repo_hash = subprocess.run(["/bin/bash", "-c", "git rev-parse --short HEAD"], capture_output=True).stdout.decode().strip("\n")
         tag = tag.replace("*hash", repo_hash)
+        cmd = f"docker push {c['image_name']}:{tag}"
+        subprocess.run(["/bin/bash", "-c", cmd])
     else:
         # If the tag has no time or hash dependencies, just use the tag as-is.
         cmd = f"docker push {c['image_name']}:{c['tag']}"
