@@ -2,56 +2,56 @@
     {
         "rel_location": "./containers/core/task-base",
         "image_name": "ghcr.io/ikewai/task-base",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/airtemp/preliminary/base",
         "image_name": "ghcr.io/ikewai/task-at-pre-base",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/airtemp/preliminary/aggregation/base",
         "image_name": "ghcr.io/ikewai/task-at-pre-agg-base",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/airtemp/preliminary/aggregation/daily",
         "image_name": "ghcr.io/ikewai/task-at-pre-agg-daily",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/airtemp/preliminary/aggregation/monthly",
         "image_name": "ghcr.io/ikewai/task-at-pre-agg-monthly",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/rainfall/preliminary/base",
         "image_name": "ghcr.io/ikewai/task-rf-pre-base",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/rainfall/preliminary/aggregation/base",
         "image_name": "ghcr.io/ikewai/task-rf-pre-agg-base",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/rainfall/preliminary/aggregation/daily",
         "image_name": "ghcr.io/ikewai/task-rf-pre-agg-daily",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/rainfall/preliminary/aggregation/monthly",
         "image_name": "ghcr.io/ikewai/task-rf-pre-agg-monthly",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/ingestion/station_metadata",
         "image_name": "ghcr.io/ikewai/task-ingest-metadata",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     },
     {
         "rel_location": "./containers/ingestion/station_values",
         "image_name": "ghcr.io/ikewai/task-ingest-values",
-        "tag": "latest"
+        "tag": "%y-%m-%d-*hash"
     }
 ]

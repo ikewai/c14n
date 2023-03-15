@@ -5,13 +5,14 @@ import sys # For accessing execution args.
 import subprocess # For spinning off docker builds.
 import json # For parsing the build list.
 import os # For determining no-cache
+from datetime import datetime # For making time-dependent tags
 
 fin = sys.argv[1]
 fin = open(fin, "rt")
 container_list = json.loads(fin.read())
 
 try:
-    BUILD_NO_CACHE = os.environ['BUILD_NO_CACHE']
+    BUILD_NO_CACHE = str(os.environ['BUILD_NO_CACHE'])
 except:
     BUILD_NO_CACHE = '0'
 # For every container provided by the file, we build the container according to the key/value pairs.
@@ -27,17 +28,40 @@ except:
 #   Example: ikewai/task-base:427cfad (is equal to) ikewai/task-base:latest,
 #   when 427cfad is the most recent commit to the main branch of the build repo.
 for c in container_list:
-    cmd = f"docker build \
-        -f {c['rel_location']}/Dockerfile \
-        {'--no-cache' if BUILD_NO_CACHE=='1' else ''} \
-        -t {c['image_name']}:{c['tag']} ."
-    print(f"Running command: {cmd}")
-    subprocess.run(["/bin/bash", "-c", cmd])
+    # if c['tag'] contains "%", replace all instances of %y, %m, %d with their respective values.
+    #   This is for creating a tag that contains the date of the build, in addition to the repo hash.
+    #   Example: task-base:%y-%m-%d-*hash -> task-base:2023-03-14-b2061a1
+    if "%" in c['tag']:
+        # Get the date
+        now = datetime.now()
+        current_year = now.year
+        current_month = now.month
+        current_day = now.day
 
-    if c['tag'] == "latest":
-        repo_hash = subprocess.run(["/bin/bash", "-c", "tools/tagging-tools/get_hash.sh"], capture_output=True).stdout.decode().strip("\n")
+        # Replace the %y, %m, %d with the date
+        tag = c['tag'].replace("%y", str(current_year))
+        tag = tag.replace("%m", str(current_month))
+        tag = tag.replace("%d", str(current_day))
+
+        # Get the repo hash
+        repo_hash = subprocess.run(["/bin/bash", "-c", "git rev-parse --short HEAD"], capture_output=True).stdout.decode().strip("\n")
+        tag = tag.replace("*hash", repo_hash)
+
+        # Build the container
         cmd = f"docker build \
+        {'--no-cache' if BUILD_NO_CACHE=='1' else ''} \
         -f {c['rel_location']}/Dockerfile \
-        -t {c['image_name']}:{repo_hash} ."
+        -t {c['image_name']}:{tag} ."
+
         print(f"Running command: {cmd}")
         subprocess.run(["/bin/bash", "-c", cmd])
+    else:
+        # Build the container exactly as specified.
+        cmd = f"docker build \
+        {'--no-cache' if BUILD_NO_CACHE=='1' else ''} \
+        -f {c['rel_location']}/Dockerfile \
+        -t {c['image_name']}:{c['tag']} ."
+
+        print(f"Running command: {cmd}")
+        subprocess.run(["/bin/bash", "-c", cmd])
+
