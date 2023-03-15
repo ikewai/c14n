@@ -34,14 +34,18 @@ for c in container_list:
     if "%" in c['tag']:
         # Get the date
         now = datetime.now()
-        current_year = now.year
-        current_month = now.month
-        current_day = now.day
+        current_year = str(now.year)
+        current_month = str(now.month)
+        if current_month < 10:
+            current_month = "0" + current_month
+        current_day = str(now.day)
+        if current_day < 10:
+            current_day = "0" + current_day
 
         # Replace the %y, %m, %d with the date
-        tag = c['tag'].replace("%y", str(current_year))
-        tag = tag.replace("%m", str(current_month))
-        tag = tag.replace("%d", str(current_day))
+        tag = c['tag'].replace("%y", current_year)
+        tag = tag.replace("%m", current_month)
+        tag = tag.replace("%d", current_day)
 
         # Get the repo hash
         repo_hash = subprocess.run(["/bin/bash", "-c", "git rev-parse --short HEAD"], capture_output=True).stdout.decode().strip("\n")
