@@ -1,4 +1,3 @@
-from distutils.command.upload import upload
 import json, sys
 
 # load in the basic upload data
