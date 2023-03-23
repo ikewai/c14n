@@ -3,7 +3,7 @@ echo "[task.sh] [1/8] Starting Execution."
 
 echo "[task.sh] [2/8] Acquiring Daily Dependencies."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
-wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/rainfall/HCDP_dependicies/daily_dependencies.tar.gz
+wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary/rainfall/daily_dependencies.tar.gz
 tar -xf daily_dependencies.tar.gz
 rm daily_dependencies.tar.gz
 
