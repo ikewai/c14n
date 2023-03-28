@@ -13,9 +13,14 @@ The [task definition script](/containers/ingestion/scripts/task.sh) performs 6 o
 6. Executes the ingestor.
 
 
-Minimum Environment Example:
+
+----
+## How to Run
+
+In order to successfully run the container, you'll need some environment variables, which can be passed in an env file.
+Example:
 ```sh
-# URL to the ingestion config file. Do not use quotes around this.
+# URL to the desired ingestion config file. Do not use quotes around this.
 INGESTION_CONFIG_URL=https://raw.githubusercontent.com/ikewai/airtemp/prod/ingestion/daily/tmax.json
 
 # Whether or not the default datestring replacer (%y -> 2023) should be used. Should be 1 for production.
@@ -29,8 +34,6 @@ IW_CLIENT_NAME=client_name
 IW_API_KEY=api_key
 IW_API_SECRET=api_secret
 ```
-----
-## How to Run
 
 **Typical production run** (like in a cron schedule)
 
