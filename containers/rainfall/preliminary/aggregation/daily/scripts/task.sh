@@ -14,18 +14,25 @@ bash rf_daily_wget.sh
 
 echo "[task.sh] [4/8] Aggregating Rainfall data on the daily timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/daily
-echo "---hads_daily_rf_FINAL.R---"
+
+echo "---begin hads_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/hads_daily_rf_FINAL.R
-echo "---nws_rr5_daily_rf_FINAL.R---"
+echo "---end hads_daily_rf_FINAL.R---"
+echo "---begin nws_rr5_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/nws_rr5_daily_rf_FINAL.R
-echo "---madis_daily_rf_FINAL.R---"
+echo "---end nws_rr5_daily_rf_FINAL.R---"
+echo "---begin madis_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/madis_daily_rf_FINAL.R
-echo "---all_data_daily_merge_table_rf_FINAL.R---"
+echo "---end madis_daily_rf_FINAL.R---"
+echo "---begin all_data_daily_merge_table_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/all_data_daily_merge_table_rf_FINAL.R
-echo "---qaqc_randfor_bad_data_flag_remove_rf_FINAL.R---"
+echo "---end all_data_daily_merge_table_rf_FINAL.R---"
+echo "---begin qaqc_randfor_bad_data_flag_remove_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/qaqc_randfor_bad_data_flag_remove_rf_FINAL.R
-echo "---daily_gap_fill_NR_only_rf_FINAL.R---"
+echo "---end qaqc_randfor_bad_data_flag_remove_rf_FINAL.R---"
+echo "---begin daily_gap_fill_NR_only_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/daily_gap_fill_NR_only_rf_FINAL.R
+echo "---end daily_gap_fill_NR_only_rf_FINAL.R---"
 
 echo "[task.sh] [5/8] Preparing for intermediate data upload."
 cd /sync
