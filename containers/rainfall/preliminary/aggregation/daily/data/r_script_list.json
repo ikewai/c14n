@@ -1,5 +1,5 @@
 {
-    "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/code/daily/rcode/",
+    "remote_url": "https://raw.githubusercontent.com/ikewai/rainfall/main/code/daily/rcode/",
     "local_dir": "/home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/",
     "files": [
         "all_data_daily_merge_table_rf_FINAL.R",
