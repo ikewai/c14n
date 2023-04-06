@@ -20,7 +20,7 @@ then
         python3 /actor/update_date_string_in_config.py \
         config_temp.json \
         config.json \
-        $(date --date="last month" +%Y-%M-%d)
+        $(date --date="last month" +%Y-%m-%d)
     fi
 fi
 
