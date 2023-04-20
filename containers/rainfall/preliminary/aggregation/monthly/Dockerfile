@@ -1,7 +1,7 @@
 # Start with the Rainfall Preliminary Aggregation Base.
 FROM ghcr.io/ikewai/task-rf-pre-agg-base:latest
-LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n"
-LABEL org.opencontainers.image.description="Daily Rainfall Aggregation."
+LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n/containers/rainfall/preliminary/aggregation/monthly"
+LABEL org.opencontainers.image.description="Monthly Rainfall Aggregation."
 
 # Make directories for script and data file placement. The directory list is specified in the workflow code repo.
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/monthly/currentDirs.txt -O /build/currentDirs.txt
@@ -14,7 +14,8 @@ RUN python3 /build/wget_from_json.py /build/r_script_list.json
 RUN python3 /build/wget_from_json.py /build/sh_script_list.json
 
 # Get the container's upload config as specified in the workflow code repo.
-RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/monthly/upload_config.json -O /sync/upload_config.json
+RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/intermediate_products.json -O /sync/intermediate_products.json
+RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/final_products.json -O /sync/final_products.json
 
 # Copy in the task script.
 ADD /containers/rainfall/preliminary/aggregation/monthly/scripts/task.sh /actor/task.sh
