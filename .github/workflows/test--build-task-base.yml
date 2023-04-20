@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build Task-Base
+      run: docker build . --file containers/core/task-base/Dockerfile --tag ghcr.io/ikewai/task-base:$(date --iso-8601)-$(git rev-parse --short HEAD)
+    - uses: actions/checkout@v3
+    - name: Log in to repo
+      run: docker login -u=$PUSH_PACKAGE_USERNAME -p=$PUSH_PACKAGE_TOKEN ghcr.io
+    - uses: actions/checkout@v3
+    - name: Push Task-Base
+      run: docker push ghcr.io/ikewai/task-base:$(date --iso-8601)-$(git rev-parse --short HEAD)    
