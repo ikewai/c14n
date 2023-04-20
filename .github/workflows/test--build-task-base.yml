@@ -18,7 +18,7 @@ jobs:
       run: docker build . --file containers/core/task-base/Dockerfile --tag ghcr.io/ikewai/task-base:$(date --iso-8601)-$(git rev-parse --short HEAD)
     - uses: actions/checkout@v3
     - name: Log in to repo
-      run: docker login -u=$PUSH_PACKAGE_USERNAME -p=$PUSH_PACKAGE_TOKEN ghcr.io
+      run: docker login -u=$PUSH_PACKAGE_USERNAME --password-stdin <<< $PUSH_PACKAGE_TOKEN ghcr.io/ikewai
     - uses: actions/checkout@v3
     - name: Push Task-Base
       run: docker push ghcr.io/ikewai/task-base:$(date --iso-8601)-$(git rev-parse --short HEAD)    
