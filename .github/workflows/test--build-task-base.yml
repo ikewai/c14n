@@ -15,5 +15,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Log in to repo
-      run: echo $PUSH_PACKAGE_TOKEN | docker login -u=$PUSH_PACKAGE_USERNAME --password-stdin https://ghcr.io/ikewai
+      run: echo $PUSH_PACKAGE_USERNAME
        
