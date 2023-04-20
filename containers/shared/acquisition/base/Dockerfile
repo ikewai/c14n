@@ -14,7 +14,9 @@ RUN mkdir /sync
 RUN wget https://raw.githubusercontent.com/ikewai/data-uploader/main/upload.py -O /sync/upload.py
 
 # Copy the upload support utilities.
-ADD /tools/runtime-tools/uploader-utilites/* /sync/.
+ADD /tools/runtime-tools/uploader-utilites/add_auth_info_to_config.py /sync/.
+ADD /tools/runtime-tools/uploader-utilites/add_upload_list_to_config.py /sync/.
+ADD /tools/runtime-tools/uploader-utilites/update_date_string_in_config.py /sync/.
 
 ## OPERATIONS ##
 # Create directories and pull scripts for acquisition.
