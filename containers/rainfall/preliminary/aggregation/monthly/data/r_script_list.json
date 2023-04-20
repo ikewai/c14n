@@ -1,5 +1,5 @@
 {
-    "remote_url": "https://raw.githubusercontent.com/ikewai/rainfall/main/code/monthly/",
+    "remote_url": "https://raw.githubusercontent.com/ikewai/rainfall/main/code/monthly/rcode/",
     "local_dir": "/home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/",
     "files": [
         "custom_krige_class_fix_functions_final.R",
