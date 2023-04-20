@@ -15,5 +15,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Log in to repo
-      run: /bin/bash -c echo "Hello World"
+      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login -u=ikewai --password-stdin ghcr.io
        
