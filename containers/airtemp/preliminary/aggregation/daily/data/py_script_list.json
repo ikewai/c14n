@@ -1,5 +1,5 @@
 {
-    "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/daily/code/",
+    "remote_url": "https://raw.githubusercontent.com/ikewai/airtemp/main/aggregation/daily/code/",
     "local_dir": "/home/hawaii_climate_products_container/preliminary/air_temp/daily/code/",
     "files": [
         "air_temp_aggregate_wrapper.py", 
