@@ -7,7 +7,7 @@ RUN python3 -m pip install pytz
 # Add pandas dependency (madis)
 RUN python3 -m pip install pandas
 # Add xarray dependency (madis)
-RUN python3 -m pip install xarray
+RUN python3 -m pip install xarray netcdf4 scipy
 
 ## FILE COPIES/DOWNLOADS ##
 # Copy build tools for creating directories and pulling scripts at build-time.
