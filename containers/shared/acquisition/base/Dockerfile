@@ -6,8 +6,8 @@ LABEL org.opencontainers.image.description="Base Image for data acquisition cont
 # Copy build tools for creating directories and pulling scripts at build-time.
 ADD /tools/build-tools/mkdir_from_json.py /tools/build-tools/mkdir_from_json.py
 ADD /tools/build-tools/wget_from_json.py /tools/build-tools/wget_from_json.py
-ADD /containers/shared/acquisition/base/data/directories_to_create.json /build/.
-ADD /containers/shared/acquisition/base/data/files_to_acquire.json /build/.
+ADD /containers/shared/acquisition/base/data/directories_to_create.json /build/directories_to_create.json
+ADD /containers/shared/acquisition/base/data/files_to_acquire.json /build/files_to_acquire.json
 
 # Pull the latest version of the data uploader.
 RUN mkdir /sync
