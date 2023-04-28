@@ -4,6 +4,6 @@ FROM ghcr.io/ikewai/task-sh-aq-base:latest
 ADD /containers/shared/acquisition/madis-daily/data/upload_config.json /sync/config.json
 
 # Copy the task definition script.
-ADD /containers/shared/acquisition/madis-daily/scripts/task.sh /actor/.
+ADD /containers/shared/acquisition/madis-daily/scripts/task.sh /actor/task.sh
 
 CMD [ "/bin/bash", "/actor/task.sh" ]
