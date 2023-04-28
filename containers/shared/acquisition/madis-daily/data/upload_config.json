@@ -22,18 +22,6 @@
                     "username": "public"
                 }
             ]
-        },
-        {
-            "local_path": "/home/hawaii_climate_products_container/preliminary/data_aqs/data_outputs/madis/raw",
-            "remote_path": "HCDP/workflow_data/preliminary_test/data_aqs/data_outputs/madis/raw",
-            "system_id": "ikewai-annotated-data",
-            "dir_permissions": [
-                {
-                    "permission": "READ",
-                    "recursive": true,
-                    "username": "public"
-                }
-            ]
         }
     ]
 }
