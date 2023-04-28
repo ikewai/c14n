@@ -2,6 +2,9 @@ FROM ghcr.io/ikewai/task-base:latest
 LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n"
 LABEL org.opencontainers.image.description="Base Image for data acquisition containers."
 
+# Add pytz dependency
+RUN python3 -m pip install pytz
+
 ## FILE COPIES/DOWNLOADS ##
 # Copy build tools for creating directories and pulling scripts at build-time.
 ADD /tools/build-tools/mkdir_from_json.py /tools/build-tools/mkdir_from_json.py
