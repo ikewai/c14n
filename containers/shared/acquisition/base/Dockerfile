@@ -4,8 +4,10 @@ LABEL org.opencontainers.image.description="Base Image for data acquisition cont
 
 # Add pytz dependency (madis)
 RUN python3 -m pip install pytz
-# Add pandas dependency (madis
+# Add pandas dependency (madis)
 RUN python3 -m pip install pandas
+# Add xarray dependency (madis)
+RUN python3 -m pip install xarray
 
 ## FILE COPIES/DOWNLOADS ##
 # Copy build tools for creating directories and pulling scripts at build-time.
