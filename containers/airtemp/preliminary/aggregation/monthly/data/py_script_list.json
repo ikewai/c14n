@@ -1,5 +1,5 @@
 {
-    "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/monthly/code/",
+    "remote_url": "https://raw.githubusercontent.com/ikewai/airtemp/main/aggregation/monthly/code/",
     "local_dir": "/home/hawaii_climate_products_container/preliminary/air_temp/monthly/code/",
     "files": [
         "Temp_linear.py",
