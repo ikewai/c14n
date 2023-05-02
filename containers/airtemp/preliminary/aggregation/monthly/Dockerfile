@@ -18,7 +18,7 @@ RUN python3 /build/wget_from_json.py /build/py_script_list.json
 
 # Get the container's upload config as specified in the code repo.
 WORKDIR /sync
-RUN wget https://raw.githubusercontent.com/ikewai/airtemp/main/monthly/docs/upload_config.json
+RUN wget https://raw.githubusercontent.com/ikewai/airtemp/main/aggregation/monthly/docs/upload_config.json
 
 # Add the task wrapper script.
 ADD /containers/airtemp/preliminary/aggregation/monthly/scripts/task.sh /actor/task.sh
