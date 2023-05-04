@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n/containers
 LABEL org.opencontainers.image.description="Monthly Rainfall Aggregation."
 
 # Make directories for script and data file placement. The directory list is specified in the workflow code repo.
-RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/monthly/currentDirs.txt -O /build/currentDirs.txt
+RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/docs/monthly/currentDirs.txt -O /build/currentDirs.txt
 RUN python3 /build/mkdir_from_txt.py /build/currentDirs.txt
 
 # Get workflow scripts. The lists of scripts are provided by this repo, and they point to the workflow code repo.
