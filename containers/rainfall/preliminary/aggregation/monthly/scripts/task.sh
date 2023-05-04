@@ -6,7 +6,7 @@ cd /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
 # temporary link, will be replaced with a gateway/CDN link when ready
 wget https://f000.backblazeb2.com/file/ikewai/monthly_dependencies.zip
 unzip monthly_dependencies.zip
-rm daily_dependencies.tar.gz
+rm monthly_dependencies.zip
 
 echo "[task.sh] [3/8] Acquiring Statewide Partially-filled Daily Rainfall data for this month."
 bash /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/bash/monthly_rf_wget.sh
