@@ -16,14 +16,15 @@ unzip monthly_dependencies.zip
 rm monthly_dependencies.zip
 
 echo "[task.sh] [3/8] Acquiring Statewide Partially-filled Daily Rainfall data for this month."
+echo "---monthly_rf_wget.sh---"
 bash /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/bash/monthly_rf_wget.sh
 
 echo "[task.sh] [4/8] Aggregating Rainfall data on the monthly timeframe."
-cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
+cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/rcode
 echo "---daily_to_monthly_agg_FINAL.R---"
-Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R $AGGREGATION_DATE
+Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/rcode/daily_to_monthly_agg_FINAL.R $AGGREGATION_DATE
 echo "---monthly_rf_krig_map_makr_FINAL.R---"
-Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R $AGGREGATION_DATE
+Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/rcode/monthly_rf_krig_map_makr_FINAL.R $AGGREGATION_DATE
 
 echo "[task.sh] [5/8] Preparing to upload intermediate products."
 cd /sync
