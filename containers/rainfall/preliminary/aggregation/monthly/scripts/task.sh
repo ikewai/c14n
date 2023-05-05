@@ -16,6 +16,7 @@ unzip monthly_dependencies.zip
 rm monthly_dependencies.zip
 
 echo "[task.sh] [3/8] Acquiring Statewide Partially-filled Daily Rainfall data for this month."
+cd /home/hawaii_climate_products_container/
 echo "---monthly_rf_wget.sh---"
 bash /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/bash/monthly_rf_wget.sh
 
