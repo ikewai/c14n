@@ -1,5 +1,12 @@
 #!/bin/bash
 echo "[task.sh] [1/8] Starting Execution."
+export TZ="HST"
+if [ $AGGREGATION_DATE ]; then
+    echo "Aggregation date is: " $AGGREGATION_DATE
+else
+    export AGGREGATION_DATE=$(date --iso-8601)
+    echo "Aggregation date is: " $AGGREGATION_DATE
+fi
 
 echo "[task.sh] [2/8] Acquiring and decompressing Monthly Dependencies Archive."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
@@ -14,9 +21,9 @@ bash /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/b
 echo "[task.sh] [4/8] Aggregating Rainfall data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly
 echo "---daily_to_monthly_agg_FINAL.R---"
-Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R
+Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/daily_to_monthly_agg_FINAL.R $AGGREGATION_DATE
 echo "---monthly_rf_krig_map_makr_FINAL.R---"
-Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R
+Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/monthly/monthly_rf_krig_map_makr_FINAL.R $AGGREGATION_DATE
 
 echo "[task.sh] [5/8] Preparing to upload intermediate products."
 cd /sync
