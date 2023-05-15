@@ -10,6 +10,7 @@ RUN python3 -m pip install pandas
 RUN python3 -m pip install xarray netcdf4 scipy
 
 # Add R (nws, hads)
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
 RUN apt install -y r-base
 
