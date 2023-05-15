@@ -1,6 +1,6 @@
 {
     "remote_url": "https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/",
-    "local_dir": "/home/hawaii_climate_products_container/preliminary/data_aqs/code/",
+    "local_dir": "/home/hawaii_climate_products_container/preliminary/",
     "files": [
         "data_aqs/code/hads/hads_24hr_webscape.R",
         "data_aqs/code/madis/hfmetar_24hr_fetch_dev.py",
