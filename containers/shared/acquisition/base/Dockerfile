@@ -9,6 +9,10 @@ RUN python3 -m pip install pandas
 # Add xarray dependency (madis)
 RUN python3 -m pip install xarray netcdf4 scipy
 
+# Add R (nws, hads)
+RUN apt update
+RUN apt install -y r-base
+
 ## FILE COPIES/DOWNLOADS ##
 # Copy build tools for creating directories and pulling scripts at build-time.
 ADD /tools/build-tools/mkdir_from_json.py /tools/build-tools/mkdir_from_json.py
