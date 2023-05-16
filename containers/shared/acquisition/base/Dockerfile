@@ -18,7 +18,7 @@ RUN apt install -y r-base
 # Copy build tools for creating directories and pulling scripts at build-time.
 ADD /tools/build-tools/acquisition-specific/mkdir_from_txt.py /tools/build-tools/mkdir_from_txt.py
 ADD /tools/build-tools/wget_from_json.py /tools/build-tools/wget_from_json.py
-RUN wget https://raw.githubusercontent.com/ikewai/data_aqs/main/docs/currentDirs.txt /build/currentDirs.txt
+RUN wget https://raw.githubusercontent.com/ikewai/data_aqs/main/docs/currentDirs.txt -O /build/currentDirs.txt
 
 # Pull the latest version of the data uploader.
 RUN mkdir /sync
