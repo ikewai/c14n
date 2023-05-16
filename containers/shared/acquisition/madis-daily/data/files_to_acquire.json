@@ -1,0 +1,8 @@
+{
+    "remote_url": "https://raw.githubusercontent.com/ikewai/data_aqs/main/code/",
+    "local_dir": "/home/hawaii_climate_products_container/preliminary/data_aqs/code/",
+    "files": [
+        "madis/hfmetar_24hr_fetch_dev.py",
+        "madis/mesonet_24hr_fetch_dev.py"
+    ]
+}

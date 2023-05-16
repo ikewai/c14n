@@ -1,0 +1,8 @@
+{
+    "remote_url": "https://raw.githubusercontent.com/ikewai/data_aqs/main/code/",
+    "local_dir": "/home/hawaii_climate_products_container/preliminary/data_aqs/code/",
+    "files": [
+        "hads/hads_24hr_webscape.R",
+        "source/dataDateFunc.R"
+    ]
+}
