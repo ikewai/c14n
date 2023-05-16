@@ -1,5 +1,8 @@
 FROM ghcr.io/ikewai/task-sh-aq-base:latest
 
+# Get the R dependencies.
+RUN R -e "install.packages('plyr')"
+
 # Get the scripts.
 ADD /containers/shared/acquisition/nws-daily/data/files_to_acquire.json /build/files_to_acquire.json
 RUN python3 /tools/build-tools/wget_from_json.py /build/files_to_acquire.json
