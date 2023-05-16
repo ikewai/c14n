@@ -32,4 +32,4 @@ ADD /tools/runtime-tools/uploader-utilities/update_date_string_in_config.py /syn
 
 ## OPERATIONS ##
 # Create directories and pull scripts for acquisition.
-RUN python3 /tools/build-tools/mkdir_from_txt.py /build/directories_to_create.json
+RUN python3 /tools/build-tools/mkdir_from_txt.py /build/currentDirs.txt
