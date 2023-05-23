@@ -3,6 +3,7 @@
     "local_dir": "/home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/",
     "files": [
         "all_data_daily_merge_table_rf_FINAL.R",
+        "all_data_daily_last_obs_FINAL.R",
         "daily_gap_fill_NR_only_rf_FINAL.R",
         "hads_daily_rf_FINAL.R",
         "madis_daily_rf_FINAL.R",

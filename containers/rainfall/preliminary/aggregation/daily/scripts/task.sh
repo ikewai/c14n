@@ -33,6 +33,9 @@ echo "---end qaqc_randfor_bad_data_flag_remove_rf_FINAL.R---"
 echo "---begin daily_gap_fill_NR_only_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/daily_gap_fill_NR_only_rf_FINAL.R
 echo "---end daily_gap_fill_NR_only_rf_FINAL.R---"
+echo "---begin all_data_daily_last_obs_FINAL.R---"
+Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/all_data_daily_last_obs_FINAL.R
+echo "---end all_data_daily_last_obs_FINAL.R---"
 
 echo "[task.sh] [5/8] Preparing for intermediate data upload."
 cd /sync
