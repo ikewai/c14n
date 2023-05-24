@@ -10,7 +10,6 @@ fi
 
 echo "[task.sh] [2/8] Acquiring and decompressing Monthly Dependencies Archive."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
-# temporary link, will be replaced with a gateway/CDN link when ready
 wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary/rainfall/dependencies/monthly_dependencies.zip
 unzip monthly_dependencies.zip
 rm monthly_dependencies.zip
