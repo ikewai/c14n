@@ -24,7 +24,7 @@ jobs:
       uses: docker/login-action@v2.1.0
       with:
         registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
     - name: Push task-base
       run: docker push ghcr.io/ikewai/task-base:${{ env.DATE_AND_HASH }}
