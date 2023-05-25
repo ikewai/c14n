@@ -18,7 +18,11 @@ jobs:
       run: echo "DATE_AND_HASH=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Build task-base
       run: docker build . --file containers/core/task-base/Dockerfile --tag ghcr.io/ikewai/task-base:${{ env.DATE_AND_HASH }}
-    - name: Log into container repo
-      run: echo ${{secrets.GITHUB_TOKEN}} | docker login --username ikewai --password-stdin ghcr.io
+    - uses: docker/login-action@v2.1.0
+    - name: Log in to the container registry
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Push task-base
       run: docker push ghcr.io/ikewai/task-base:${{ env.DATE_AND_HASH }}
