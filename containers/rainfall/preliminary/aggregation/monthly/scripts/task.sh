@@ -30,19 +30,20 @@ echo "[task.sh] [5/8] Preparing to upload intermediate products."
 cd /sync
 python3 update_date_string_in_config.py intermediate_products.json intermediate_products_datestrings_loaded.json
 python3 add_upload_list_to_config.py intermediate_products_datestrings_loaded.json intermediate_products_config.json
-python3 add_auth_info_to_config.py intermediate_products_config.json
+python3 add_auth_info_to_config.py config.json
 
 echo "[task.sh] [6/8] Attempting to upload the intermediate files."
-python3 upload.py intermediate_products_config.json
+python3 upload.py
+mv config.json intermediate_products_config.json
 
 echo "[task.sh] [7/8] Preparing to upload final products."
 cd /sync
 python3 update_date_string_in_config.py final_products.json final_products_datestrings_loaded.json
 python3 add_upload_list_to_config.py final_products_datestrings_loaded.json final_products_config.json
-python3 add_auth_info_to_config.py final_products_config.json
+python3 add_auth_info_to_config.py config.json
 
 echo "[task.sh] [8/8] Attempting to upload the final files."
-python3 upload.py final_products_config.json
+python3 upload.py
 
 
 echo "[task.sh] All done!"
