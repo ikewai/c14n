@@ -19,7 +19,7 @@ jobs:
     - name: Get date and hash
       run: echo $(date --iso-8601)-$(git rev-parse --short HEAD) > /home/runner/work/date_and_hash
     - name: Build task-base
-      run: docker build . --file containers/core/task-base/Dockerfile --tag ghcr.io/ikewai/task-base:$DATE_AND_HASH
+      run: docker build . --file containers/core/task-base/Dockerfile --tag "ghcr.io/ikewai/task-base:$DATE_AND_HASH"
     - name: Log into container repo
       run: echo ${{secrets.GITHUB_TOKEN}} | docker login --username ikewai --password-stdin
     - name: Push task-base
