@@ -19,6 +19,6 @@ jobs:
     - name: Build task-base
       run: docker build . --file containers/core/task-base/Dockerfile --tag ghcr.io/ikewai/task-base:${{ env.DATE_AND_HASH }}
     - name: Log into container repo
-      run: echo ${{secrets.GITHUB_TOKEN}} | docker login --username ikewai --password-stdin
+      run: echo ${{secrets.GITHUB_TOKEN}} | docker login --username ikewai --password-stdin ghcr.io
     - name: Push task-base
       run: docker push ghcr.io/ikewai/task-base:${{ env.DATE_AND_HASH }}
