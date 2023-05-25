@@ -7,7 +7,7 @@ else
     export AGGREGATION_DATE=$(date --iso-8601)
     echo "Aggregation date is: " $AGGREGATION_DATE
 fi
-export AGGREGATION_DATE_YESTERDAY=$(date --date="$AGGREGATION_DATE - 1 day" --iso8601)
+export AGGREGATION_DATE_YESTERDAY=$(date --date="$AGGREGATION_DATE - 1 day" --iso-8601)
 echo "Yesterday is: " $AGGREGATION_DATE_YESTERDAY
 
 echo "[task.sh] [2/8] Acquiring and decompressing Monthly Dependencies Archive."
