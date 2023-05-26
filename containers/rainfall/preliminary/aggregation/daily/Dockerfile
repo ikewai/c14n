@@ -16,8 +16,8 @@ ADD /containers/rainfall/preliminary/aggregation/daily/data/r_module_list.json /
 RUN python3 /build/wget_from_json.py /build/r_module_list.json
 
 # Get the container's upload config as specified in the workflow code repo.
-RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/daily/upload_config.json -O /sync/upload_config.json
-RUN wget https://raw.githubusercontent.com/ikewai/preliminary-rainfall-daily-code/main/upload_config.json -O /sync/intermediate_upload_config.json
+RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/daily/final_products.json -O /sync/upload_config.json
+RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/daily/intermediate_products.json -O /sync/intermediate_upload_config.json
 
 # Copy in the task wrapper script.
 ADD /containers/rainfall/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh
