@@ -15,10 +15,12 @@ jobs:
       uses: actions/checkout@v3
     - name: Set container name
       run: echo "CONTAINER_NAME=task-base" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/core/base/Dockerfile" >> $GITHUB_ENV
     - name: Get date and hash
       run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Build container
-      run: docker build . --file containers/core/task-base/Dockerfile --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
     - name: Log in to the container registry
       uses: docker/login-action@v2.1.0
       with:
@@ -36,10 +38,35 @@ jobs:
       uses: actions/checkout@v3
     - name: Set container name
       run: echo "CONTAINER_NAME=task-at-pre-base" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/airtemp/preliminary/base/Dockerfile" >> $GITHUB_ENV
     - name: Get date and hash
       run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Build container
-      run: docker build . --file containers/core/task-base/Dockerfile --tag "ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}"
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+    - name: Log in to the container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
+    - name: Push task-base
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+
+build-rainfall-preliminary-base:
+    needs: build-task-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Set container name
+      run: echo "CONTAINER_NAME=task-rf-pre-base" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/rainfall/preliminary/base/Dockerfile" >> $GITHUB_ENV
+    - name: Get date and hash
+      run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Build container
+      run: docker build . --file ${{ env. }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
     - name: Log in to the container registry
       uses: docker/login-action@v2.1.0
       with:
