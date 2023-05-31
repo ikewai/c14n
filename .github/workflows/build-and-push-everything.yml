@@ -16,7 +16,7 @@ jobs:
     - name: Set container name
       run: echo "CONTAINER_NAME=task-base" >> $GITHUB_ENV
     - name: Set Dockerfile location
-      run: echo "DOCKERFILE=containers/core/base/Dockerfile" >> $GITHUB_ENV
+      run: echo "DOCKERFILE=containers/core/task-base/Dockerfile" >> $GITHUB_ENV
     - name: Get date and hash
       run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Build container
