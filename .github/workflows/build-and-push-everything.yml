@@ -53,7 +53,7 @@ jobs:
     - name: Push task-base
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
 
-build-rainfall-preliminary-base:
+  build-rainfall-preliminary-base:
     needs: build-task-base
     runs-on: ubuntu-latest
     steps:
