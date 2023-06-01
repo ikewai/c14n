@@ -33,7 +33,7 @@ jobs:
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
   shared-acquisition-base:
-    needs: build-task-base
+    needs: task-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
