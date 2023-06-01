@@ -30,7 +30,7 @@ jobs:
     - name: Tag the container as latest
       run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
     - name: Push the container
-      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
   build-shared-acquisition-base:
     needs: build-task-base
@@ -55,7 +55,7 @@ jobs:
     - name: Tag the container as latest
       run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
     - name: Push the container
-      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
   build-airtemp-preliminary-base:
     needs: build-task-base
@@ -80,7 +80,7 @@ jobs:
     - name: Tag the container as latest
       run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
     - name: Push the container
-      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
   build-rainfall-preliminary-base:
     needs: build-task-base
@@ -105,7 +105,7 @@ jobs:
     - name: Tag the container as latest
       run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
     - name: Push the container
-      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
   build-airtemp-preliminary-aggregation-base:
     needs: build-airtemp-preliminary-base
@@ -130,7 +130,7 @@ jobs:
     - name: Tag the container as latest
       run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
     - name: Push the container
-      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
   build-rainfall-preliminary-aggregation-base:
     needs: build-rainfall-preliminary-base
@@ -155,4 +155,4 @@ jobs:
     - name: Tag the container as latest
       run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
     - name: Push the container
-      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
