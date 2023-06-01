@@ -57,6 +57,81 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
+  build-hads-daily:
+    needs: build-shared-acquisition-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Set container name
+      run: echo "CONTAINER_NAME=task-sh-aq-hads-daily" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/shared/acquisition/hads-daily/Dockerfile" >> $GITHUB_ENV
+    - name: Get date and hash
+      run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Build container
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+    - name: Log in to the container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
+    - name: Tag the container as latest
+      run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+    - name: Push the container
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+
+  build-madis-daily:
+    needs: build-shared-acquisition-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Set container name
+      run: echo "CONTAINER_NAME=task-sh-aq-madis-daily" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/shared/acquisition/madis-daily/Dockerfile" >> $GITHUB_ENV
+    - name: Get date and hash
+      run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Build container
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+    - name: Log in to the container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
+    - name: Tag the container as latest
+      run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+    - name: Push the container
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+
+  build-nws-daily:
+    needs: build-shared-acquisition-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Set container name
+      run: echo "CONTAINER_NAME=task-sh-aq-nws-daily" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/shared/acquisition/nws-daily/Dockerfile" >> $GITHUB_ENV
+    - name: Get date and hash
+      run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Build container
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+    - name: Log in to the container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
+    - name: Tag the container as latest
+      run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+    - name: Push the container
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+
   build-airtemp-preliminary-base:
     needs: build-task-base
     runs-on: ubuntu-latest
@@ -107,7 +182,7 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-airtemp-preliminary-aggregation-base:
+  build-airtemp-aggregation-base:
     needs: build-airtemp-preliminary-base
     runs-on: ubuntu-latest
     steps:
@@ -132,7 +207,7 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-rainfall-preliminary-aggregation-base:
+  build-rainfall-aggregation-base:
     needs: build-rainfall-preliminary-base
     runs-on: ubuntu-latest
     steps:
@@ -142,6 +217,106 @@ jobs:
       run: echo "CONTAINER_NAME=task-rf-pre-agg-base" >> $GITHUB_ENV
     - name: Set Dockerfile location
       run: echo "DOCKERFILE=containers/rainfall/preliminary/aggregation/base/Dockerfile" >> $GITHUB_ENV
+    - name: Get date and hash
+      run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Build container
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+    - name: Log in to the container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
+    - name: Tag the container as latest
+      run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+    - name: Push the container
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+
+  build-airtemp-aggregation-daily:
+    needs: build-airtemp-aggregation-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Set container name
+      run: echo "CONTAINER_NAME=task-at-pre-agg-daily" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/airtemp/preliminary/aggregation/daily/Dockerfile" >> $GITHUB_ENV
+    - name: Get date and hash
+      run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Build container
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+    - name: Log in to the container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
+    - name: Tag the container as latest
+      run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+    - name: Push the container
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+
+  build-airtemp-aggregation-monthly:
+    needs: build-airtemp-aggregation-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Set container name
+      run: echo "CONTAINER_NAME=task-at-pre-agg-monthly" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/airtemp/preliminary/aggregation/monthly/Dockerfile" >> $GITHUB_ENV
+    - name: Get date and hash
+      run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Build container
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+    - name: Log in to the container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
+    - name: Tag the container as latest
+      run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+    - name: Push the container
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+
+  build-rainfall-aggregation-daily:
+    needs: build-rainfall-aggregation-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Set container name
+      run: echo "CONTAINER_NAME=task-rf-pre-agg-daily" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/rainfall/preliminary/aggregation/daily/Dockerfile" >> $GITHUB_ENV
+    - name: Get date and hash
+      run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Build container
+      run: docker build . --file ${{ env.DOCKERFILE }} --tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+    - name: Log in to the container registry
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.PUSH_PACKAGE_USERNAME }}
+        password: ${{ secrets.PUSH_PACKAGE_TOKEN }}
+    - name: Tag the container as latest
+      run: docker tag ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+    - name: Push the container
+      run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
+
+  build-rainfall-aggregation-monthly:
+    needs: build-rainfall-aggregation-base
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
+    - name: Set container name
+      run: echo "CONTAINER_NAME=task-rf-pre-agg-monthly" >> $GITHUB_ENV
+    - name: Set Dockerfile location
+      run: echo "DOCKERFILE=containers/rainfall/preliminary/aggregation/monthly/Dockerfile" >> $GITHUB_ENV
     - name: Get date and hash
       run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Build container
