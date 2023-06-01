@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build-task-base:
+  task-base:
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -32,7 +32,7 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-shared-acquisition-base:
+  shared-acquisition-base:
     needs: build-task-base
     runs-on: ubuntu-latest
     steps:
@@ -57,8 +57,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-hads-daily:
-    needs: build-shared-acquisition-base
+  hads-daily-acquisition:
+    needs: shared-acquisition-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -82,8 +82,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-madis-daily:
-    needs: build-shared-acquisition-base
+  madis-daily-acquisition:
+    needs: shared-acquisition-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -107,8 +107,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-nws-daily:
-    needs: build-shared-acquisition-base
+  nws-daily-acquisition:
+    needs: shared-acquisition-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -132,8 +132,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-airtemp-preliminary-base:
-    needs: build-task-base
+  airtemp-preliminary-base:
+    needs: task-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -157,8 +157,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-rainfall-preliminary-base:
-    needs: build-task-base
+  rainfall-preliminary-base:
+    needs: task-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -182,8 +182,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-airtemp-aggregation-base:
-    needs: build-airtemp-preliminary-base
+  airtemp-aggregation-base:
+    needs: airtemp-preliminary-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -207,8 +207,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-rainfall-aggregation-base:
-    needs: build-rainfall-preliminary-base
+  rainfall-aggregation-base:
+    needs: rainfall-preliminary-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -232,8 +232,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-airtemp-aggregation-daily:
-    needs: build-airtemp-aggregation-base
+  airtemp-aggregation-daily:
+    needs: airtemp-aggregation-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -257,8 +257,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-airtemp-aggregation-monthly:
-    needs: build-airtemp-aggregation-base
+  airtemp-aggregation-monthly:
+    needs: airtemp-aggregation-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -282,8 +282,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-rainfall-aggregation-daily:
-    needs: build-rainfall-aggregation-base
+  rainfall-aggregation-daily:
+    needs: rainfall-aggregation-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
@@ -307,8 +307,8 @@ jobs:
     - name: Push the container
       run: docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:${{ env.TAG }} && docker push ghcr.io/ikewai/${{ env.CONTAINER_NAME }}:latest
 
-  build-rainfall-aggregation-monthly:
-    needs: build-rainfall-aggregation-base
+  rainfall-aggregation-monthly:
+    needs: rainfall-aggregation-base
     runs-on: ubuntu-latest
     steps:
     - name: Check out
