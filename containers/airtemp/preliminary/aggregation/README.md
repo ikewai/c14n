@@ -8,7 +8,7 @@ Contents:
 * [`monthly`](containers/airtemp/aggregation/monthly): Monthly aggregation and mapping.
 
 ## Usage
-The daily and monthly workflows use the same environmnent parameters:
+The daily and monthly workflows use the same environment parameters:
 
 ```sh
 # required, for upload capabilities
@@ -29,5 +29,5 @@ container> bash task.sh
 
 Or for a typical cron-based run:
 ```sh
-host> docker run --env-file=/path/to/good_env_file.env ghcr.io/ikewai/task-at-pre-agg-daily:prod > /home/someone/at_daily_agg_$(date +%FT%H%M).log
+host> docker run --env-file=/path/to/good_env_file.env ghcr.io/ikewai/task-at-pre-agg-daily:prod > /home/someone/at_daily_agg_$(date +\%FT\%H\%M).log
 ```
