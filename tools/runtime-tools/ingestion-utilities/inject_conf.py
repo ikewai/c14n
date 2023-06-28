@@ -9,8 +9,8 @@ import json # For interacting with JSON data.
 
 # Get configuration JSON from environment variable. 
 config_env_key: str = str(sys.argv[1])
-config_env: str = str(os.environ[config_env_key])
-config_env: dict = json.loads(config_env)
+config_env_str: str = str(os.environ[config_env_key])
+config_env: dict = json.loads(config_env_str)
 
 # Get configuration dict from json file.
 fin: TextIOWrapper = open(sys.argv[2], "rt")

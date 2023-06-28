@@ -7,7 +7,6 @@
 
 import os # For accessing environment variables.
 import sys # For accessing execution args.
-from io import TextIOWrapper # For hinting type in file read/writes.
 import json # For interacting with JSON data.
 
 
@@ -18,19 +17,19 @@ auth_token = auth_token_file.read()
 auth_token_file.close()
 
 # Get configuration dict from json file.
-fin: TextIOWrapper = open(sys.argv[2], "rt")
+fin = open(sys.argv[2], "rt")
 fin_string: str = str(fin.read())
 fin.close()
 config_json: dict = json.loads(fin_string)
 
 # Set auth token in dict.
-config_json['tapis_config']['token']: str = auth_token
+config_json['tapis_config']['token'] = auth_token
 
 # Convert output dict to JSON-formatted string.
 config_str: str = json.dumps(config_json)
 
 # Write updated config to disk.
-fout: TextIOWrapper = open(sys.argv[2], "wt")
+fout = open(sys.argv[2], "wt")
 fout.write(config_str)
 fout.close()
 

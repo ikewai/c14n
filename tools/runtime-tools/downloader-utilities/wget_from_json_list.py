@@ -9,8 +9,10 @@ import json
 import sys
 import subprocess
 
+# Load the JSON list of files to download from the first command line argument
 with open(sys.argv[1], 'rt') as fin:
     file_list = json.loads(fin.read())
 
+# Download each file in the list using the `wget` command
 for file in file_list:
     subprocess.run(["/bin/bash", "-c", f"wget {file['url']} -O {file['name']}"])

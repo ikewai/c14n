@@ -1,12 +1,23 @@
 #!/bin/python3
-# Uses Username/Password/Key/Secret Authentication to generate a short-lived token.
+
+"""
+Uses Username/Password/Key/Secret Authentication to get a short-lived token.
+
+This script makes a request to the Agave (tapis v2) API server to obtain a short-lived token using
+Username/Password/Key/Secret Authentication. The token is then written to a file specified by the
+user.
+
+The script takes one argument, which is the path to the output file where the token will be written.
+"""
 
 import os # For getting environment variables.
 import sys # For getting execution arguments.
 import json # For reading server responses.
-import subprocess # For setting the token's env variable via bash export.
+import subprocess # For executing cURL commands.
 
+# Get output file path from first command line argument.
 output_file = sys.argv[1]
+# Open output file for writing.
 fout = open(output_file, "wt")
 
 # Make request to Agave (tapis v2) API server.
@@ -21,4 +32,5 @@ access_token = full_token['access_token']
 
 # Write token to file.
 fout.write(access_token)
+# Close file.
 fout.close()
