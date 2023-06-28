@@ -5,7 +5,7 @@ name: Build and Push Containers - Main Branch
 on:
   push:
     branches: [ "main" ]
-  paths-ignore:
+    paths-ignore:
     - "**/README.md"
 
 
