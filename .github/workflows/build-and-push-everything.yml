@@ -4,7 +4,10 @@ name: Build and Push Containers - Main Branch
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+    - "main"
+    - "refs/heads/rainfall"
+    - "refs/heads/airtemp"
     paths-ignore:
     - "**/README.md"
 
