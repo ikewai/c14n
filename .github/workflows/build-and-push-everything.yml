@@ -6,8 +6,8 @@ on:
   push:
     branches:
     - "main"
-    - "refs/heads/rainfall"
-    - "refs/heads/airtemp"
+    - "ikewai/rainfall:main"
+    - "ikewai/airtemp:main"
     paths-ignore:
     - "**/README.md"
 
