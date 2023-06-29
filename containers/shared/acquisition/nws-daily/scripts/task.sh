@@ -12,4 +12,4 @@ python3 add_auth_info_to_config.py config.json
 echo "[task.sh] [4/4] Attempting to upload the gathered data."
 python3 upload.py
 
-echo "[task.sh] All done!
+echo "[task.sh] All done!"
