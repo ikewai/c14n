@@ -8,6 +8,8 @@ on:
     - "main"
     paths-ignore:
     - "**/README.md"
+  repository_dispatch:
+    types: [update-event]
 
 
 jobs:
