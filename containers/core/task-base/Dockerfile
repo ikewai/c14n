@@ -12,6 +12,9 @@ RUN apt update
 # For running Tapis' Python SDKs, as well as any Python-based workflows.
 RUN apt install -y python3 python3-pip
 
+# pip 22.0.2 is broken.
+RUN python3 -m pip install pip==22.0.3
+
 # Install wget.
 # For acquiring files from web sources, such as github repos and science gateways.
 RUN apt install -y wget
