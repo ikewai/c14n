@@ -13,6 +13,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # issues with newer versions of gdal during previous c14n.
 RUN apt install -y libgdal-dev
 
+# Install PROJ.
+RUN apt install -y proj-bin
+
 # Install dependencies for the air temp workflows.
 # Specific explanations of each library coming soon.
 # Libraries are approximately ordered by dependency,
