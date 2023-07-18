@@ -9,7 +9,7 @@ on:
     paths-ignore:
     - "**/README.md"
   repository_dispatch:
-    types: [update-event]
+    types: [rainfall-update, airtemp-update]
 
 
 jobs:
