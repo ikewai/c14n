@@ -27,7 +27,7 @@ RUN python3 -m pip install rasterio
 RUN python3 -m pip install matplotlib
 RUN python3 -m pip install pandas
 RUN python3 -m pip install affine
-RUN python3 -m pip install pyproj
+RUN python3 -m pip install pyproj==3.3.0
 RUN python3 -m pip install statsmodels
 RUN python3 -m pip install scikit-learn
 RUN python3 -m pip install tiffile
