@@ -8,7 +8,7 @@ ADD /containers/shared/acquisition/nws-daily/data/files_to_acquire.json /build/f
 RUN python3 /tools/build-tools/wget_from_json.py /build/files_to_acquire.json
 
 # Copy the upload configuration.
-ADD /containers/shared/acquisition/nws-daily/data/upload_config.json /sync/config.json
+ADD /containers/shared/acquisition/nws-daily/data/upload_config.json /sync/upload_config.json
 
 # Copy the task definition script.
 ADD /containers/shared/acquisition/nws-daily/scripts/task.sh /actor/task.sh

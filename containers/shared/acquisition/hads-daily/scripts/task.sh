@@ -7,7 +7,8 @@ Rscript hads_24hr_webscape.R
 
 echo "[task.sh] [3/4] Injecting authentication variables for uploader."
 cd /sync
-python3 add_auth_info_to_config.py config.json
+python3 add_auth_info_to_config.py upload_config.json
+mv upload_config.json config.json
 
 echo "[task.sh] [4/4] Attempting to upload the gathered data."
 python3 upload.py
