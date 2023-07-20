@@ -10,6 +10,7 @@ on:
     - "**/README.md"
   repository_dispatch:
     types: [rainfall-update, airtemp-update]
+  workflow_dispatch:
 
 
 jobs:
