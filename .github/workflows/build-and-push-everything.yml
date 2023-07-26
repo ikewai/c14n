@@ -1,6 +1,7 @@
-name: Build and Push Containers - Main Branch
+name: Build and Push All Containers
 # This approach is perhaps a bit lengthy/verbose, due to repetition of things like the date/hash acquirer.
-# For now, I'm focusing on putting together an MVP to at least get build automation up and running. -Michael
+# TODO evaluate and add a system for adding more uniqueness to tags -- dispatching from another repo on the same day that a push-triggered
+#   build happens will lead to an overwrite of the same YYYY-MM-DD-HASH tag, thus blurring provenance.
 
 on:
   push:
