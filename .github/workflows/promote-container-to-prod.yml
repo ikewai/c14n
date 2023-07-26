@@ -12,6 +12,9 @@ on:
         - ikewai/task-at-pre-agg-monthly
         - ikewai/task-rf-pre-agg-daily
         - ikewai/task-rf-pre-agg-monthly
+        - ikewai/task-sh-aq-hads-daily
+        - ikewai/task-sh-aq-madis-daily
+        - ikewai/task-sh-aq-nws-daily
       repositoryName:
         description: 'On which package repository should the promotion occur?'
         required: true
