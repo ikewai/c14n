@@ -8,6 +8,7 @@ on:
     - "main"
     paths-ignore:
     - "**/README.md"
+    - "**/*.yml"
   repository_dispatch:
     types: [rainfall-update, airtemp-update]
   workflow_dispatch:
