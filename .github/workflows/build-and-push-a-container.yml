@@ -1,0 +1,23 @@
+name: Build and Push a Container
+
+on:
+  workflow_dispatch:
+    inputs:
+      containerName:
+        description: 'Which container would you like to build?'
+        required: true
+        type: choice
+        options:
+        - ikewai/task-base
+        - ikewai/task-sh-aq-base
+        - ikewai/task-sh-aq-hads-daily
+        - ikewai/task-sh-aq-madis-daily
+        - ikewai/task-sh-aq-nws-daily
+        - ikewai/task-at-pre-base
+        - ikewai/task-at-pre-agg-base
+        - ikewai/task-at-pre-agg-daily
+        - ikewai/task-at-pre-agg-monthly
+        - ikewai/task-rf-pre-base
+        - ikewai/task-rf-pre-agg-base
+        - ikewai/task-rf-pre-agg-daily
+        - ikewai/task-rf-pre-agg-monthly
