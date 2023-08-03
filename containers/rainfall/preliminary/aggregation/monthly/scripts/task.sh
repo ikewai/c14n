@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "[task.sh] [1/8] Starting Execution."
-echo "It is currently $(date)."
 export TZ="HST"
+echo "It is currently $(date)."
 if [ $AGGREGATION_DATE ]; then
     echo "An aggregation date was provided by the environment."
     echo "Aggregation date is: " $AGGREGATION_DATE
