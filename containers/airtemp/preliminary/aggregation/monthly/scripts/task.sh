@@ -1,12 +1,17 @@
 #!/bin/bash
 echo "[task.sh] [1/4] Starting Execution."
 export TZ="HST"
+echo "It is currently $(date)."
 if [ $AGGREGATION_DATE ]; then
+    echo "An aggregation date was provided by the environment."
     echo "Aggregation date is: " $AGGREGATION_DATE
 else
-    export AGGREGATION_DATE=`date --iso-8601`
+    export AGGREGATION_DATE=$(date --iso-8601)
+    echo "No aggregation date was provided by the environment. Defaulting to today."
     echo "Aggregation date is: " $AGGREGATION_DATE
 fi
+export AGGREGATION_DATE_YESTERDAY=$(date --date="$AGGREGATION_DATE - 1 day" --iso-8601)
+echo "Yesterday is: " $AGGREGATION_DATE_YESTERDAY
 
 echo "[task.sh] [2/4] Mapping Airtemp data on the monthly timeframe."
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/
