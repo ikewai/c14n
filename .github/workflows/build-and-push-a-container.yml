@@ -21,3 +21,10 @@ on:
         - ikewai/task-rf-pre-agg-base
         - ikewai/task-rf-pre-agg-daily
         - ikewai/task-rf-pre-agg-monthly
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v3
