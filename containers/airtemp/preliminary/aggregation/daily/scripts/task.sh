@@ -13,7 +13,6 @@ fi
 export AGGREGATION_DATE_YESTERDAY=$(date --date="$AGGREGATION_DATE - 1 day" --iso-8601)
 echo "Yesterday is: " $AGGREGATION_DATE_YESTERDAY
 
-echo "[task.sh] [2/8] Acquiring Daily Depen
 echo "[task.sh] [2/5] Aggregating Airtemp data on the daily timeframe."
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/code
 echo "---temp_agg_wget.py---"
