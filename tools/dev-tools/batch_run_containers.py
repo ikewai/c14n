@@ -17,9 +17,8 @@
 
 import argparse
 import json
-import os
 import subprocess
-import sys
+
 
 def main():
     parser = argparse.ArgumentParser(description='Run a container repeatedly with the given list of AGGREGATION_DATE env vars.')
