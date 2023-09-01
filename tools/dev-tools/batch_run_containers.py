@@ -38,3 +38,6 @@ def main():
         print(f'Running container {container} with AGGREGATION_DATE={date}')
         if not args.dry_run:
             subprocess.run(['docker', 'run', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
+
+if __name__ == '__main__':
+    main()
