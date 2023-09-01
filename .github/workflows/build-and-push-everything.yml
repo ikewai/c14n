@@ -348,7 +348,7 @@ jobs:
     - name: Set container name
       run: echo "CONTAINER_NAME=task-ingest-values" >> $GITHUB_ENV
     - name: Set Dockerfile location
-      run: echo "DOCKERFILE=containers/ingestion/values/Dockerfile" >> $GITHUB_ENV
+      run: echo "DOCKERFILE=containers/ingestion/station_values/Dockerfile" >> $GITHUB_ENV
     - name: Get date and hash
       run: echo "TAG=$(date --iso-8601)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Build container
