@@ -52,7 +52,7 @@ def main():
     date_ranges = data.get('date_ranges', [])
 
     for date in dates:
-        print(f'Running container {container} with AGGREGATION_DATE={date}')
+        print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now()}')
         if not args.dry_run:
             subprocess.run(['docker', 'run', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
 
