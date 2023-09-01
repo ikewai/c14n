@@ -60,7 +60,7 @@ def main():
         start_date, end_date = parse_date_range(date_range)
         dates = generate_dates(start_date, end_date)
         for date in dates:
-            print(f'Running container {container} with AGGREGATION_DATE={date}')
+            print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now()}')
             if not args.dry_run:
                 subprocess.run(['docker', 'run', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
 
