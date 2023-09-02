@@ -62,7 +62,7 @@ def main():
         for date in dates:
             print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
             if not args.dry_run:
-                subprocess.run(['docker', 'run', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
+                subprocess.run(['docker', 'run', '-it', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
 
 if __name__ == '__main__':
     main()
