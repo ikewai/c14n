@@ -1,5 +1,5 @@
 {
-    "remote_url": "https://raw.githubusercontent.com/ikewai/rainfall/main/code/daily/bash",
+    "remote_url": "https://raw.githubusercontent.com/ikewai/rainfall/main/code/daily/bash/",
     "local_dir": "/home/hawaii_climate_products_container/",
     "files": [
         "dailyRFwget.sh"
