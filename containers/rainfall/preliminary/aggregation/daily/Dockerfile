@@ -21,7 +21,7 @@ RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/d
 
 # Pull the daily dependencies and extract them.
 WORKDIR /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
-RUN wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary/rainfall/dependencies/daily_dependencies.tar.gz
+RUN wget -nv https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary/rainfall/dependencies/daily_dependencies.tar.gz
 RUN tar -xf daily_dependencies.tar.gz
 RUN rm daily_dependencies.tar.gz
 
