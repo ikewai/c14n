@@ -7,6 +7,12 @@ LABEL org.opencontainers.image.description="Daily Rainfall Aggregation."
 RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/rainfall/docs/daily/currentDirs.txt -O /build/currentDirs.txt
 RUN python3 /build/mkdir_from_txt.py /build/currentDirs.txt
 
+# Pull the daily dependencies and extract them.
+WORKDIR /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
+RUN wget -nv https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary/rainfall/dependencies/daily_dependencies.tar.gz
+RUN tar -xf daily_dependencies.tar.gz
+RUN rm daily_dependencies.tar.gz
+
 # Get workflow scripts. The list of scripts is provided by this repo, and points to the workflow code repo.
 ADD /containers/rainfall/preliminary/aggregation/daily/data/r_script_list.json /build/r_script_list.json
 RUN python3 /build/wget_from_json.py /build/r_script_list.json
@@ -19,11 +25,7 @@ RUN python3 /build/wget_from_json.py /build/r_module_list.json
 RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/daily/final_products.json -O /sync/upload_config.json
 RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/daily/intermediate_products.json -O /sync/intermediate_upload_config.json
 
-# Pull the daily dependencies and extract them.
-WORKDIR /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
-RUN wget -nv https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary/rainfall/dependencies/daily_dependencies.tar.gz
-RUN tar -xf daily_dependencies.tar.gz
-RUN rm daily_dependencies.tar.gz
+
 
 
 # Copy in the task wrapper script.
