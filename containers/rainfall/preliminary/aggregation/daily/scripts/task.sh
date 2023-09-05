@@ -15,8 +15,8 @@ echo "Yesterday is: " $AGGREGATION_DATE_YESTERDAY
 
 echo "[task.sh] [2/7] Acquiring yesterday's cumulative aggregation file, if it exists."
 cd /home/hawaii_climate_products_container
-echo "---rf_daily_wget.sh---"
-bash rf_daily_wget.sh
+echo "---dailyRFwget.sh---"
+bash dailyRFwget.sh
 
 echo "[task.sh] [3/7] Aggregating Rainfall data on the daily timeframe."
 cd /home/hawaii_climate_products_container/preliminary/rainfall/code/daily
