@@ -1,6 +1,6 @@
 # Start with the Rainfall Preliminary Aggregation Base.
 FROM ghcr.io/ikewai/task-rf-pre-agg-base:latest
-LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n"
+LABEL org.opencontainers.image.source="https://github.com/ikewai/c14n/rainfall/preliminary/aggegation/daily"
 LABEL org.opencontainers.image.description="Daily Rainfall Aggregation."
 
 # Make directories for script and data file placement. The directory list is specified in the workflow code repo.
@@ -18,6 +18,13 @@ RUN python3 /build/wget_from_json.py /build/r_module_list.json
 # Get the container's upload config as specified in the workflow code repo.
 RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/daily/final_products.json -O /sync/upload_config.json
 RUN wget https://raw.githubusercontent.com/ikewai/rainfall/main/upload_configs/daily/intermediate_products.json -O /sync/intermediate_upload_config.json
+
+# Pull the daily dependencies and extract them.
+WORKDIR /home/hawaii_climate_products_container/preliminary/rainfall/dependencies
+RUN wget https://ikeauth.its.hawaii.edu/files/v2/download/public/system/ikewai-annotated-data/HCDP/workflow_data/preliminary/rainfall/dependencies/daily_dependencies.tar.gz
+RUN tar -xf daily_dependencies.tar.gz
+RUN rm daily_dependencies.tar.gz
+
 
 # Copy in the task wrapper script.
 ADD /containers/rainfall/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh
