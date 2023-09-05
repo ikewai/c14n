@@ -11,11 +11,13 @@ else
     echo "Aggregation date is: " $AGGREGATION_DATE
 fi
 export AGGREGATION_DATE_YESTERDAY=$(date --date="$AGGREGATION_DATE - 1 day" --iso-8601)
+export AGGREGATION_DATE_YESTERDAY_Y_M=$(date --date="$AGGREGATION_DATE - 1 day" +%Y_%m)
 echo "Yesterday is: " $AGGREGATION_DATE_YESTERDAY
 
 echo "[task.sh] [2/7] Acquiring yesterday's cumulative aggregation file, if it exists."
 cd /home/hawaii_climate_products_container
 echo "---begin dailyRFwget.sh---"
+# Behavior is slightly inconsistent for the moment - uses environment variable AGGREGATION_DATE_YESTERDAY_Y_M instead of modifying aggregation date.
 bash dailyRFwget.sh
 echo "---end dailyRFwget.sh---"
 
