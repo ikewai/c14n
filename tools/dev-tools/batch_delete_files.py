@@ -3,8 +3,8 @@
 
 # The JSON file should be formatted as follows:
 # {
-#   "api_server": "https://ikeauth.its.hawaii.edu"
-#   "systemId": "ikewai-annotated-data"
+#   "api_server": "https://ikeauth.its.hawaii.edu",
+#   "systemId": "ikewai-annotated-data",
 #   "filePathList": [
 #       "/path/to/file1",
 #       "/path/to/file2",
