@@ -45,7 +45,7 @@ def generate_dates(start_date, end_date):
 
 def is_safe_minute_range():
     current_minute = datetime.now().minute
-    safe_minute_ranges = [(1, 12), (16, 27), (31, 42), (46, 57)]
+    safe_minute_ranges = [(1, 14), (19, 44), (49, 59)]
     for start, end in safe_minute_ranges:
         if start <= current_minute <= end:
             return True
@@ -69,8 +69,8 @@ def main():
         print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
         if not args.dry_run:
             while not is_safe_minute_range():
-                print("Not a safe time to run the containers, waiting 1 minute...")
-                time.sleep(1)
+                print("Not a safe time to run the containers, waiting 15 seconds...")
+                time.sleep(15)
             subprocess.run(['docker', 'run', '-it', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
 
     for date_range in date_ranges:
@@ -80,8 +80,8 @@ def main():
             print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
             if not args.dry_run:
                 while not is_safe_minute_range():
-                    print("Not a safe time to run the containers, waiting 1 minute...")
-                    time.sleep(1)
+                    print("Not a safe time to run the containers, waiting 15 seconds...")
+                    time.sleep(15)
                 subprocess.run(['docker', 'run', '-it', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
 
 if __name__ == '__main__':
