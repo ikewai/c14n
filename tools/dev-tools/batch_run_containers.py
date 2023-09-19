@@ -14,12 +14,7 @@
 #   "date_ranges": [
 #     "2023-01-01_2023-01-05",
 #     "2023-01-06_2023-01-10"
-#   ],
-#   "safe_minute_ranges": [
-#     "01_12",
-#     "16_27",
-#     "31_42",
-#     "46_57"
+#   ]
 # }
 
 # The script will run the container for each date, in series.
@@ -28,7 +23,6 @@ import argparse
 import json
 import subprocess
 from datetime import datetime, timedelta
-import time
 
 def parse_date_range(date_range):
     start_date, end_date = date_range.split('_')
@@ -42,14 +36,6 @@ def generate_dates(start_date, end_date):
         dates.append(current_date.strftime('%Y-%m-%d'))
         current_date += timedelta(days=1)
     return dates
-
-def is_safe_minute_range():
-    current_minute = datetime.now().minute
-    safe_minute_ranges = [(1, 14), (19, 44), (49, 59)]
-    for start, end in safe_minute_ranges:
-        if start <= current_minute <= end:
-            return True
-    return False
 
 def main():
     parser = argparse.ArgumentParser(description='Run a container repeatedly with the given list of AGGREGATION_DATE env vars.')
@@ -68,9 +54,6 @@ def main():
     for date in dates:
         print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
         if not args.dry_run:
-            while not is_safe_minute_range():
-                print("Not a safe time to run the containers, waiting 15 seconds...")
-                time.sleep(15)
             subprocess.run(['docker', 'run', '-it', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
 
     for date_range in date_ranges:
@@ -79,9 +62,6 @@ def main():
         for date in dates:
             print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
             if not args.dry_run:
-                while not is_safe_minute_range():
-                    print("Not a safe time to run the containers, waiting 15 seconds...")
-                    time.sleep(15)
                 subprocess.run(['docker', 'run', '-it', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True)
 
 if __name__ == '__main__':
