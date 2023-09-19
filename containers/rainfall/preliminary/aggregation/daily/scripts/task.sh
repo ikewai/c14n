@@ -52,6 +52,9 @@ python3 update_date_string_in_config.py intermediate_upload_config.json intermed
 python3 add_upload_list_to_config.py intermediate_upload_config_datestrings_loaded.json config.json
 python3 add_auth_info_to_config.py config.json
 
+echo "Press enter to confirm that the uploads are safe."
+read
+
 echo "[task.sh] [5/7] Attempting to upload the aggregated intermediate data."
 python3 upload.py
 
