@@ -1,0 +1,39 @@
+{
+    "global_cache": "cache.pk",
+    "retry": 10,
+    "print_exec_stats": true,
+    "write_exec_stats": "stats.json",
+    "agave_options": {
+        "api_server": "https://ikeauth.its.hawaii.edu",
+        "username": "inject_username_at_runtime",
+        "password": "inject_password_at_runtime",
+        "api_key": "inject_api_key_at_runtime",
+        "api_secret": "inject_api_secret_at_runtime"
+    },
+    "upload": [
+        {
+            "local_path": "/home/hawaii_climate_products_container/preliminary/data_aqs/data_outputs/mesonetSynoptic/parse",
+            "remote_path": "HCDP/workflow_data/preliminary_test/data_aqs/data_outputs/mesonetSynoptic/parse",
+            "system_id": "ikewai-annotated-data",
+            "dir_permissions": [
+                {
+                    "permission": "READ",
+                    "recursive": true,
+                    "username": "public"
+                }
+            ]
+        },
+        {
+            "local_path": "/home/hawaii_climate_products_container/preliminary/data_aqs/data_outputs/mesonetSynoptic/raw",
+            "remote_path": "HCDP/workflow_data/preliminary_test/data_aqs/data_outputs/mesonetSynoptic/raw",
+            "system_id": "ikewai-annotated-data",
+            "dir_permissions": [
+                {
+                    "permission": "READ",
+                    "recursive": true,
+                    "username": "public"
+                }
+            ]
+        }
+    ]
+}
