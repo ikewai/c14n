@@ -13,6 +13,8 @@ RUN python3 -m pip install xarray netcdf4 scipy
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
 RUN apt install -y r-base
+RUN R -e 'install.packages("tidyr", repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages("lubridate", repos="http://cran.us.r-project.org")'
 
 ## FILE COPIES/DOWNLOADS ##
 # Copy build tools for creating directories and pulling scripts at build-time.
