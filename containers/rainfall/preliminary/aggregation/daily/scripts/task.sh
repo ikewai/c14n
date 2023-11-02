@@ -27,21 +27,31 @@ cd /home/hawaii_climate_products_container/preliminary/rainfall/code/daily
 echo "---begin hads_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/hads_daily_rf_FINAL.R $AGGREGATION_DATE
 echo "---end hads_daily_rf_FINAL.R---"
+
 echo "---begin nws_rr5_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/nws_rr5_daily_rf_FINAL.R $AGGREGATION_DATE
 echo "---end nws_rr5_daily_rf_FINAL.R---"
+
 echo "---begin madis_daily_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/madis_daily_rf_FINAL.R $AGGREGATION_DATE
 echo "---end madis_daily_rf_FINAL.R---"
+
+echo "---begin himesoSyno_daily_rf_FINAL.R---"
+Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/himesoSyno_daily_rf_FINAL.R $AGGREGATION_DATE
+echo "---end himesoSyno_daily_rf_FINAL.R---"
+
 echo "---begin all_data_daily_merge_table_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/all_data_daily_merge_table_rf_FINAL.R $AGGREGATION_DATE
 echo "---end all_data_daily_merge_table_rf_FINAL.R---"
+
 echo "---begin qaqc_randfor_bad_data_flag_remove_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/qaqc_randfor_bad_data_flag_remove_rf_FINAL.R $AGGREGATION_DATE
 echo "---end qaqc_randfor_bad_data_flag_remove_rf_FINAL.R---"
+
 echo "---begin daily_gap_fill_NR_only_rf_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/daily_gap_fill_NR_only_rf_FINAL.R $AGGREGATION_DATE
 echo "---end daily_gap_fill_NR_only_rf_FINAL.R---"
+
 echo "---begin all_data_daily_last_obs_FINAL.R---"
 Rscript /home/hawaii_climate_products_container/preliminary/rainfall/code/daily/rcode/all_data_daily_last_obs_FINAL.R $AGGREGATION_DATE
 echo "---end all_data_daily_last_obs_FINAL.R---"

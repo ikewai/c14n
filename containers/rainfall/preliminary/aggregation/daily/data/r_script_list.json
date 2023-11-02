@@ -8,6 +8,7 @@
         "hads_daily_rf_FINAL.R",
         "madis_daily_rf_FINAL.R",
         "nws_rr5_daily_rf_FINAL.R",
+        "himesoSyno_daily_rf_FINAL.R",
         "qaqc_randfor_bad_data_flag_remove_rf_FINAL.R"
     ]
 }
