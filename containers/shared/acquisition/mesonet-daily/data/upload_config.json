@@ -34,6 +34,30 @@
                     "username": "public"
                 }
             ]
+        },
+        {
+            "local_path": "/home/hawaii_climate_products_container/preliminary/data_aqs/data_outputs/mesonetSynoptic/parse",
+            "remote_path": "HCDP/workflow_data/preliminary/data_aqs/data_outputs/mesonetSynoptic/parse",
+            "system_id": "ikewai-annotated-data",
+            "dir_permissions": [
+                {
+                    "permission": "READ",
+                    "recursive": true,
+                    "username": "public"
+                }
+            ]
+        },
+        {
+            "local_path": "/home/hawaii_climate_products_container/preliminary/data_aqs/data_outputs/mesonetSynoptic/raw",
+            "remote_path": "HCDP/workflow_data/preliminary/data_aqs/data_outputs/mesonetSynoptic/raw",
+            "system_id": "ikewai-annotated-data",
+            "dir_permissions": [
+                {
+                    "permission": "READ",
+                    "recursive": true,
+                    "username": "public"
+                }
+            ]
         }
     ]
 }
