@@ -15,6 +15,7 @@ on:
         - ikewai/task-sh-aq-hads-daily
         - ikewai/task-sh-aq-madis-daily
         - ikewai/task-sh-aq-nws-daily
+        - ikewai/task-sh-aq-mesonet-daily
       repositoryName:
         description: 'On which package repository should the promotion occur?'
         required: true
