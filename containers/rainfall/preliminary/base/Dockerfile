@@ -75,7 +75,7 @@ RUN R -e 'install.packages("svMisc", version="1.2.3", repos="https://ftp.ussg.iu
 # `svMisc@1.2-3`: R >= 2.13.0
 RUN R -e 'install.packages("colorRamps", version="2.3.1", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `colorRamps@2.3-1`: none
-RUN R -e 'install.packages("rgdal", version="1.5.32", repos="https://ftp.ussg.iu.edu/CRAN/")'
+RUN R -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/rgdal/rgdal_1.5-32.tar.gz", type="source", repos=NULL)'
 # `rgdal@1.6-3`: R >= 3.5.0; sp >= 1.1-0
 RUN R -e 'install.packages("abind", version="1.4-5", repos="https://ftp.ussg.iu.edu/CRAN/")'
 # `abind@1.4-5`: R >= 1.5.0
