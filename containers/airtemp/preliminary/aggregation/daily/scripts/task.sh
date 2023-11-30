@@ -16,7 +16,7 @@ echo "Yesterday is: " $AGGREGATION_DATE_YESTERDAY
 echo "[task.sh] [2/5] Aggregating Airtemp data on the daily timeframe."
 cd /home/hawaii_climate_products_container/preliminary/air_temp/daily/code
 echo "---temp_agg_wget.py---"
-python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/daily/code/temp_agg_wget.py $AGGREGATION_DATE_YESTERDAY
+python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/daily/code/temp_agg_wget.py $AGGREGATION_DATE
 echo "---hads_temp_parse.py---"
 python3 -W ignore /home/hawaii_climate_products_container/preliminary/air_temp/daily/code/hads_temp_parse.py $AGGREGATION_DATE
 echo "---madis_temp_parse.py---"
