@@ -12,7 +12,7 @@ ADD /containers/airtemp/preliminary/aggregation/daily/data/py_script_list.json /
 RUN python3 /build/wget_from_json.py /build/py_script_list.json
 
 # Get the container's upload config as specified in the code repo.
-RUN wget https://raw.githubusercontent.com/ikewai/hawaii_climate_products_container/main/preliminary/air_temp/daily/docs/upload_config.json -O /sync/upload_config.json
+RUN wget https://raw.githubusercontent.com/ikewai/airtemp/main/aggregation/daily/docs/upload_config.json -O /sync/upload_config.json
 
 # Add the task wrapper script.
 ADD /containers/airtemp/preliminary/aggregation/daily/scripts/task.sh /actor/task.sh
