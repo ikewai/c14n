@@ -15,6 +15,15 @@ RUN apt install -y python3 python3-pip
 # pip 22.0.2 is broken.
 RUN python3 -m pip install pip==22.0.3
 
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt install -y tzdata
+RUN apt install -y software-properties-common
+RUN apt update
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt update
+RUN apt install -y python3.8
+RUN echo "alias python3.8=/usr/bin/python3.8" >> /etc/profile.d/python3.8-alias.sh
+
 # Install wget.
 # For acquiring files from web sources, such as github repos and science gateways.
 RUN apt install -y wget
