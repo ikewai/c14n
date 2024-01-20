@@ -23,7 +23,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install -y python3.8
 RUN apt install -y python3.8-distutils
-RUN echo -e "alias python3.8=/usr/bin/python3.8\nalias pip3.8=\"python3.8 -m pip install\"" >> /etc/profile.d/python3.8-alias.sh
+RUN echo -e "alias python3.8=/usr/bin/python3.8\nalias pip3.8=\"python3.8 -m pip\"" >> /etc/profile.d/python3.8-alias.sh
 
 # Install wget.
 # For acquiring files from web sources, such as github repos and science gateways.
