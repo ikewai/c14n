@@ -54,7 +54,8 @@ def main():
     for date in dates:
         print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
         if not args.dry_run:
-            subprocess.run(['docker', 'run', '-it', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True, stderr=subprocess.STDOUT)
+            subprocess.run(['docker', 'run', '-d', '--name=batch_agg', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True, stderr=subprocess.STDOUT)
+            subprocess.run(['docker', 'wait', 'batch_agg'], check=True, stderr=subprocess.STDOUT)
 
     for date_range in date_ranges:
         start_date, end_date = parse_date_range(date_range)
@@ -62,7 +63,8 @@ def main():
         for date in dates:
             print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
             if not args.dry_run:
-                subprocess.run(['docker', 'run', '-it', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True, stderr=subprocess.STDOUT)
+                subprocess.run(['docker', 'run', '-d', '--name=batch_agg', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True, stderr=subprocess.STDOUT)
+                subprocess.run(['docker', 'wait', 'batch_agg'], check=True, stderr=subprocess.STDOUT)
 
 if __name__ == '__main__':
     main()
