@@ -56,6 +56,7 @@ def main():
         if not args.dry_run:
             subprocess.run(['docker', 'run', '-d', '--name=batch_agg', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True, stderr=subprocess.STDOUT)
             subprocess.run(['docker', 'wait', 'batch_agg'], check=True, stderr=subprocess.STDOUT)
+            subprocess.run(['docker', 'rm', 'batch_agg'], check=True, stderr=subprocess.STDOUT)
 
     for date_range in date_ranges:
         start_date, end_date = parse_date_range(date_range)
@@ -65,6 +66,7 @@ def main():
             if not args.dry_run:
                 subprocess.run(['docker', 'run', '-d', '--name=batch_agg', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True, stderr=subprocess.STDOUT)
                 subprocess.run(['docker', 'wait', 'batch_agg'], check=True, stderr=subprocess.STDOUT)
+                subprocess.run(['docker', 'rm', 'batch_agg'], check=True, stderr=subprocess.STDOUT)
 
 if __name__ == '__main__':
     main()
