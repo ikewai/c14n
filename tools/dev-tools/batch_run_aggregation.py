@@ -23,6 +23,7 @@ import argparse
 import json
 import subprocess
 from datetime import datetime, timedelta
+from time import time_ns
 
 def parse_date_range(date_range):
     start_date, end_date = date_range.split('_')
@@ -54,7 +55,7 @@ def main():
     for date in dates:
         print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
         if not args.dry_run:
-            container_name = f"batch_agg_{date}"
+            container_name = f"batch_agg_{date}_{time_ns()}"
             subprocess.run(['docker', 'run', '-d', f'--name={container_name}', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True, stderr=subprocess.STDOUT)
             subprocess.run(['docker', 'wait', container_name], check=True, stderr=subprocess.STDOUT)
 
@@ -64,7 +65,7 @@ def main():
         for date in dates:
             print(f'Running container {container} with AGGREGATION_DATE={date} and base env file {base_env} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
             if not args.dry_run:
-                container_name = f"batch_agg_{date}"
+                container_name = f"batch_agg_{date}_{time_ns()}"
                 subprocess.run(['docker', 'run', '-d', f'--name={container_name}', f'--env-file={base_env}', '-e', f'AGGREGATION_DATE={date}', container], check=True, stderr=subprocess.STDOUT)
                 subprocess.run(['docker', 'wait', container_name], check=True, stderr=subprocess.STDOUT)
 
